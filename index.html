@@ -2,87 +2,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blog Pribadi Andi Farhan Fauzi</title>
+  <title>Sistem Informasi Desa Tanete</title>
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
       line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
     }
     header {
-      background: #333;
-      color: #fff;
-      padding: 20px 0;
+      background-color: #2e8b57;
+      color: white;
+      padding: 1rem 2rem;
       text-align: center;
     }
     nav {
-      background: #444;
-      text-align: center;
-      padding: 10px;
+      background-color: #006400;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
     }
     nav a {
       color: white;
-      margin: 0 15px;
+      padding: 1rem;
       text-decoration: none;
+      font-weight: bold;
     }
-    .container {
-      max-width: 800px;
-      margin: 20px auto;
-      background: white;
-      padding: 20px;
+    nav a:hover {
+      background-color: #228b22;
+    }
+    section {
+      padding: 2rem;
     }
     footer {
-      background: #333;
-      color: #fff;
+      background-color: #333;
+      color: white;
       text-align: center;
-      padding: 15px 0;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
+      padding: 1rem;
     }
-    .post {
-      margin-bottom: 30px;
-    }
-    .post h2 {
-      color: #333;
-    }
-    .post small {
-      color: #777;
+    .card {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 6px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Blog Pribadi Andi Farhan Fauzi</h1>
-    <p>Menulis, Berbagi, dan Merenung</p>
-  </header>
+<header>
+  <h1>Sistem Informasi Desa Tanete</h1>
+  <p>Kecamatan Maritengngae, Kabupaten Sidrap</p>
+</header>
 
-  <nav>
-    <a href="#">Beranda</a>
-    <a href="#">Tentang Saya</a>
-    <a href="#">Kontak</a>
-  </nav>
+<nav>
+  <a href="#profil">Profil Desa</a>
+  <a href="#pemerintahan">Pemerintahan</a>
+  <a href="#data">Data Penduduk</a>
+  <a href="#berita">Berita Desa</a>
+  <a href="#galeri">Galeri</a>
+  <a href="#kontak">Kontak</a>
+</nav>
 
-  <div class="container">
-    <div class="post">
-      <h2>Postingan Pertama Saya</h2>
-      <small>Diposting pada 29 Juli 2025 oleh Farhan</small>
-      <p>Ini adalah paragraf pertama saya di blog ini. Saya akan menulis tentang pengalaman pribadi, opini sosial, dan hal-hal menarik lainnya.</p>
-    </div>
-
-    <div class="post">
-      <h2>Catatan Refleksi KKN</h2>
-      <small>Diposting pada 25 Juli 2025</small>
-      <p>Melalui program KKN di Desa Tanete, saya belajar pentingnya komunikasi, kolaborasi, dan sistem informasi desa yang partisipatif.</p>
-    </div>
+<section id="profil">
+  <h2>Profil Desa</h2>
+  <div class="card">
+    <p>Desa Tanete merupakan desa yang terletak di Kecamatan Maritengngae, Kabupaten Sidenreng Rappang, Sulawesi Selatan. Desa ini memiliki potensi di bidang pertanian, peternakan, dan sumber daya manusia yang aktif dalam pembangunan.</p>
   </div>
+</section>
 
-  <footer>
-    &copy; 2025 Andi Farhan Fauzi | Dibuat dengan ♥ dan HTML
-  </footer>
+<section id="pemerintahan">
+  <h2>Struktur Pemerintahan Desa</h2>
+  <div class="card">
+    <ul>
+      <li>Kepala Desa: Bapak Andi Syarifuddin</li>
+      <li>Sekretaris Desa: Ibu Nursiah</li>
+      <li>Pelayanan Umum: Tim Administrasi</li>
+      <li>BPD: Badan Permusyawaratan Desa</li>
+    </ul>
+  </div>
+</section>
+
+<section id="data">
+  <h2>Data Penduduk</h2>
+  <div class="card">
+    <ul>
+      <li>Total Penduduk: 1.252 Jiwa</li>
+      <li>Laki-laki: 620 Jiwa</li>
+      <li>Perempuan: 632 Jiwa</li>
+      <li>Jumlah KK: 310</li>
+    </ul>
+  </div>
+</section>
+
+<section id="berita">
+  <h2>Berita Desa</h2>
+  <div class="card">
+    <h3>Seminar Proker Mahasiswa KKN</h3>
+    <p>Mahasiswa KKN Unhas menggelar seminar program kerja untuk mendorong inovasi digital desa dan penguatan kelembagaan masyarakat di Tanete.</p>
+  </div>
+  <div class="card">
+    <h3>Pembentukan KSM TPS 3R</h3>
+    <p>Pemerintah Desa dan warga sepakat membentuk Kelompok Swadaya Masyarakat untuk mengelola sampah berbasis 3R: Reduce, Reuse, Recycle.</p>
+  </div>
+</section>
+
+<section id="galeri">
+  <h2>Galeri Foto</h2>
+  <div class="card">
+    <p>Galeri bisa diisi dengan gambar dokumentasi kegiatan desa (unggah via GitHub, dan sematkan dengan tag `<img>`):</p>
+    <img src="https://via.placeholder.com/300x200" alt="Foto Kegiatan" style="max-width:100%; height:auto;">
+  </div>
+</section>
+
+<section id="kontak">
+  <h2>Kontak Desa</h2>
+  <div class="card">
+    <p>Alamat: Kantor Desa Tanete, Jl. Poros Tanete No.10</p>
+    <p>Email: desatanete@sidrap.go.id</p>
+    <p>Instagram: <a href="https://instagram.com/desatanete" target="_blank">@desatanete</a></p>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Sistem Informasi Desa Tanete. Dibuat oleh Mahasiswa KKN Unhas.</p>
+</footer>
 
 </body>
 </html>
