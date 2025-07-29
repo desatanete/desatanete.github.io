@@ -53,6 +53,10 @@
       border-radius: 6px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
+    canvas {
+      max-width: 100%;
+      height: auto;
+    }
     footer {
       background-color: #333;
       color: white;
@@ -71,6 +75,8 @@
       }
     }
   </style>
+  <!-- Tambahkan Chart.js dari CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -99,8 +105,8 @@
   <h2>Struktur Pemerintahan Desa</h2>
   <div class="card">
     <ul>
-      <li>Kepala Desa: Baharuddin,S.E.
-      <li>Sekretaris Desa: Fatahullah,S.Ag.
+      <li>Kepala Desa: Baharuddin,S.E.</li>
+      <li>Sekretaris Desa: Fatahullah,S.Ag.</li>
       <li>Pelayanan Umum: Tim Administrasi</li>
       <li>BPD: Badan Permusyawaratan Desa</li>
     </ul>
@@ -116,6 +122,10 @@
       <li>Perempuan: 632 Jiwa</li>
       <li>Jumlah KK: 310</li>
     </ul>
+  </div>
+  <div class="card">
+    <h3>Grafik Statistik Penduduk</h3>
+    <canvas id="pendudukChart"></canvas>
   </div>
 </section>
 
@@ -151,6 +161,52 @@
 <footer>
   <p>&copy; 2025 Sistem Informasi Desa Tanete. Dibuat oleh Mahasiswa KKN Unhas.</p>
 </footer>
+
+<!-- Script untuk menampilkan grafik -->
+<script>
+  const ctx = document.getElementById('pendudukChart').getContext('2d');
+  const pendudukChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Laki-laki', 'Perempuan', 'Jumlah KK'],
+      datasets: [{
+        label: 'Jumlah',
+        data: [620, 632, 310],
+        backgroundColor: [
+          '#2e8b57',
+          '#3cb371',
+          '#90ee90'
+        ],
+        borderColor: '#2e8b57',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: false
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return context.dataset.label + ': ' + context.raw + ' Jiwa';
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Jumlah'
+          }
+        }
+      }
+    }
+  });
+</script>
 
 </body>
 </html>
