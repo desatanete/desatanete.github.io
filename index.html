@@ -22,6 +22,17 @@
       padding: 1rem 2rem;
       text-align: center;
     }
+    .menu-toggle {
+      display: none;
+      background-color: #006400;
+      color: white;
+      border: none;
+      padding: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+    }
     nav {
       background-color: #006400;
       display: flex;
@@ -30,11 +41,12 @@
     }
     nav a {
       color: white;
-      padding: 0.75rem 1.25rem;
+      padding: 0.5rem 1rem;
       text-decoration: none;
       font-weight: bold;
       text-align: center;
-      flex: 1 1 120px;
+      font-size: 0.85rem;
+      flex: 1 1 100px;
     }
     nav a:hover {
       background-color: #228b22;
@@ -66,9 +78,17 @@
       padding: 1rem;
       margin-top: 2rem;
     }
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
       nav {
+        display: none;
         flex-direction: column;
+        width: 100%;
+      }
+      nav.show {
+        display: flex;
       }
       nav a {
         flex: none;
@@ -77,7 +97,6 @@
       }
     }
   </style>
-  <!-- Tambahkan Chart.js dari CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -87,6 +106,9 @@
   <p>Kecamatan Maritengngae, Kabupaten Sidrap</p>
 </header>
 
+<!-- Tombol toggle menu untuk mobile -->
+<button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+
 <nav>
   <a href="#profil">Profil Desa</a>
   <a href="#kelembagaan desa">Kelembagaan Desa</a>
@@ -94,6 +116,7 @@
   <a href="#berita">Berita Desa</a>
   <a href="#galeri">Galeri</a>
   <a href="#peta">Peta Desa</a>
+  <a href="#pengaduan">Pengaduan</a>
   <a href="#kontak">Kontak</a>
 </nav>
 
@@ -253,8 +276,13 @@
   <p>&copy; 2025 Sistem Informasi Desa Tanete. Dibuat oleh Mahasiswa KKN Unhas.</p>
 </footer>
 
-<!-- Script untuk menampilkan grafik -->
+<!-- Script grafik dan menu -->
 <script>
+  function toggleMenu() {
+    const nav = document.querySelector('nav');
+    nav.classList.toggle('show');
+  }
+
   const ctx = document.getElementById('pendudukChart').getContext('2d');
   const pendudukChart = new Chart(ctx, {
     type: 'bar',
@@ -263,11 +291,7 @@
       datasets: [{
         label: 'Jumlah',
         data: [1451, 1507, 927],
-        backgroundColor: [
-          '#2e8b57',
-          '#3cb371',
-          '#90ee90'
-        ],
+        backgroundColor: ['#2e8b57', '#3cb371', '#90ee90'],
         borderColor: '#2e8b57',
         borderWidth: 1
       }]
