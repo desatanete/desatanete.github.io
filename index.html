@@ -108,7 +108,7 @@
     .card ul li:last-child {
       border-bottom: none;
     }
-     .potensi-grid {
+    .potensi-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
@@ -125,12 +125,16 @@
       transform: translateY(-5px);
     }
     .potensi-card img {
+      margin-bottom: 0.5rem;
       width: 100%;
       height: 180px;
       object-fit: cover;
     }
+    * {
+    box-sizing: border-box;   
+    }
     .potensi-card-body {
-      padding: 1rem;
+      padding: 1.2rem 1.5rem;
     }
     .potensi-card-title {
       font-size: 1.2rem;
@@ -140,7 +144,8 @@
     .potensi-card-text {
       font-size: 0.95rem;
       color: #555;
-    }
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
 
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -270,34 +275,27 @@
   <h2>Potensi Unggulan Desa</h2>
   <div class="potensi-grid">
     <div class="potensi-card">
-      <img src="https://source.unsplash.com/400x300/?rice-field" alt="Pertanian">
+      <img src="https://static.republika.co.id/uploads/images/inpicture_slide/panen-padi-negeri-ini-bergelar-gemah-ripah-loh-jinawi-_130303213010-595.jpg">
       <div class="potensi-card-body">
         <div class="potensi-card-title">Pertanian</div>
         <div class="potensi-card-text">Desa Tanete dikenal dengan lahan pertaniannya yang subur, terutama untuk padi dan jagung.</div>
       </div>
     </div>
     <div class="potensi-card">
-      <img src="https://static.chickin.id/blog/wp-content/uploads/2023/11/keuntungan-beternak-ayam-broiler-secara-kemitraan-1.jpg">
+      <img src="https://harian.fajar.co.id/wp-content/uploads/2025/02/IMG-20250212-WA0014.jpg">
       <div class="potensi-card-body">
         <div class="potensi-card-title">Peternakan</div>
         <div class="potensi-card-text">Warga juga menggantungkan hidup dari peternakan sapi dan kambing yang berkembang baik.</div>
       </div>
     </div>
     <div class="potensi-card">
-      <img src="https://source.unsplash.com/400x300/?tourism" alt="Pariwisata">
+      <img src="https://sulsel.fajar.co.id/wp-content/uploads/2021/09/Sidrap1.jpeg">
       <div class="potensi-card-body">
         <div class="potensi-card-title">Pariwisata</div>
         <div class="potensi-card-text">Terdapat potensi wisata alam seperti perbukitan dan air terjun yang masih alami dan asri.</div>
-      </div>
+       </div>
+       </div>
     </div>
-    <div class="potensi-card">
-      <img src="https://source.unsplash.com/400x300/?coconut-tree" alt="Perkebunan">
-      <div class="potensi-card-body">
-        <div class="potensi-card-title">Perkebunan</div>
-        <div class="potensi-card-text">Tanaman kelapa, kakao, dan pisang menjadi komoditas unggulan perkebunan di desa.</div>
-      </div>
-    </div>
-  </div>
 </section>
 
 <section id="pelayanan">
