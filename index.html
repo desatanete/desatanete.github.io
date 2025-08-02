@@ -108,6 +108,39 @@
     .card ul li:last-child {
       border-bottom: none;
     }
+     .potensi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .potensi-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .potensi-card:hover {
+      transform: translateY(-5px);
+    }
+    .potensi-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .potensi-card-body {
+      padding: 1rem;
+    }
+    .potensi-card-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #2980b9;
+    }
+    .potensi-card-text {
+      font-size: 0.95rem;
+      color: #555;
+    }
 
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -127,7 +160,7 @@
   <a href="#kelembagaan">Kelembagaan</a>
   <a href="#data">Data Penduduk</a>
   <a href="#kegiatan">Kegiatan</a>
-  <a href="#galeri">Galeri</a>
+  <a href="#potensi">Potensi</a>
   <a href="#pelayanan">Pelayanan</a>
   <a href="#pengaduan">Pengaduan</a>
   <a href="#peta">Peta</a>
@@ -160,12 +193,6 @@
       <li>Menciptakan penataan desa yang berkualitas melalui program tata ruang desa berbasis produktivitas ekonomi.</li>
       <li>Meningkatkan mutu layanan kesehatan di Desa melalui program desa sehat.</li>
     </ul>
-  </div>
-  
-  <div class="card">
-    <h3>Potensi Desa</h3>
-    <img src="assets/potensi-desa.jpg" alt="Peternakan Desa" style="width:100%; border-radius: 6px; margin-bottom: 1rem;">
-    <p>Banyak masyarakat yang berprofesi sebagai peternak ayam petelur dan pemasarannya sudah menjangkau daerah lain di Provinsi sulawesi selatan, dan potensial untuk dikembangkan usaha kecil menengah dalam hal pengolahan makanan berbahan dasar telur.</p>
   </div>
 </section>
 
@@ -239,11 +266,37 @@
   </div>
 </section>
 
-<section id="galeri">
-  <h2>Galeri Foto</h2>
-  <div class="card">
-    <p>Galeri bisa diisi dengan gambar dokumentasi kegiatan desa (unggah via GitHub, dan sematkan dengan tag <code>&lt;img&gt;</code>):</p>
-    <img src="https://via.placeholder.com/300x200" alt="Foto Kegiatan" style="max-width:100%; height:auto; border-radius: 4px;">
+<section id="potensi">
+  <h2>Potensi Unggulan Desa</h2>
+  <div class="potensi-grid">
+    <div class="potensi-card">
+      <img src="https://source.unsplash.com/400x300/?rice-field" alt="Pertanian">
+      <div class="potensi-card-body">
+        <div class="potensi-card-title">Pertanian</div>
+        <div class="potensi-card-text">Desa Tanete dikenal dengan lahan pertaniannya yang subur, terutama untuk padi dan jagung.</div>
+      </div>
+    </div>
+    <div class="potensi-card">
+      <img src="https://static.chickin.id/blog/wp-content/uploads/2023/11/keuntungan-beternak-ayam-broiler-secara-kemitraan-1.jpg">
+      <div class="potensi-card-body">
+        <div class="potensi-card-title">Peternakan</div>
+        <div class="potensi-card-text">Warga juga menggantungkan hidup dari peternakan sapi dan kambing yang berkembang baik.</div>
+      </div>
+    </div>
+    <div class="potensi-card">
+      <img src="https://source.unsplash.com/400x300/?tourism" alt="Pariwisata">
+      <div class="potensi-card-body">
+        <div class="potensi-card-title">Pariwisata</div>
+        <div class="potensi-card-text">Terdapat potensi wisata alam seperti perbukitan dan air terjun yang masih alami dan asri.</div>
+      </div>
+    </div>
+    <div class="potensi-card">
+      <img src="https://source.unsplash.com/400x300/?coconut-tree" alt="Perkebunan">
+      <div class="potensi-card-body">
+        <div class="potensi-card-title">Perkebunan</div>
+        <div class="potensi-card-text">Tanaman kelapa, kakao, dan pisang menjadi komoditas unggulan perkebunan di desa.</div>
+      </div>
+    </div>
   </div>
 </section>
 
