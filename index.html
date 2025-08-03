@@ -149,6 +149,17 @@
 
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-VJ4ZCQF63H');
+</script>
+  
 </head>
 <body>
 
@@ -385,6 +396,12 @@
     </div>
 </section>
 
+<section id="kunjungan">
+  <h2>Statistik Pengunjung</h2>
+  <div class="card">
+    <p>Jumlah Pengunjung: <span id="counterapi-desatanetesid"></span> orang</p>
+  </div>
+</section>
 
 <footer>
   <p>&copy; KKNT UNHAS 2025</p>
@@ -436,6 +453,8 @@
     }
   });
 </script>
+
+<script async src="https://api.counterapi.com/api/v1/desatanetesid/pageview.js"></script>
 
 </body>
 </html
