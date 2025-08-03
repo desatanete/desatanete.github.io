@@ -397,11 +397,19 @@
 </section>
 
 <section id="kunjungan">
-  <h2>Statistik Pengunjung</h2>
+  <h2>Statistik Pengunjung (counter api)</h2>
   <div class="card">
     <p>Jumlah Pengunjung: <span id="counterapi-desatanetesid"></span> orang</p>
   </div>
 </section>
+
+<section id="kunjungan">
+  <h2>Statistik Kunjungan (local storage)</h2>
+  <div class="card">
+    <p>Jumlah Pengunjung Halaman Ini: <strong id="visitor-count">0</strong></p>
+  </div>
+</section>
+
 
 <footer>
   <p>&copy; KKNT UNHAS 2025</p>
@@ -455,6 +463,40 @@
 </script>
 
 <script async src="https://api.counterapi.com/api/v1/desatanetesid/pageview.js"></script>
+
+<script>
+  function getCookie(name) {
+    const value = "; " + document.cookie;
+    const parts = value.split("; " + name + "=");
+    if (parts.length === 2) return parts.pop().split(";").shift();
+  }
+
+  function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+      const d = new Date();
+      d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + d.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+  }
+
+  // Logika untuk menyimpan jumlah kunjungan di localStorage
+  function updateVisitorCount() {
+    let count = localStorage.getItem('visitorCount') || 0;
+
+    // Tambahkan hanya jika belum tercatat hari ini
+    if (!getCookie('visitedToday')) {
+      count++;
+      localStorage.setItem('visitorCount', count);
+      setCookie('visitedToday', 'yes', 1); // cookie berlaku 1 hari
+    }
+
+    document.getElementById('visitor-count').textContent = count;
+  }
+
+  updateVisitorCount();
+</script>
 
 </body>
 </html
