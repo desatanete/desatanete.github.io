@@ -14,200 +14,806 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Website Desa Tanete</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
+    :root {
+      --primary-color: #2d7d6b;
+      --secondary-color: #4a9d8a;
+      --accent-color: #f39c12;
+      --text-primary: #2c3e50;
+      --text-secondary: #7f8c8d;
+      --bg-light: #f8fffe;
+      --bg-white: #ffffff;
+      --shadow-light: 0 2px 10px rgba(0,0,0,0.1);
+      --shadow-medium: 0 4px 20px rgba(0,0,0,0.15);
+      --shadow-heavy: 0 8px 30px rgba(0,0,0,0.2);
+      --border-radius: 12px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     html {
       scroll-behavior: smooth;
+      font-size: 16px;
     }
+
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f5f5f5;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.7;
+      background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%);
+      color: var(--text-primary);
+      overflow-x: hidden;
     }
+
+    /* Header Enhancements */
     header {
-      background-image: url('assets/desa.jpg');
-      background-size: cover;
-      background-position: center;
+      position: relative;
+      background: linear-gradient(135deg, rgba(45, 125, 107, 0.9), rgba(74, 157, 138, 0.9)),
+                  url('assets/desa.jpg') center/cover;
       color: white;
-      padding: 1rem 2rem;
+      padding: 4rem 2rem;
       text-align: center;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
     }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(45, 125, 107, 0.1), transparent);
+      z-index: 1;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 2;
+      animation: slideInDown 1s ease-out;
+    }
+
+    header p {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 300;
+      opacity: 0.95;
+      position: relative;
+      z-index: 2;
+      animation: slideInUp 1s ease-out 0.3s both;
+    }
+
+    /* Navigation Enhancements */
     .menu-toggle {
       display: none;
-      background-color: #006400;
+      background: var(--primary-color);
       color: white;
       border: none;
-      padding: 1rem;
-      font-size: 1.5rem;
+      padding: 1rem 1.5rem;
+      font-size: 1.2rem;
       cursor: pointer;
-      text-align: left;
-      width: 100%;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+      box-shadow: var(--shadow-light);
     }
+
+    .menu-toggle:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+
     nav {
-      background-color: #006400;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       position: sticky;
       top: 0;
-      z-index: 999;
+      z-index: 1000;
+      box-shadow: var(--shadow-light);
+      border-bottom: 3px solid var(--primary-color);
     }
+
     nav a {
-      color: white;
-      padding: 0.5rem 1rem;
+      color: var(--text-primary);
+      padding: 1rem 1.5rem;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 500;
       text-align: center;
-      font-size: 0.85rem;
-      flex: 1 1 100px;
+      font-size: 0.9rem;
+      flex: 1 1 120px;
+      position: relative;
+      transition: var(--transition);
+      border-radius: 0;
     }
+
+    nav a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: var(--accent-color);
+      transition: var(--transition);
+      transform: translateX(-50%);
+    }
+
     nav a:hover {
-      background-color: #228b22;
+      color: var(--primary-color);
+      background: rgba(45, 125, 107, 0.05);
     }
+
+    nav a:hover::before {
+      width: 80%;
+    }
+
+    /* Section Enhancements */
     section {
-      padding: 2rem 1rem;
-      max-width: 900px;
-      margin: auto;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
     }
+
     h2 {
-      color: #2e8b57;
+      font-family: 'Playfair Display', serif;
+      color: var(--primary-color);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 600;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
     }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+      border-radius: 2px;
+    }
+
+    /* Card Enhancements */
     .card {
-      background: white;
-      border: 1px solid #ddd;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 6px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      background: var(--bg-white);
+      border: none;
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-light);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
     }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .card h3 {
+      color: var(--primary-color);
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card h3::before {
+      content: '🏛️';
+      font-size: 1.2rem;
+    }
+
+    /* Potensi Grid Enhancements */
+    .potensi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .potensi-card {
+      background: var(--bg-white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-light);
+      overflow: hidden;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .potensi-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+      z-index: 1;
+    }
+
+    .potensi-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    .potensi-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .potensi-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .potensi-card-body {
+      padding: 2rem;
+      position: relative;
+    }
+
+    .potensi-card-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .potensi-card-text {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* List Enhancements */
+    .card ul li {
+      padding: 1rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card ul li::before {
+      content: '✓';
+      color: var(--primary-color);
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .card ul li:hover {
+      background: rgba(45, 125, 107, 0.05);
+      padding-left: 1rem;
+      border-radius: 8px;
+    }
+
+    .card ul li:last-child {
+      border-bottom: none;
+    }
+
+    /* Table Enhancements */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-light);
+    }
+
+    thead {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    tbody tr:nth-child(even) {
+      background: rgba(45, 125, 107, 0.05);
+    }
+
+    tbody tr:hover {
+      background: rgba(45, 125, 107, 0.1);
+      transform: scale(1.01);
+    }
+
+    /* Button Enhancements */
+    button {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow-light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: var(--transition);
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    button:hover::before {
+      left: 100%;
+    }
+
+    /* Chart Container */
     canvas {
       max-width: 100%;
       height: auto;
+      border-radius: var(--border-radius);
     }
+
+    /* Footer Enhancements */
     footer {
-      background-color: #333;
+      background: linear-gradient(135deg, var(--text-primary), #34495e);
       color: white;
       text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
+      padding: 2rem;
+      margin-top: 4rem;
+      position: relative;
     }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    }
+
+    /* Animations */
+    @keyframes slideInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    /* Responsive Design */
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
+        width: 100%;
+        margin-bottom: 0;
       }
+      
       nav {
         display: none;
         flex-direction: column;
         width: 100%;
         position: static;
+        background: var(--bg-white);
+        box-shadow: var(--shadow-light);
       }
+      
       nav.show {
         display: flex;
       }
+      
       nav a {
         flex: none;
         padding: 1rem;
-        border-top: 1px solid rgba(255,255,255,0.1);
+        border-bottom: 1px solid #f0f0f0;
+        border-radius: 0;
+      }
+      
+      nav a:hover {
+        background: rgba(45, 125, 107, 0.1);
+      }
+
+      section {
+        padding: 2rem 1rem;
+      }
+
+      .potensi-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      header {
+        padding: 3rem 1rem;
+        min-height: 50vh;
+      }
+
+      .card {
+        padding: 1.5rem;
+        margin: 1rem 0;
       }
     }
-    .card ul li {
-      padding: 6px 0;
-      border-bottom: 1px solid #eee;
-    }   
 
-    .card ul li:last-child {
-      border-bottom: none;
-    }
-    .potensi-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    .potensi-card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: transform 0.3s ease;
-    }
-    .potensi-card:hover {
-      transform: translateY(-5px);
-    }
-    .potensi-card img {
-      margin-bottom: 0.5rem;
+    /* Loading Animation */
+    .loading {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 180px;
-      object-fit: cover;
+      height: 100%;
+      background: var(--bg-white);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
     }
-    * {
-    box-sizing: border-box;   
-    }
-    .potensi-card-body {
-      padding: 1.2rem 1.5rem;
-    }
-    .potensi-card-title {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      color: #2980b9;
-    }
-    .potensi-card-text {
-      font-size: 0.95rem;
-      color: #555;
-      line-height: 1.6;
-      margin-bottom: 0.5rem;
 
+    .loading.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid var(--primary-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Scroll to top button */
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 1000;
+    }
+
+    .scroll-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-top:hover {
+      background: var(--secondary-color);
+      transform: translateY(-3px);
+    }
+
+    /* Dark Mode Toggle */
+    .dark-mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 25px;
+      width: 50px;
+      height: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: var(--transition);
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dark-mode-toggle:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .card {
+      background: #2d2d2d;
+      color: #e0e0e0;
+      border: 1px solid #404040;
+    }
+
+    body.dark-mode .potensi-card {
+      background: #2d2d2d;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode nav {
+      background: rgba(45, 45, 45, 0.95);
+    }
+
+    body.dark-mode nav a {
+      color: #e0e0e0;
+    }
+
+    body.dark-mode nav a:hover {
+      background: rgba(45, 125, 107, 0.2);
+    }
+
+    body.dark-mode h2 {
+      color: var(--secondary-color);
+    }
+
+    body.dark-mode .card h3 {
+      color: var(--secondary-color);
+    }
+
+    body.dark-mode .potensi-card-title {
+      color: var(--secondary-color);
+    }
+
+    /* Floating Action Buttons Container */
+    .fab-container {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 1000;
+    }
+
+    .fab {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow-medium);
+    }
+
+    .fab:hover {
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    /* Search Box */
+    .search-container {
+      position: relative;
+      max-width: 400px;
+      margin: 2rem auto;
+      display: none;
+    }
+
+    .search-container.show {
+      display: block;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 12px 40px 12px 16px;
+      border: 2px solid var(--primary-color);
+      border-radius: 25px;
+      font-size: 16px;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-box:focus {
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 3px rgba(45, 125, 107, 0.1);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--primary-color);
+    }
+
+    /* Enhanced animations */
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .bounce {
+      animation: bounce 2s infinite;
+    }
+
+    /* Improved accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
 </head>
 <body>
 
+<!-- Loading Screen -->
+<div class="loading" id="loading">
+  <div class="spinner"></div>
+</div>
+
+<!-- Dark Mode Toggle -->
+<button class="dark-mode-toggle" id="darkModeToggle" onclick="toggleDarkMode()">
+  <i class="fas fa-moon"></i>
+</button>
+
 <header>
   <h1>Website Desa Tanete</h1>
   <p>Kecamatan Maritengngae, Kabupaten Sidrap</p>
+  
+  <!-- Statistics Cards -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 3rem; max-width: 800px;">
+    <div style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: 12px; text-align: center; border: 1px solid rgba(255,255,255,0.3);">
+      <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">2,958</div>
+      <div style="font-size: 1rem; opacity: 0.9;">Total Penduduk</div>
+    </div>
+    <div style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: 12px; text-align: center; border: 1px solid rgba(255,255,255,0.3);">
+      <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">927</div>
+      <div style="font-size: 1rem; opacity: 0.9;">Jumlah KK</div>
+    </div>
+    <div style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: 12px; text-align: center; border: 1px solid rgba(255,255,255,0.3);">
+      <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">3</div>
+      <div style="font-size: 1rem; opacity: 0.9;">Dusun</div>
+    </div>
+  </div>
 </header>
 
 <!-- Tombol toggle menu untuk mobile -->
-<button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+<button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i> Menu</button>
 
 <nav>
-  <a href="#potensi">Potensi</a>    
-  <a href="#profil">Profil</a>
-  <a href="#kelembagaan">Kelembagaan</a>
-  <a href="#data">Data Penduduk</a>
-  <a href="#kegiatan">Kegiatan</a>
-  <a href="#pelayanan">Pelayanan</a>
-  <a href="#pengaduan">Pengaduan</a>
-  <a href="#peta">Peta</a>
-  <a href="#kontak">Kontak</a>
+  <a href="#potensi"><i class="fas fa-seedling"></i> Potensi</a>    
+  <a href="#profil"><i class="fas fa-info-circle"></i> Profil</a>
+  <a href="#kelembagaan"><i class="fas fa-users"></i> Kelembagaan</a>
+  <a href="#data"><i class="fas fa-chart-bar"></i> Data Penduduk</a>
+  <a href="#kegiatan"><i class="fas fa-calendar"></i> Kegiatan</a>
+  <a href="#pelayanan"><i class="fas fa-clipboard-list"></i> Pelayanan</a>
+  <a href="#pengaduan"><i class="fas fa-comment"></i> Pengaduan</a>
+  <a href="#peta"><i class="fas fa-map"></i> Peta</a>
+  <a href="#kontak"><i class="fas fa-phone"></i> Kontak</a>
 </nav>
 
-<section id="potensi">
+<!-- Search Container -->
+<div class="search-container" id="searchContainer">
+  <input type="text" class="search-box" id="searchBox" placeholder="Cari informasi desa...">
+  <i class="fas fa-search search-icon"></i>
+</div>
+
+<section id="potensi" class="fade-in">
   <h2>Mengenal Lebih Dekat Dengan Desa Tanete</h2>
   <div class="potensi-grid">
     <div class="potensi-card">
-      <img src="https://static.republika.co.id/uploads/images/inpicture_slide/panen-padi-negeri-ini-bergelar-gemah-ripah-loh-jinawi-_130303213010-595.jpg">
+      <img src="https://static.republika.co.id/uploads/images/inpicture_slide/panen-padi-negeri-ini-bergelar-gemah-ripah-loh-jinawi-_130303213010-595.jpg" alt="Pertanian Desa Tanete">
       <div class="potensi-card-body">
-        <div class="potensi-card-title">Pertanian</div>
-        <div class="potensi-card-text">Sawah-sawah hijau terbentang luas di Desa Tanete, dikelola oleh para petani yang mewarisi kearifan lokal dan semangat kerja keras. Dari setiap butir padi yang dipanen, tumbuh harapan akan ketahanan pangan yang berkelanjutan—untuk desa, untuk bangsa.
-
-.</div>
+        <div class="potensi-card-title"><i class="fas fa-wheat-awn"></i> Pertanian</div>
+        <div class="potensi-card-text">Sawah-sawah hijau terbentang luas di Desa Tanete, dikelola oleh para petani yang mewarisi kearifan lokal dan semangat kerja keras. Dari setiap butir padi yang dipanen, tumbuh harapan akan ketahanan pangan yang berkelanjutan—untuk desa, untuk bangsa.</div>
       </div>
     </div>
     <div class="potensi-card">
-      <img src="https://harian.fajar.co.id/wp-content/uploads/2025/02/IMG-20250212-WA0014.jpg">
+      <img src="https://harian.fajar.co.id/wp-content/uploads/2025/02/IMG-20250212-WA0014.jpg" alt="Peternakan Desa Tanete">
       <div class="potensi-card-body">
-        <div class="potensi-card-title">Peternakan</div>
-        <div class="potensi-card-text">Peternakan unggas di Tanete berkembang pesat, terutama ayam petelur. Telur-telur segar hasil ternak lokal kami telah menjadi sumber gizi bagi masyarakat sekaligus penopang ekonomi keluarga. Inilah bentuk nyata desa yang tidak hanya memproduksi pangan, tapi juga nilai.
-
-</div>
+        <div class="potensi-card-title"><i class="fas fa-egg"></i> Peternakan</div>
+        <div class="potensi-card-text">Peternakan unggas di Tanete berkembang pesat, terutama ayam petelur. Telur-telur segar hasil ternak lokal kami telah menjadi sumber gizi bagi masyarakat sekaligus penopang ekonomi keluarga. Inilah bentuk nyata desa yang tidak hanya memproduksi pangan, tapi juga nilai.</div>
       </div>
     </div>
     <div class="potensi-card">
-      <img src="https://sulsel.fajar.co.id/wp-content/uploads/2021/09/Sidrap1.jpeg">
+      <img src="https://sulsel.fajar.co.id/wp-content/uploads/2021/09/Sidrap1.jpeg" alt="Pariwisata Desa Tanete">
       <div class="potensi-card-body">
-        <div class="potensi-card-title">Pariwisata</div>
+        <div class="potensi-card-title"><i class="fas fa-mountain"></i> Pariwisata</div>
         <div class="potensi-card-text">Terdapat potensi wisata alam seperti perbukitan dan air terjun yang masih alami dan asri.</div>
        </div>
        </div>
@@ -244,8 +850,8 @@
   </div>
 </section>
 
-<section id="kelembagaan">
-  <h2>Kelembagaan</h2>
+<section id="kelembagaan" class="fade-in">
+  <h2>Kelembagaan Desa</h2>
   <div class="card">
       <h3>Pemerintah Desa</h3>
       <ul style="list-style: none; padding: 0;">
@@ -286,8 +892,8 @@
   </div>
 </section>
 
-<section id="data">
-  <h2>Data Penduduk</h2>
+<section id="data" class="fade-in">
+  <h2>Data Kependudukan</h2>
   <div class="card">
     <ul>
       <li>Total Penduduk: 2.958 Jiwa</li>
@@ -302,8 +908,8 @@
   </div>
 </section>
 
-<section id="kegiatan">
-  <h2>Kegiatan</h2>
+<section id="kegiatan" class="fade-in">
+  <h2>Kegiatan Desa</h2>
   <div class="card">
     <h3>Seminar Proker Mahasiswa KKN</h3>
     <p>Mahasiswa KKN Unhas menggelar seminar program kerja untuk mendorong inovasi digital desa dan penguatan kelembagaan masyarakat di Tanete.</p>
@@ -314,8 +920,8 @@
   </div>
 </section>
 
-<section id="pelayanan">
-  <h2>Pelayanan</h2>
+<section id="pelayanan" class="fade-in">
+  <h2>Pelayanan Publik</h2>
   <div class="card">
     <table style="width:100%; border-collapse: collapse;">
       <thead style="background-color: #2e8b57; color: white;">
@@ -356,8 +962,8 @@
   </div>
 </section>
 
-<section id="pengaduan">
-  <h2>Pengaduan</h2>
+<section id="pengaduan" class="fade-in">
+  <h2>Pengaduan Masyarakat</h2>
   <div class="card" style="padding: 2rem; margin: auto; text-align: center;">
     <h3>Sampaikan Pengaduan Anda</h3>
     <p style="color: #555; font-size: 1rem;">
@@ -377,7 +983,7 @@
   </div>
 </section>
 
-<section id="peta">
+<section id="peta" class="fade-in">
   <h2>Peta Desa Tanete</h2>
   <div class="card">
     <iframe
@@ -392,25 +998,176 @@
   </div>
 </section>
 
-<section id="kontak">
-    <h2>Kontak</h2>
+<section id="kontak" class="fade-in">
+    <h2>Hubungi Kami</h2>
     <div class="card">
     <p>E-Mail: Desatanete98@gmail.com</p>
     <p>Instagram: @desatanete</p>
     </div>
 </section>
     
+<!-- Floating Action Buttons -->
+<div class="fab-container">
+  <button class="fab" id="searchToggle" onclick="toggleSearch()" style="background: var(--accent-color);" title="Cari">
+    <i class="fas fa-search"></i>
+  </button>
+  <button class="fab scroll-top" id="scrollTopBtn" onclick="scrollToTop()" style="background: var(--primary-color);" title="Kembali ke atas">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+</div>
+
 <footer>
-  <p>&copy; KKNT UNHAS 2025</p>
+  <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; padding: 0 2rem;">
+    <div>
+      <h4 style="color: var(--accent-color); margin-bottom: 1rem; font-size: 1.2rem;"><i class="fas fa-map-marker-alt"></i> Alamat</h4>
+      <p style="margin: 0; line-height: 1.6;">Desa Tanete<br>Kec. Maritengngae<br>Kab. Sidenreng Rappang<br>Sulawesi Selatan</p>
+    </div>
+    <div>
+      <h4 style="color: var(--accent-color); margin-bottom: 1rem; font-size: 1.2rem;"><i class="fas fa-envelope"></i> Kontak</h4>
+      <p style="margin: 0; line-height: 1.6;">
+        <i class="fas fa-envelope" style="width: 20px;"></i> Desatanete98@gmail.com<br>
+        <i class="fab fa-instagram" style="width: 20px;"></i> @desatanete
+      </p>
+    </div>
+    <div>
+      <h4 style="color: var(--accent-color); margin-bottom: 1rem; font-size: 1.2rem;"><i class="fas fa-info-circle"></i> Tentang</h4>
+      <p style="margin: 0; line-height: 1.6;">Website resmi Desa Tanete yang menyediakan informasi terkini tentang profil, kegiatan, dan pelayanan desa.</p>
+    </div>
+  </div>
+  <div style="border-top: 1px solid rgba(255,255,255,0.2); margin-top: 2rem; padding-top: 1rem; text-align: center;">
+    <p style="margin: 0;">&copy; 2025 KKNT UNHAS | Desa Tanete | Dibuat dengan ❤️ untuk kemajuan desa</p>
+  </div>
 </footer>
 
-<!-- Script grafik dan menu -->
+<!-- Enhanced Scripts -->
 <script>
+  // Loading Screen
+  window.addEventListener('load', function() {
+    const loading = document.getElementById('loading');
+    setTimeout(() => {
+      loading.classList.add('hide');
+    }, 1000);
+  });
+
+  // Menu Toggle
   function toggleMenu() {
     const nav = document.querySelector('nav');
     nav.classList.toggle('show');
   }
 
+  // Scroll to Top Button
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  // Dark Mode Toggle
+  function toggleDarkMode() {
+    const body = document.body;
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    
+    body.classList.toggle('dark-mode');
+    
+    if (body.classList.contains('dark-mode')) {
+      darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      localStorage.setItem('darkMode', 'disabled');
+    }
+  }
+
+  // Check for saved dark mode preference
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+    document.getElementById('darkModeToggle').innerHTML = '<i class="fas fa-sun"></i>';
+  }
+
+  // Search Toggle
+  function toggleSearch() {
+    const searchContainer = document.getElementById('searchContainer');
+    const searchBox = document.getElementById('searchBox');
+    
+    searchContainer.classList.toggle('show');
+    
+    if (searchContainer.classList.contains('show')) {
+      searchBox.focus();
+    }
+  }
+
+  // Search functionality
+  function performSearch() {
+    const searchTerm = document.getElementById('searchBox').value.toLowerCase();
+    
+    if (searchTerm.length < 2) return;
+    
+    const sections = document.querySelectorAll('section');
+    let found = false;
+    
+    sections.forEach(section => {
+      const text = section.textContent.toLowerCase();
+      if (text.includes(searchTerm)) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        found = true;
+        return;
+      }
+    });
+    
+    if (!found) {
+      alert('Tidak ditemukan hasil untuk: ' + searchTerm);
+    }
+  }
+
+  // Search on Enter key
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchBox = document.getElementById('searchBox');
+    searchBox.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        performSearch();
+        document.getElementById('searchContainer').classList.remove('show');
+      }
+    });
+  });
+
+  // Show/Hide Scroll to Top Button
+  window.addEventListener('scroll', function() {
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    if (window.pageYOffset > 300) {
+      scrollTopBtn.classList.add('show');
+    } else {
+      scrollTopBtn.classList.remove('show');
+    }
+  });
+
+  // Fade in animation on scroll
+  function fadeInOnScroll() {
+    const elements = document.querySelectorAll('.fade-in');
+    elements.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+      const elementVisible = 150;
+      
+      if (elementTop < window.innerHeight - elementVisible) {
+        element.style.opacity = '1';
+        element.style.transform = 'translateY(0)';
+      }
+    });
+  }
+
+  // Initialize fade in elements
+  document.addEventListener('DOMContentLoaded', function() {
+    const fadeElements = document.querySelectorAll('.fade-in');
+    fadeElements.forEach(element => {
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(30px)';
+      element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    });
+  });
+
+  window.addEventListener('scroll', fadeInOnScroll);
+
+  // Enhanced Chart Configuration
   const ctx = document.getElementById('pendudukChart').getContext('2d');
   const pendudukChart = new Chart(ctx, {
     type: 'bar',
@@ -419,21 +1176,41 @@
       datasets: [{
         label: 'Jumlah',
         data: [1451, 1507, 927],
-        backgroundColor: ['#2e8b57', '#3cb371', '#90ee90'],
-        borderColor: '#2e8b57',
-        borderWidth: 1
+        backgroundColor: [
+          'rgba(45, 125, 107, 0.8)',
+          'rgba(74, 157, 138, 0.8)',
+          'rgba(243, 156, 18, 0.8)'
+        ],
+        borderColor: [
+          'rgba(45, 125, 107, 1)',
+          'rgba(74, 157, 138, 1)',
+          'rgba(243, 156, 18, 1)'
+        ],
+        borderWidth: 2,
+        borderRadius: 8,
+        borderSkipped: false,
       }]
     },
     options: {
       responsive: true,
+      animation: {
+        duration: 1500,
+        easing: 'easeInOutQuart'
+      },
       plugins: {
         legend: {
           display: false
         },
         tooltip: {
+          backgroundColor: 'rgba(45, 125, 107, 0.9)',
+          titleColor: '#fff',
+          bodyColor: '#fff',
+          borderColor: 'rgba(45, 125, 107, 1)',
+          borderWidth: 1,
+          cornerRadius: 8,
           callbacks: {
             label: function(context) {
-              return context.dataset.label + ': ' + context.raw + ' Jiwa';
+              return context.dataset.label + ': ' + context.raw.toLocaleString() + ' Jiwa';
             }
           }
         }
@@ -443,11 +1220,59 @@
           beginAtZero: true,
           title: {
             display: true,
-            text: 'Jumlah'
+            text: 'Jumlah (Jiwa)',
+            color: '#2c3e50',
+            font: {
+              size: 14,
+              weight: 'bold'
+            }
+          },
+          ticks: {
+            color: '#2c3e50',
+            callback: function(value) {
+              return value.toLocaleString();
+            }
+          },
+          grid: {
+            color: 'rgba(45, 125, 107, 0.1)'
+          }
+        },
+        x: {
+          title: {
+            display: true,
+            text: 'Kategori',
+            color: '#2c3e50',
+            font: {
+              size: 14,
+              weight: 'bold'
+            }
+          },
+          ticks: {
+            color: '#2c3e50'
+          },
+          grid: {
+            display: false
           }
         }
       }
     }
+  });
+
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        // Close mobile menu if open
+        const nav = document.querySelector('nav');
+        nav.classList.remove('show');
+      }
+    });
   });
 </script>
 
@@ -470,18 +1295,22 @@
     document.cookie = name + "=" + (value || "") + expires + "; path=/";
   }
 
-  // Logika untuk menyimpan jumlah kunjungan di localStorage
+  // Enhanced visitor count with better UX
   function updateVisitorCount() {
     let count = localStorage.getItem('visitorCount') || 0;
 
-    // Tambahkan hanya jika belum tercatat hari ini
+    // Add only if not recorded today
     if (!getCookie('visitedToday')) {
       count++;
       localStorage.setItem('visitorCount', count);
-      setCookie('visitedToday', 'yes', 1); // cookie berlaku 1 hari
+      setCookie('visitedToday', 'yes', 1); // cookie valid for 1 day
     }
 
-    document.getElementById('visitor-count').textContent = count;
+    // Show visitor count if element exists
+    const visitorElement = document.getElementById('visitor-count');
+    if (visitorElement) {
+      visitorElement.textContent = count;
+    }
   }
 
   updateVisitorCount();
