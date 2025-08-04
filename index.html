@@ -20,21 +20,27 @@
     }
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
       background-color: #f5f5f5;
     }
     header {
-      background-image: url('assets/desa.jpg');
+      background-image: url('assets/header-desa.jpg'); 
       background-size: cover;
       background-position: center;
+      height: 300px; /* Tambahkan tinggi */
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: white;
-      padding: 1rem 2rem;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7); /* Tambahkan bayangan teks */
       text-align: center;
+      flex-direction: column;
     }
+
     .menu-toggle {
       display: none;
-      background-color: #006400;
+      background-color: #0a3d62;
       color: white;
       border: none;
       padding: 1rem;
@@ -44,7 +50,7 @@
       width: 100%;
     }
     nav {
-      background-color: #006400;
+      background-color: #0a3d62;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -66,11 +72,14 @@
     }
     section {
       padding: 2rem 1rem;
-      max-width: 900px;
+      max-width: 1100px;
       margin: auto;
     }
     h2 {
-      color: #2e8b57;
+        font-size: 1.8rem;
+        color: #0a3d62;
+        margin-bottom: 1rem;
+        text-align: center;
     }
     .card {
       background: white;
@@ -85,7 +94,7 @@
       height: auto;
     }
     footer {
-      background-color: #333;
+      background-color: #0a3d62;
       color: white;
       text-align: center;
       padding: 1rem;
@@ -156,6 +165,23 @@
       color: #555;
       line-height: 1.6;
       margin-bottom: 0.5rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    card {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
 
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -214,7 +240,6 @@
     </div>
 </section>
 
-
 <section id="profil">
   <h2>Profil</h2>
   <div class="card">
@@ -242,6 +267,38 @@
       <li>Meningkatkan mutu layanan kesehatan di Desa melalui program desa sehat.</li>
     </ul>
   </div>
+
+      <h2>Visi</h2>
+               <div class="card">
+          <p>“Mewujudkan Desa mandiri sebagai kawasan ekonomi kreatif terintegrasi menuju Desa sejahtera dan mandiri”.</p>
+        </div>
+
+      <h2>Misi</h2>
+      <div class="grid">
+        <div class="card">
+          <p>Memajukan dan meningkatkan kinerja birokrasi Pemerintah Desa dalam memberikan pelayanan publik yang berkualitas, displin, dan profesional.</p>
+        </div>
+        <div class="card">
+          <p>Memberdayakan masyarakat khususnya pemuda, menuju masyarakat maju, mandiri, dan sejahtera.</p>
+        </div>
+        <div class="card">
+          <p>Menciptakan dan meningkatkan pembangunan infrastruktur.</p>
+        </div>
+        <div class="card">
+          <p>Menjadikan desa bersinar sehingga meningkatkan keamanan dan ketentraman masyarakat.</p>
+        </div>
+        <div class="card">
+          <p>Meningkatkan sistem usaha mandiri melalui program pengembangan Badan Usaha Milik Desa (BUMDesa).</p>
+        </div>
+        <div class="card">
+          <p>DMeningkatkan kualitas pendidikan khususnya usia dini (PAUD).</p>
+        </div>
+        <div class="card">
+          <p>Menciptakan penataan desa yang berkualitas melalui program tata ruang desa berbasis produktivitas ekonomi.</p>
+        </div>
+        <div class="card">
+          <p>Meningkatkan mutu layanan kesehatan di Desa melalui program desa sehat.</p>
+        </div>
 </section>
 
 <section id="kelembagaan">
@@ -488,4 +545,3 @@
 </script>
 
 </body>
-</html
