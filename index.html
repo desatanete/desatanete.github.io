@@ -1,491 +1,912 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ4ZCQF63H"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-VJ4ZCQF63H');
-    </script>
-    
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Website Desa Tanete</title>
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f5f5f5;
-    }
-    header {
-      background-image: url('assets/desa.jpg');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      padding: 1rem 2rem;
-      text-align: center;
-    }
-    .menu-toggle {
-      display: none;
-      background-color: #006400;
-      color: white;
-      border: none;
-      padding: 1rem;
-      font-size: 1.5rem;
-      cursor: pointer;
-      text-align: left;
-      width: 100%;
-    }
-    nav {
-      background-color: #006400;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    nav a {
-      color: white;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      font-weight: bold;
-      text-align: center;
-      font-size: 0.85rem;
-      flex: 1 1 100px;
-    }
-    nav a:hover {
-      background-color: #228b22;
-    }
-    section {
-      padding: 2rem 1rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    h2 {
-      color: #2e8b57;
-    }
-    .card {
-      background: white;
-      border: 1px solid #ddd;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 6px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    canvas {
-      max-width: 100%;
-      height: auto;
-    }
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-      nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: static;
-      }
-      nav.show {
-        display: flex;
-      }
-      nav a {
-        flex: none;
-        padding: 1rem;
-        border-top: 1px solid rgba(255,255,255,0.1);
-      }
-    }
-    .card ul li {
-      padding: 6px 0;
-      border-bottom: 1px solid #eee;
-    }   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madison County Government - Official Website</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .card ul li:last-child {
-      border-bottom: none;
-    }
-    .potensi-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    .potensi-card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: transform 0.3s ease;
-    }
-    .potensi-card:hover {
-      transform: translateY(-5px);
-    }
-    .potensi-card img {
-      margin-bottom: 0.5rem;
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    * {
-    box-sizing: border-box;   
-    }
-    .potensi-card-body {
-      padding: 1.2rem 1.5rem;
-    }
-    .potensi-card-title {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      color: #2980b9;
-    }
-    .potensi-card-text {
-      font-size: 0.95rem;
-      color: #555;
-      line-height: 1.6;
-      margin-bottom: 0.5rem;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
 
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: #ffd700;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .emergency {
+            background: #dc3545;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .emergency:hover {
+            background: #c82333;
+        }
+
+        /* Navigation */
+        .nav {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 1rem 0;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #2a5298;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: #2a5298;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f8ff" width="1200" height="600"/><path fill="%23e6f3ff" d="M0,200 Q300,100 600,200 T1200,200 L1200,600 L0,600 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #ffd700;
+            color: #1e3c72;
+        }
+
+        .btn-primary:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #1e3c72;
+        }
+
+        /* Quick Services */
+        .quick-services {
+            background: white;
+            padding: 3rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #e0e0e0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: #2a5298;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card .btn {
+            background: #2a5298;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .service-card .btn:hover {
+            background: #1e3c72;
+        }
+
+        /* News Section */
+        .news-section {
+            background: #f8f9fa;
+            padding: 3rem 0;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+        }
+
+        .news-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: #2a5298;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Department Section */
+        .departments {
+            background: white;
+            padding: 3rem 0;
+        }
+
+        .dept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .dept-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .dept-card:hover {
+            border-color: #2a5298;
+            transform: translateY(-5px);
+        }
+
+        .dept-card i {
+            font-size: 2.5rem;
+            color: #2a5298;
+            margin-bottom: 1rem;
+        }
+
+        .dept-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: #1e3c72;
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0d1421;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ffd700;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 1rem;
+            text-align: center;
+            color: #888;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #ccc;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                padding: 1rem 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .services-grid,
+            .news-grid,
+            .dept-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mt-1 { margin-top: 1rem; }
+        .mt-2 { margin-top: 2rem; }
+        .mb-1 { margin-bottom: 1rem; }
+        .mb-2 { margin-bottom: 2rem; }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-landmark"></i>
+                <div class="logo-text">
+                    <h1>Madison County</h1>
+                    <p>Serving Our Community Since 1836</p>
+                </div>
+            </div>
+            <div class="emergency">
+                <i class="fas fa-phone"></i> Emergency: 911
+            </div>
+        </div>
+    </header>
 
-<header>
-  <h1>Website Desa Tanete</h1>
-  <p>Kecamatan Maritengngae, Kabupaten Sidrap</p>
-</header>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <ul class="nav-links">
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
+                <li><a href="#departments"><i class="fas fa-building"></i> Departments</a></li>
+                <li><a href="#news"><i class="fas fa-newspaper"></i> News</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="#documents"><i class="fas fa-file-alt"></i> Documents</a></li>
+            </ul>
+            <button class="mobile-menu" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
-<!-- Tombol toggle menu untuk mobile -->
-<button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content fade-in">
+            <h2>Welcome to Madison County</h2>
+            <p>Your local government working together to build a stronger, more vibrant community for all residents and businesses.</p>
+            <div class="cta-buttons">
+                <a href="#services" class="btn btn-primary">
+                    <i class="fas fa-search"></i> Find Services
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i> Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
 
-<nav>
-  <a href="#potensi">Potensi</a>    
-  <a href="#profil">Profil</a>
-  <a href="#kelembagaan">Kelembagaan</a>
-  <a href="#data">Data Penduduk</a>
-  <a href="#kegiatan">Kegiatan</a>
-  <a href="#pelayanan">Pelayanan</a>
-  <a href="#pengaduan">Pengaduan</a>
-  <a href="#peta">Peta</a>
-  <a href="#kontak">Kontak</a>
-</nav>
+    <!-- Quick Services -->
+    <section id="services" class="quick-services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Services</h2>
+                <p>Quick access to the most requested county services</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <i class="fas fa-id-card"></i>
+                    <h3>Property Records</h3>
+                    <p>Search and access property tax records, assessments, and ownership information.</p>
+                    <a href="#" class="btn">Access Records</a>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-gavel"></i>
+                    <h3>Court Services</h3>
+                    <p>Court schedules, case information, jury duty, and legal documents.</p>
+                    <a href="#" class="btn">Court Info</a>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-vote-yea"></i>
+                    <h3>Elections & Voting</h3>
+                    <p>Voter registration, polling locations, election results, and candidate information.</p>
+                    <a href="#" class="btn">Voter Services</a>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-file-contract"></i>
+                    <h3>Business Licenses</h3>
+                    <p>Apply for business licenses, permits, and regulatory compliance information.</p>
+                    <a href="#" class="btn">Get Licensed</a>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-road"></i>
+                    <h3>Public Works</h3>
+                    <p>Road maintenance, snow removal, construction projects, and infrastructure.</p>
+                    <a href="#" class="btn">Public Works</a>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Sheriff's Office</h3>
+                    <p>Public safety, crime reporting, background checks, and emergency services.</p>
+                    <a href="#" class="btn">Safety Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="potensi">
-  <h2>Mengenal Lebih Dekat Dengan Desa Tanete</h2>
-  <div class="potensi-grid">
-    <div class="potensi-card">
-      <img src="https://static.republika.co.id/uploads/images/inpicture_slide/panen-padi-negeri-ini-bergelar-gemah-ripah-loh-jinawi-_130303213010-595.jpg">
-      <div class="potensi-card-body">
-        <div class="potensi-card-title">Pertanian</div>
-        <div class="potensi-card-text">Sawah-sawah hijau terbentang luas di Desa Tanete, dikelola oleh para petani yang mewarisi kearifan lokal dan semangat kerja keras. Dari setiap butir padi yang dipanen, tumbuh harapan akan ketahanan pangan yang berkelanjutan—untuk desa, untuk bangsa.
+    <!-- News Section -->
+    <section id="news" class="news-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>County News & Updates</h2>
+                <p>Stay informed about the latest county news, announcements, and community events</p>
+            </div>
+            <div class="news-grid">
+                <div class="news-card fade-in">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'><rect fill='%232a5298' width='400' height='200'/><text x='200' y='100' text-anchor='middle' fill='white' font-size='16'>County Budget Meeting</text></svg>" alt="Budget Meeting">
+                    <div class="news-content">
+                        <div class="news-date">March 15, 2024</div>
+                        <h3>Annual Budget Meeting Scheduled</h3>
+                        <p>Join us for the annual county budget presentation and public discussion on March 25th at 7:00 PM in the County Courthouse.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="news-card fade-in">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'><rect fill='%23228b22' width='400' height='200'/><text x='200' y='100' text-anchor='middle' fill='white' font-size='16'>Road Construction</text></svg>" alt="Road Construction">
+                    <div class="news-content">
+                        <div class="news-date">March 12, 2024</div>
+                        <h3>Highway 34 Construction Update</h3>
+                        <p>The Highway 34 widening project is on schedule. Expect delays during peak hours through April 2024.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="news-card fade-in">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'><rect fill='%23dc3545' width='400' height='200'/><text x='200' y='100' text-anchor='middle' fill='white' font-size='16'>Public Health</text></svg>" alt="Health Services">
+                    <div class="news-content">
+                        <div class="news-date">March 10, 2024</div>
+                        <h3>Free Health Screening Event</h3>
+                        <p>Free health screenings will be available at the Community Center on March 30th from 9:00 AM to 3:00 PM.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-.</div>
-      </div>
-    </div>
-    <div class="potensi-card">
-      <img src="https://harian.fajar.co.id/wp-content/uploads/2025/02/IMG-20250212-WA0014.jpg">
-      <div class="potensi-card-body">
-        <div class="potensi-card-title">Peternakan</div>
-        <div class="potensi-card-text">Peternakan unggas di Tanete berkembang pesat, terutama ayam petelur. Telur-telur segar hasil ternak lokal kami telah menjadi sumber gizi bagi masyarakat sekaligus penopang ekonomi keluarga. Inilah bentuk nyata desa yang tidak hanya memproduksi pangan, tapi juga nilai.
+    <!-- Departments -->
+    <section id="departments" class="departments">
+        <div class="container">
+            <div class="section-title">
+                <h2>County Departments</h2>
+                <p>Explore our various departments and the services they provide</p>
+            </div>
+            <div class="dept-grid">
+                <div class="dept-card fade-in">
+                    <i class="fas fa-users"></i>
+                    <h3>Human Resources</h3>
+                    <p>Employment opportunities, benefits, and employee services.</p>
+                </div>
+                <div class="dept-card fade-in">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Environmental Services</h3>
+                    <p>Waste management, recycling, and environmental protection.</p>
+                </div>
+                <div class="dept-card fade-in">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Health Department</h3>
+                    <p>Public health services, immunizations, and health education.</p>
+                </div>
+                <div class="dept-card fade-in">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Parks & Recreation</h3>
+                    <p>Parks, recreational facilities, and community programs.</p>
+                </div>
+                <div class="dept-card fade-in">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Tax Assessor</h3>
+                    <p>Property assessments, tax records, and valuation services.</p>
+                </div>
+                <div class="dept-card fade-in">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h3>Planning & Zoning</h3>
+                    <p>Land use planning, zoning permits, and development services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</div>
-      </div>
-    </div>
-    <div class="potensi-card">
-      <img src="https://sulsel.fajar.co.id/wp-content/uploads/2021/09/Sidrap1.jpeg">
-      <div class="potensi-card-body">
-        <div class="potensi-card-title">Pariwisata</div>
-        <div class="potensi-card-text">Terdapat potensi wisata alam seperti perbukitan dan air terjun yang masih alami dan asri.</div>
-       </div>
-       </div>
-    </div>
-</section>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Contact Madison County</h2>
+                <p style="color: #ccc;">Get in touch with us for assistance and information</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Visit Us</h3>
+                    <p>123 County Courthouse Square<br>Madison, State 12345</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Call Us</h3>
+                    <p>Main: (555) 123-4567<br>Emergency: 911</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p>info@madisoncounty.gov<br>services@madisoncounty.gov</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Office Hours</h3>
+                    <p>Mon-Fri: 8:00 AM - 5:00 PM<br>Sat: 9:00 AM - 1:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#services">County Services</a></li>
+                        <li><a href="#departments">Departments</a></li>
+                        <li><a href="#news">News & Events</a></li>
+                        <li><a href="#contact">Contact Information</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Government</h3>
+                    <ul>
+                        <li><a href="#">County Commission</a></li>
+                        <li><a href="#">Meeting Minutes</a></li>
+                        <li><a href="#">Public Records</a></li>
+                        <li><a href="#">Transparency Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Employment</a></li>
+                        <li><a href="#">Bid Opportunities</a></li>
+                        <li><a href="#">Forms & Documents</a></li>
+                        <li><a href="#">GIS Mapping</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p style="margin-top: 1rem; color: #ccc;">
+                        Stay connected for updates and community news.
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Madison County Government. All rights reserved. | 
+                   <a href="#" style="color: #ffd700;">Privacy Policy</a> | 
+                   <a href="#" style="color: #ffd700;">Accessibility</a> | 
+                   <a href="#" style="color: #ffd700;">Site Map</a>
+                </p>
+            </div>
+        </div>
+    </footer>
 
-<section id="profil">
-  <h2>Profil</h2>
-  <div class="card">
-    <h3>Profil Umum</h3>
-    <p>Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, Kabupaten Sidenreng Rappang (Sidrap), Provinsi Sulawesi Selatan. Mayoritas penduduk Desa Tanete bermata pencaharian sebagai petani, peternak, dan pelaku usaha kecil. Secara administratif, desa ini dipimpin oleh seorang kepala desa dan terbagi ke dalam beberapa dusun yang masing-masing dikelola oleh kepala dusun. Desa Tanete juga telah dilengkapi dengan fasilitas dasar seperti kantor desa, sekolah, tempat ibadah, dan pos kesehatan desa (poskesdes). .</p>
-  </div>
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
 
-  <div class="card">
-    <h3>Sejarah Desa</h3>
-    <p>Dahulunya Desa Tanete merupakan bagian dari distrik Allakuang yang berupa sebuah dusun yang mana sebagian besar wilayahnya digunakan sebagai lahan bercocok tanam. Namun akibat adanya bencana kebakaran yang terjadi di wilayah Allakuang (Induk distrik) maka sebagian besar masyarakat mengungsikan diri ke wilayah sekitar dusun Tanete kemudian bermukim dan menetap untuk dijadikan kampung Tanete. Nama Tanete diambil dari kata “Ketinggian” Artinya Tanete tidak akan tenggelam. Desa Tanete resmi berdiri setelah berpisah dengan Desa Allakuang pada tahun 1992 menjadi Desa definitif yang di tandai dengan pemilihan kepala desa secara langsung oleh masyarakat yang terdiri dari 3 Dusun yaitu Dusun I Tanete, Dusun II Tanete, dan Dusun III Tanete.</p>
-  </div>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
 
-  <div class="card">
-    <h3>Visi dan Misi</h3>
-    <p><strong>Visi:</strong> “Mewujudkan Desa mandiri sebagai kawasan ekonomi kreatif terintegrasi menuju Desa sejahtera dan mandiri”.</p>
-    <p><strong>Misi:</strong></p>
-    <ul>
-      <li>Memajukan dan meningkatkan kinerja birokrasi Pemerintah Desa dalam memberikan pelayanan publik yang berkualitas, displin, dan profesional.</li>
-      <li>Memberdayakan masyarakat khususnya pemuda, menuju masyarakat maju, mandiri, dan sejahtera.</li>
-      <li>Menciptakan dan meningkatkan pembangunan infrastruktur.</li>
-      <li>Menjadikan desa bersinar sehingga meningkatkan keamanan dan ketentraman masyarakat.</li>
-      <li>Meningkatkan sistem usaha mandiri melalui program pengembangan Badan Usaha Milik Desa (BUMDesa).</li>
-      <li>Meningkatkan kualitas pendidikan khususnya usia dini (PAUD).</li>
-      <li>Menciptakan penataan desa yang berkualitas melalui program tata ruang desa berbasis produktivitas ekonomi.</li>
-      <li>Meningkatkan mutu layanan kesehatan di Desa melalui program desa sehat.</li>
-    </ul>
-  </div>
-</section>
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-<section id="kelembagaan">
-  <h2>Kelembagaan</h2>
-  <div class="card">
-      <h3>Pemerintah Desa</h3>
-      <ul style="list-style: none; padding: 0;">
-        <li><strong>Kepala Desa:</strong> Baharuddin, S.E.</li>
-        <li><strong>Sekretaris Desa:</strong> Fatahullah, S.Ag.</li>
-        <li><strong>KAUR Umum:</strong> Wildayati, S.Pd.</li>
-        <li><strong>KAUR Keuangan:</strong> Nely Amalia</li>
-        <li><strong>Staf Keuangan:</strong> Putri Reginatasya</li>
-        <li><strong>KAUR Perencanaan:</strong> Hariyadi, S.H.</li>
-        <li><strong>Staf Perencanaan:</strong> Nur Hikmah D</li>
-        <li><strong>KASI Kesejahteraan:</strong> Muh. Ali Safli, S.Tr.Pet</li>
-        <li><strong>KASI Pemerintahan:</strong> Nur Wahyu Hidayat, S.H.</li>
-        <li><strong>KASI Pelayanan:</strong> Hasnawati, S.Pd.</li>
-      </ul>
-  </div>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-  
-  <div class="card">
-    <h3>Badan Permusyawaratan Desa</h3>  
-    <ul style="list-style: none; padding: 0;">
-      <li><strong>Ketua: </strong>Drs. H. Rusli Made Aming</li>
-      <li><strong>Wakil Ketua:</strong> Drs.H.Burhanuddin </li>
-      <li><strong>Sekretaris:</strong> Drs. Hasan Kadir</li>
-      <li><strong>Anggota:</strong> Hj.Rahmawati</li>
-      <li><strong>Anggota:</strong> Safruddin Karim</li>
-      <li><strong>Anggota:</strong> Hj.Jamaluddin</li>
-      <li><strong>Anggota:</strong> Hj.Muhammad Arif,S.Pd,M.Si</li>
-    </ul>
-  </div>
-  
-  <div class="card">
-    <h3>Kepala Dusun</h3>  
-    <ul style="list-style: none; padding: 0;">
-      <li><strong>Kepala Dusun 1:</strong> Imran Tahir</li>
-      <li><strong>Kepala Dusun 2:</strong> Basri</li>
-      <li><strong>Kepala Dusun 3:</strong> Muh.Yusuf Yakub</li>
-    </ul>
-  </div>
-</section>
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
 
-<section id="data">
-  <h2>Data Penduduk</h2>
-  <div class="card">
-    <ul>
-      <li>Total Penduduk: 2.958 Jiwa</li>
-      <li>Laki-laki: 1.451 Jiwa</li>
-      <li>Perempuan: 1.507 Jiwa</li>
-      <li>Jumlah KK: 927</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>Grafik Statistik Penduduk</h3>
-    <canvas id="pendudukChart"></canvas>
-  </div>
-</section>
-
-<section id="kegiatan">
-  <h2>Kegiatan</h2>
-  <div class="card">
-    <h3>Seminar Proker Mahasiswa KKN</h3>
-    <p>Mahasiswa KKN Unhas menggelar seminar program kerja untuk mendorong inovasi digital desa dan penguatan kelembagaan masyarakat di Tanete.</p>
-  </div>
-  <div class="card">
-    <h3>Pembentukan KSM TPS 3R</h3>
-    <p>Pemerintah Desa dan warga sepakat membentuk Kelompok Swadaya Masyarakat untuk mengelola sampah berbasis 3R: Reduce, Reuse, Recycle.</p>
-  </div>
-</section>
-
-<section id="pelayanan">
-  <h2>Pelayanan</h2>
-  <div class="card">
-    <table style="width:100%; border-collapse: collapse;">
-      <thead style="background-color: #2e8b57; color: white;">
-        <tr>
-          <th style="padding: 10px; border: 1px solid #ddd;">No</th>
-          <th style="padding: 10px; border: 1px solid #ddd;">Jenis Pelayanan</th>
-          <th style="padding: 10px; border: 1px solid #ddd;">Syarat</th>
-          <th style="padding: 10px; border: 1px solid #ddd;">Waktu Layanan</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="padding: 10px; border: 1px solid #ddd;">1</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">Surat Keterangan Domisili</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">Fotokopi KTP & KK</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">1 Hari Kerja</td>
-        </tr>
-        <tr>
-          <td style="padding: 10px; border: 1px solid #ddd;">2</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">Surat Keterangan Tidak Mampu</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">KTP, KK, Surat Pengantar RT</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">1-2 Hari Kerja</td>
-        </tr>
-        <tr>
-          <td style="padding: 10px; border: 1px solid #ddd;">3</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">Surat Pengantar Nikah (N1-N4)</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">Fotokopi KTP, KK, Akta Kelahiran</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">2 Hari Kerja</td>
-        </tr>
-        <tr>
-          <td style="padding: 10px; border: 1px solid #ddd;">4</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">Surat Keterangan Usaha (SKU)</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">KTP, KK, Surat Pengantar RT</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">1 Hari Kerja</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<section id="pengaduan">
-  <h2>Pengaduan</h2>
-  <div class="card" style="padding: 2rem; margin: auto; text-align: center;">
-    <h3>Sampaikan Pengaduan Anda</h3>
-    <p style="color: #555; font-size: 1rem;">
-      Jika Anda memiliki keluhan atau saran terhadap pelayanan desa, silakan klik tombol di bawah ini untuk mengisi formulir pengaduan.
-    </p>
-    <button onclick="window.location.href='https://forms.gle/CONTOH_LINK_FORM_GOOGLE';"
-            style="margin-top: 1.5rem; padding: 16px 32px; font-size: 18px;
-                   background-color: #007bff; color: white;
-                   border: none; border-radius: 8px;
-                   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-                   cursor: pointer; transition: background-color 0.3s;">
-      Isi Formulir Sekarang
-    </button>
-    <p style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
-      Klik tombol di atas akan membuka Google Form di tab baru.
-    </p>
-  </div>
-</section>
-
-<section id="peta">
-  <h2>Peta Desa Tanete</h2>
-  <div class="card">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28152.511608657445!2d119.77300981675754!3d-3.953133481410392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d95c803467e6f7d%3A0x82a448d6a2d7c716!2sTanete%2C%20Maritengngae%2C%20Sidenreng%20Rappang%20Regency%2C%20South%20Sulawesi!5e1!3m2!1sen!2sid!4v1753923356722!5m2!1sen!2sid"
-      width="100%"
-      height="450"
-      style="border:0; border-radius: 8px;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-</section>
-
-<section id="kontak">
-    <h2>Kontak</h2>
-    <div class="card">
-    <p>E-Mail: Desatanete98@gmail.com</p>
-    <p>Instagram: @desatanete</p>
-    </div>
-</section>
-    
-<footer>
-  <p>&copy; KKNT UNHAS 2025</p>
-</footer>
-
-<!-- Script grafik dan menu -->
-<script>
-  function toggleMenu() {
-    const nav = document.querySelector('nav');
-    nav.classList.toggle('show');
-  }
-
-  const ctx = document.getElementById('pendudukChart').getContext('2d');
-  const pendudukChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Laki-laki', 'Perempuan', 'Jumlah KK'],
-      datasets: [{
-        label: 'Jumlah',
-        data: [1451, 1507, 927],
-        backgroundColor: ['#2e8b57', '#3cb371', '#90ee90'],
-        borderColor: '#2e8b57',
-        borderWidth: 1
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          display: false
-        },
-        tooltip: {
-          callbacks: {
-            label: function(context) {
-              return context.dataset.label + ': ' + context.raw + ' Jiwa';
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)';
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.2)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)';
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
             }
-          }
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add loading animation
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Emergency alert functionality (can be customized)
+        function showEmergencyAlert(message) {
+            const alert = document.createElement('div');
+            alert.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: #dc3545;
+                color: white;
+                padding: 1rem;
+                text-align: center;
+                z-index: 9999;
+                font-weight: bold;
+            `;
+            alert.innerHTML = `
+                <i class="fas fa-exclamation-triangle"></i> 
+                ${message}
+                <button onclick="this.parentElement.remove()" style="float: right; background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            `;
+            document.body.insertBefore(alert, document.body.firstChild);
         }
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-          title: {
-            display: true,
-            text: 'Jumlah'
-          }
-        }
-      }
-    }
-  });
-</script>
-
-<script async src="https://api.counterapi.com/api/v1/desatanetesid/pageview.js"></script>
-
-<script>
-  function getCookie(name) {
-    const value = "; " + document.cookie;
-    const parts = value.split("; " + name + "=");
-    if (parts.length === 2) return parts.pop().split(";").shift();
-  }
-
-  function setCookie(name, value, days) {
-    let expires = "";
-    if (days) {
-      const d = new Date();
-      d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
-      expires = "; expires=" + d.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
-  }
-
-  // Logika untuk menyimpan jumlah kunjungan di localStorage
-  function updateVisitorCount() {
-    let count = localStorage.getItem('visitorCount') || 0;
-
-    // Tambahkan hanya jika belum tercatat hari ini
-    if (!getCookie('visitedToday')) {
-      count++;
-      localStorage.setItem('visitorCount', count);
-      setCookie('visitedToday', 'yes', 1); // cookie berlaku 1 hari
-    }
-
-    document.getElementById('visitor-count').textContent = count;
-  }
-
-  updateVisitorCount();
-</script>
-
+    </script>
 </body>
-</html
+</html>
