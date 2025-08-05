@@ -1,547 +1,438 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ4ZCQF63H"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-VJ4ZCQF63H');
-    </script>
-    
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Website Desa Tanete</title>
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      background-color: #f5f5f5;
-    }
-    header {
-      background-image: url('assets/desa.jpg'); 
-      background-size: cover;
-      background-position: center;
-      height: 300px; /* Tambahkan tinggi */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.7); /* Tambahkan bayangan teks */
-      text-align: center;
-      flex-direction: column;
-    }
-
-    .menu-toggle {
-      display: none;
-      background-color: #0a3d62;
-      color: white;
-      border: none;
-      padding: 1rem;
-      font-size: 1.5rem;
-      cursor: pointer;
-      text-align: left;
-      width: 100%;
-    }
-    nav {
-      background-color: #0a3d62;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    nav a {
-      color: white;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      font-weight: bold;
-      text-align: center;
-      font-size: 0.85rem;
-      flex: 1 1 100px;
-    }
-    nav a:hover {
-      background-color: #228b22;
-    }
-    section {
-      padding: 2rem 1rem;
-      max-width: 1100px;
-      margin: auto;
-    }
-    h2 {
-        font-size: 1.8rem;
-        color: #0a3d62;
-        margin-bottom: 1rem;
-        text-align: center;
-    }
-    .card {
-      background: white;
-      border: 1px solid #ddd;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 6px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    canvas {
-      max-width: 100%;
-      height: auto;
-    }
-    footer {
-      background-color: #0a3d62;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-      nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: static;
-      }
-      nav.show {
-        display: flex;
-      }
-      nav a {
-        flex: none;
-        padding: 1rem;
-        border-top: 1px solid rgba(255,255,255,0.1);
-      }
-    }
-    .card ul li {
-      padding: 6px 0;
-      border-bottom: 1px solid #eee;
-    }   
-
-    .card ul li:last-child {
-      border-bottom: none;
-    }
-    .potensi-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    .potensi-card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: transform 0.3s ease;
-    }
-    .potensi-card:hover {
-      transform: translateY(-5px);
-    }
-    .potensi-card img {
-      margin-bottom: 0.5rem;
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    * {
-    box-sizing: border-box;   
-    }
-    .potensi-card-body {
-      padding: 1.2rem 1.5rem;
-    }
-    .potensi-card-title {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      color: #2980b9;
-    }
-    .potensi-card-text {
-      font-size: 0.95rem;
-      color: #555;
-      line-height: 1.6;
-      margin-bottom: 0.5rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-    card {
-      background-color: white;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil Desa Tanete</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
 
-<header>
-  <h1>Website Desa Tanete</h1>
-  <p>Kecamatan Maritengngae, Kabupaten Sidrap</p>
-</header>
+  <!-- Hero Section -->
+  <header class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://source.unsplash.com/1600x900/?village,nature');">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="text-center text-white z-10 px-4">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Selamat Datang di Desa Tanete</h1>
+      <p class="text-lg md:text-2xl">Desa Mandiri dan Berkelanjutan di Kabupaten Sidrap</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </header>
 
-<!-- Tombol toggle menu untuk mobile -->
-<button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+  <!-- Profil Desa -->
+  <section id="profil" class="py-16 px-6 max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-6">Profil Desa</h2>
+    <p class="text-lg text-justify leading-relaxed">
+Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, Kabupaten Sidenreng Rappang (Sidrap), Provinsi Sulawesi Selatan. Mayoritas penduduk Desa Tanete bermata pencaharian sebagai petani, peternak, dan pelaku usaha kecil. Secara administratif, desa ini dipimpin oleh seorang kepala desa dan terbagi ke dalam beberapa dusun yang masing-masing dikelola oleh kepala dusun. Desa Tanete juga telah dilengkapi dengan fasilitas dasar seperti kantor desa, sekolah, tempat ibadah, dan pos kesehatan desa (poskesdes). .
 
-<nav>
-  <a href="#potensi">Potensi</a>    
-  <a href="#profil">Profil</a>
-  <a href="#kelembagaan">Kelembagaan</a>
-  <a href="#data">Data Penduduk</a>
-  <a href="#kegiatan">Kegiatan</a>
-  <a href="#pelayanan">Pelayanan</a>
-  <a href="#pengaduan">Pengaduan</a>
-  <a href="#peta">Peta</a>
-  <a href="#kontak">Kontak</a>
-</nav>
+    </p>
+  </section>
 
-<section id="potensi">
-  <h2>Mengenal Lebih Dekat Dengan Desa Tanete</h2>
-  <div class="potensi-grid">
-    <div class="potensi-card">
-      <img src="https://static.republika.co.id/uploads/images/inpicture_slide/panen-padi-negeri-ini-bergelar-gemah-ripah-loh-jinawi-_130303213010-595.jpg">
-      <div class="potensi-card-body">
-        <div class="potensi-card-title">Pertanian</div>
-        <div class="potensi-card-text">Sawah-sawah hijau terbentang luas di Desa Tanete, dikelola oleh para petani yang mewarisi kearifan lokal dan semangat kerja keras. Dari setiap butir padi yang dipanen, tumbuh harapan akan ketahanan pangan yang berkelanjutan—untuk desa, untuk bangsa.
-
-.</div>
+  <!-- Potensi Desa -->
+  <section id="potensi" class="bg-white py-16 px-6">
+    <h2 class="text-3xl font-bold text-center mb-10">Mengenal Lebih Dekat dengan Desa Tanete</h2>
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <img src="https://www.dunia-energi.com/wp-content/uploads/2022/11/IMG-20221109-WA0019-960x540.jpg" class="rounded mb-4 w-full h-48 object-cover" alt="Pertanian">
+        <h3 class="text-xl font-semibold mb-2">Pertanian Padi</h3>
+        <p>Tanete memiliki lahan sawah produktif dengan hasil panen unggulan sepanjang tahun.</p>
+      </div>
+      <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <img src="https://ditjenpkh.pertanian.go.id/storage/photos/shares/konten/berita/KetersediaanTelurSidrap.jpg" class="rounded mb-4 w-full h-48 object-cover" alt="Peternakan">
+        <h3 class="text-xl font-semibold mb-2">Peternakan Ayam</h3>
+        <p>Sentra peternakan ayam petelur menjadi sumber ekonomi utama bagi warga desa.</p>
+      </div>
+      <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <img src="https://res.cloudinary.com/dk0z4ums3/image/upload/v1602495292/attached_image/ini-kegiatan-posyandu-dan-manfaatnya-bagi-ibu-dan-anak.jpg" class="rounded mb-4 w-full h-48 object-cover" alt="Kesehatan">
+        <h3 class="text-xl font-semibold mb-2">Desa Zero Stunting</h3>
+        <p>Komitmen desa dalam mendukung tumbuh kembang anak melalui program kesehatan terpadu.</p>
       </div>
     </div>
-    <div class="potensi-card">
-      <img src="https://harian.fajar.co.id/wp-content/uploads/2025/02/IMG-20250212-WA0014.jpg">
-      <div class="potensi-card-body">
-        <div class="potensi-card-title">Peternakan</div>
-        <div class="potensi-card-text">Peternakan unggas di Tanete berkembang pesat, terutama ayam petelur. Telur-telur segar hasil ternak lokal kami telah menjadi sumber gizi bagi masyarakat sekaligus penopang ekonomi keluarga. Inilah bentuk nyata desa yang tidak hanya memproduksi pangan, tapi juga nilai.
+  </section>
+  
+  <!-- Sejarah Desa -->
+<section id="sejarah" class="bg-gray-50 py-16 px-6">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10">Sejarah Desa</h2>
+    <p class="text-justify leading-relaxed text-lg">
+ Dahulunya Desa Tanete merupakan bagian dari distrik Allakuang yang berupa sebuah dusun yang mana sebagian besar wilayahnya digunakan sebagai lahan bercocok tanam. Namun akibat adanya bencana kebakaran yang terjadi di wilayah Allakuang (Induk distrik) maka sebagian besar masyarakat mengungsikan diri ke wilayah sekitar dusun Tanete kemudian bermukim dan menetap untuk dijadikan kampung Tanete. Nama Tanete diambil dari kata “Ketinggian” Artinya Tanete tidak akan tenggelam. Desa Tanete resmi berdiri setelah berpisah dengan Desa Allakuang pada tahun 1992 menjadi Desa definitif yang di tandai dengan pemilihan kepala desa secara langsung oleh masyarakat yang terdiri dari 3 Dusun yaitu Dusun I Tanete, Dusun II Tanete, dan Dusun III Tanete.
+    </p>
+  </div>
+</section>
 
-</div>
+<!-- Kegiatan Desa -->
+<section id="kegiatan" class="bg-white py-16 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10">Kegiatan Desa</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Kerja Bakti -->
+      <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition text-center">
+        <img src="https://www.kosongsatunews.com/wp-content/uploads/2024/08/IMG-20240808-WA0032.jpg" alt="Kerja Bakti" class="rounded mb-4 w-full h-48 object-cover">
+        <h3 class="text-xl font-semibold mb-2">Kerja Bakti</h3>
+        <p>Kegiatan rutin membersihkan lingkungan bersama warga sebagai wujud gotong royong dan kepedulian sosial.</p>
+      </div>
+      <!-- Posyandu -->
+      <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition text-center">
+        <img src="https://desadalung.badungkab.go.id/storage/desadalung/image/Kegiatan%20Rutin%20Posyandu%20di%20Desa%20Dalung.jpeg" alt="Posyandu" class="rounded mb-4 w-full h-48 object-cover">
+        <h3 class="text-xl font-semibold mb-2">Posyandu</h3>
+        <p>Pelayanan kesehatan ibu dan anak yang diadakan rutin setiap bulan untuk mencegah stunting dan meningkatkan gizi.</p>
+      </div>
+      <!-- Muharram -->
+      <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition text-center">
+        <img src="https://www.pijarnews.com/wp-content/uploads/2024/07/Picsart_24-07-24_07-31-55-864.jpg" alt="Muharram" class="rounded mb-4 w-full h-48 object-cover">
+        <h3 class="text-xl font-semibold mb-2">Peringatan Muharram</h3>
+        <p>Momentum reflektif warga desa melalui pengajian dan kegiatan sosial dalam rangka tahun baru Islam.</p>
+      </div>
+      <!-- Mattoana -->
+      <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition text-center">
+        <img src="https://www.pinisi.co.id/wp-content/uploads/2022/05/1102021122242.jpg" alt="Mattoana" class="rounded mb-4 w-full h-48 object-cover">
+        <h3 class="text-xl font-semibold mb-2">Mattoana</h3>
+        <p>Tradisi lokal dalam menyambut musim tanam yang sarat dengan nilai adat dan spiritualitas Bugis.</p>
+      </div>
+      <!-- Mangeppi -->
+      <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition text-center">
+        <img src="https://img2.beritasatu.com/cache/beritasatu/960x620-2/2024/10/1729320088-848x478.webp" alt="Mangeppi" class="rounded mb-4 w-full h-48 object-cover">
+        <h3 class="text-xl font-semibold mb-2">Mangeppi</h3>
+        <p>Tradisi pesta panen sebagai bentuk syukur atas hasil bumi dan solidaritas antarwarga desa.</p>
       </div>
     </div>
-    <div class="potensi-card">
-      <img src="https://sulsel.fajar.co.id/wp-content/uploads/2021/09/Sidrap1.jpeg">
-      <div class="potensi-card-body">
-        <div class="potensi-card-title">Pariwisata</div>
-        <div class="potensi-card-text">Terdapat potensi wisata alam seperti perbukitan dan air terjun yang masih alami dan asri.</div>
-       </div>
-       </div>
+  </div>
+</section>
+
+  <!-- Statistik Penduduk -->
+<section id="statistik" class="bg-gray-100 py-16 px-6">
+  <h2 class="text-3xl font-bold text-center mb-10">Statistik Penduduk</h2>
+
+  <!-- Ringkasan -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center max-w-6xl mx-auto mb-12">
+    <div class="bg-white p-6 rounded-xl shadow">
+      <p class="text-3xl font-bold text-blue-600">2.150</p>
+      <p>Jumlah Penduduk</p>
     </div>
+    <div class="bg-white p-6 rounded-xl shadow">
+      <p class="text-3xl font-bold text-green-600">1.050</p>
+      <p>Laki-laki</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow">
+      <p class="text-3xl font-bold text-pink-500">1.100</p>
+      <p>Perempuan</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow">
+      <p class="text-3xl font-bold text-yellow-500">515</p>
+      <p>Keluarga</p>
+    </div>
+  </div>
+
+  <!-- Grafik Kelompok Umur -->
+  <div class="max-w-5xl mx-auto mb-12 bg-white p-6 rounded-xl shadow">
+    <h3 class="text-xl font-semibold mb-4 text-center">Distribusi Penduduk Berdasarkan Umur</h3>
+    <canvas id="umurChart"></canvas>
+  </div>
+
+  <!-- Grafik Pendidikan -->
+  <div class="max-w-5xl mx-auto mb-12 bg-white p-6 rounded-xl shadow">
+    <h3 class="text-xl font-semibold mb-4 text-center">Pendidikan Terakhir</h3>
+    <canvas id="pendidikanChart"></canvas>
+  </div>
+
+  <!-- Grafik Pekerjaan -->
+  <div class="max-w-5xl mx-auto bg-white p-6 rounded-xl shadow">
+    <h3 class="text-xl font-semibold mb-4 text-center">Mata Pencaharian Utama</h3>
+    <canvas id="pekerjaanChart"></canvas>
+  </div>
 </section>
 
-<section id="profil">
-  <h2>Profil</h2>
-  <div class="card">
-    <h3>Profil Umum</h3>
-    <p>Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, Kabupaten Sidenreng Rappang (Sidrap), Provinsi Sulawesi Selatan. Mayoritas penduduk Desa Tanete bermata pencaharian sebagai petani, peternak, dan pelaku usaha kecil. Secara administratif, desa ini dipimpin oleh seorang kepala desa dan terbagi ke dalam beberapa dusun yang masing-masing dikelola oleh kepala dusun. Desa Tanete juga telah dilengkapi dengan fasilitas dasar seperti kantor desa, sekolah, tempat ibadah, dan pos kesehatan desa (poskesdes). .</p>
+  
+  <!-- Kelembagaan Desa -->
+<section id="kelembagaan" class="py-16 px-6 bg-white">
+  <h2 class="text-3xl font-bold text-center mb-10">Kelembagaan Desa</h2>
+
+  <!-- Pemerintah Desa -->
+  <div class="mb-12 max-w-5xl mx-auto">
+    <h3 class="text-2xl font-semibold mb-4 text-blue-700">Struktur Pemerintah Desa</h3>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-gray-100 p-4 rounded-xl shadow text-center">
+        <p class="text-xl font-bold">Kepala Desa</p>
+        <p>Andi Surya</p>
+      </div>
+      <div class="bg-gray-100 p-4 rounded-xl shadow text-center">
+        <p class="text-xl font-bold">Sekretaris Desa</p>
+        <p>Rina Kartika</p>
+      </div>
+      <div class="bg-gray-100 p-4 rounded-xl shadow text-center">
+        <p class="text-xl font-bold">Kaur Keuangan</p>
+        <p>Imran Abdullah</p>
+      </div>
+    </div>
   </div>
 
-  <div class="card">
-    <h3>Sejarah Desa</h3>
-    <p>Dahulunya Desa Tanete merupakan bagian dari distrik Allakuang yang berupa sebuah dusun yang mana sebagian besar wilayahnya digunakan sebagai lahan bercocok tanam. Namun akibat adanya bencana kebakaran yang terjadi di wilayah Allakuang (Induk distrik) maka sebagian besar masyarakat mengungsikan diri ke wilayah sekitar dusun Tanete kemudian bermukim dan menetap untuk dijadikan kampung Tanete. Nama Tanete diambil dari kata “Ketinggian” Artinya Tanete tidak akan tenggelam. Desa Tanete resmi berdiri setelah berpisah dengan Desa Allakuang pada tahun 1992 menjadi Desa definitif yang di tandai dengan pemilihan kepala desa secara langsung oleh masyarakat yang terdiri dari 3 Dusun yaitu Dusun I Tanete, Dusun II Tanete, dan Dusun III Tanete.</p>
+  <!-- Badan Permusyawaratan Desa (BPD) -->
+  <div class="mb-12 max-w-5xl mx-auto">
+    <h3 class="text-2xl font-semibold mb-4 text-green-700">Badan Permusyawaratan Desa (BPD)</h3>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-gray-100 p-4 rounded-xl shadow text-center">
+        <p class="text-xl font-bold">Ketua BPD</p>
+        <p>Jamaluddin</p>
+      </div>
+      <div class="bg-gray-100 p-4 rounded-xl shadow text-center">
+        <p class="text-xl font-bold">Wakil Ketua</p>
+        <p>Sitti Mariam</p>
+      </div>
+      <div class="bg-gray-100 p-4 rounded-xl shadow text-center">
+        <p class="text-xl font-bold">Sekretaris</p>
+        <p>Abdul Wahid</p>
+      </div>
+    </div>
   </div>
 
-  <div class="card">
-    <h3>Visi dan Misi</h3>
-    <p><strong>Visi:</strong> “Mewujudkan Desa mandiri sebagai kawasan ekonomi kreatif terintegrasi menuju Desa sejahtera dan mandiri”.</p>
-    <p><strong>Misi:</strong></p>
-    <ul>
-      <li>Memajukan dan meningkatkan kinerja birokrasi Pemerintah Desa dalam memberikan pelayanan publik yang berkualitas, displin, dan profesional.</li>
-      <li>Memberdayakan masyarakat khususnya pemuda, menuju masyarakat maju, mandiri, dan sejahtera.</li>
-      <li>Menciptakan dan meningkatkan pembangunan infrastruktur.</li>
-      <li>Menjadikan desa bersinar sehingga meningkatkan keamanan dan ketentraman masyarakat.</li>
-      <li>Meningkatkan sistem usaha mandiri melalui program pengembangan Badan Usaha Milik Desa (BUMDesa).</li>
-      <li>Meningkatkan kualitas pendidikan khususnya usia dini (PAUD).</li>
-      <li>Menciptakan penataan desa yang berkualitas melalui program tata ruang desa berbasis produktivitas ekonomi.</li>
-      <li>Meningkatkan mutu layanan kesehatan di Desa melalui program desa sehat.</li>
-    </ul>
+  <!-- Kepala Dusun -->
+  <div class="max-w-5xl mx-auto">
+    <h3 class="text-2xl font-semibold mb-4 text-yellow-700">Kepala Dusun</h3>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-gray-100 p-4 rounded-xl shadow text-center">
+        <p class="text-xl font-bold">Dusun 1</p>
+        <p>Baharuddin</p>
+      </div>
+      <div class="bg-gray-100 p-4 rounded-xl shadow text-center">
+        <p class="text-xl font-bold">Dusun 2</p>
+        <p>Nuraeni</p>
+      </div>
+      <div class="bg-gray-100 p-4 rounded-xl shadow text-center">
+        <p class="text-xl font-bold">Dusun 3</p>
+        <p>Haris Maulana</p>
+      </div>
+    </div>
   </div>
-
-      <h2>Visi</h2>
-               <div class="card">
-          <p>“Mewujudkan Desa mandiri sebagai kawasan ekonomi kreatif terintegrasi menuju Desa sejahtera dan mandiri”.</p>
-        </div>
-
-      <h2>Misi</h2>
-      <div class="grid">
-        <div class="card">
-          <p>Memajukan dan meningkatkan kinerja birokrasi Pemerintah Desa dalam memberikan pelayanan publik yang berkualitas, displin, dan profesional.</p>
-        </div>
-        <div class="card">
-          <p>Memberdayakan masyarakat khususnya pemuda, menuju masyarakat maju, mandiri, dan sejahtera.</p>
-        </div>
-        <div class="card">
-          <p>Menciptakan dan meningkatkan pembangunan infrastruktur.</p>
-        </div>
-        <div class="card">
-          <p>Menjadikan desa bersinar sehingga meningkatkan keamanan dan ketentraman masyarakat.</p>
-        </div>
-        <div class="card">
-          <p>Meningkatkan sistem usaha mandiri melalui program pengembangan Badan Usaha Milik Desa (BUMDesa).</p>
-        </div>
-        <div class="card">
-          <p>DMeningkatkan kualitas pendidikan khususnya usia dini (PAUD).</p>
-        </div>
-        <div class="card">
-          <p>Menciptakan penataan desa yang berkualitas melalui program tata ruang desa berbasis produktivitas ekonomi.</p>
-        </div>
-        <div class="card">
-          <p>Meningkatkan mutu layanan kesehatan di Desa melalui program desa sehat.</p>
-        </div>
 </section>
 
-<section id="kelembagaan">
-  <h2>Kelembagaan</h2>
-  <div class="card">
-      <h3>Pemerintah Desa</h3>
-      <ul style="list-style: none; padding: 0;">
-        <li><strong>Kepala Desa:</strong> Baharuddin, S.E.</li>
-        <li><strong>Sekretaris Desa:</strong> Fatahullah, S.Ag.</li>
-        <li><strong>KAUR Umum:</strong> Wildayati, S.Pd.</li>
-        <li><strong>KAUR Keuangan:</strong> Nely Amalia</li>
-        <li><strong>Staf Keuangan:</strong> Putri Reginatasya</li>
-        <li><strong>KAUR Perencanaan:</strong> Hariyadi, S.H.</li>
-        <li><strong>Staf Perencanaan:</strong> Nur Hikmah D</li>
-        <li><strong>KASI Kesejahteraan:</strong> Muh. Ali Safli, S.Tr.Pet</li>
-        <li><strong>KASI Pemerintahan:</strong> Nur Wahyu Hidayat, S.H.</li>
-        <li><strong>KASI Pelayanan:</strong> Hasnawati, S.Pd.</li>
+<!-- Visi dan Misi -->
+<section id="visi-misi" class="bg-white py-16 px-6">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10">Visi dan Misi</h2>
+
+    <div class="mb-8">
+      <h3 class="text-xl font-semibold mb-2 text-blue-700">Visi</h3>
+      <p class="text-justify">
+        “Mewujudkan Desa Tanete yang Mandiri, Sejahtera, Berbudaya, dan Berbasis Potensi Lokal Menuju Pembangunan Berkelanjutan.”
+      </p>
+    </div>
+
+    <div>
+      <h3 class="text-xl font-semibold mb-2 text-green-700">Misi</h3>
+      <ul class="list-disc list-inside space-y-2 text-justify">
+        <li>Meningkatkan pelayanan publik yang transparan, cepat, dan profesional.</li>
+        <li>Memberdayakan potensi pertanian, peternakan, dan UMKM desa secara berkelanjutan.</li>
+        <li>Menjaga nilai-nilai budaya lokal dan memperkuat partisipasi masyarakat.</li>
+        <li>Mengembangkan program pendidikan, kesehatan, dan lingkungan yang inklusif.</li>
+        <li>Mendorong digitalisasi desa dan transformasi teknologi informasi.</li>
       </ul>
-  </div>
-
-  
-  <div class="card">
-    <h3>Badan Permusyawaratan Desa</h3>  
-    <ul style="list-style: none; padding: 0;">
-      <li><strong>Ketua: </strong>Drs. H. Rusli Made Aming</li>
-      <li><strong>Wakil Ketua:</strong> Drs.H.Burhanuddin </li>
-      <li><strong>Sekretaris:</strong> Drs. Hasan Kadir</li>
-      <li><strong>Anggota:</strong> Hj.Rahmawati</li>
-      <li><strong>Anggota:</strong> Safruddin Karim</li>
-      <li><strong>Anggota:</strong> Hj.Jamaluddin</li>
-      <li><strong>Anggota:</strong> Hj.Muhammad Arif,S.Pd,M.Si</li>
-    </ul>
-  </div>
-  
-  <div class="card">
-    <h3>Kepala Dusun</h3>  
-    <ul style="list-style: none; padding: 0;">
-      <li><strong>Kepala Dusun 1:</strong> Imran Tahir</li>
-      <li><strong>Kepala Dusun 2:</strong> Basri</li>
-      <li><strong>Kepala Dusun 3:</strong> Muh.Yusuf Yakub</li>
-    </ul>
-  </div>
-</section>
-
-<section id="data">
-  <h2>Data Penduduk</h2>
-  <div class="card">
-    <ul>
-      <li>Total Penduduk: 2.958 Jiwa</li>
-      <li>Laki-laki: 1.451 Jiwa</li>
-      <li>Perempuan: 1.507 Jiwa</li>
-      <li>Jumlah KK: 927</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>Grafik Statistik Penduduk</h3>
-    <canvas id="pendudukChart"></canvas>
-  </div>
-</section>
-
-<section id="kegiatan">
-  <h2>Kegiatan</h2>
-  <div class="card">
-    <h3>Seminar Proker Mahasiswa KKN</h3>
-    <p>Mahasiswa KKN Unhas menggelar seminar program kerja untuk mendorong inovasi digital desa dan penguatan kelembagaan masyarakat di Tanete.</p>
-  </div>
-  <div class="card">
-    <h3>Pembentukan KSM TPS 3R</h3>
-    <p>Pemerintah Desa dan warga sepakat membentuk Kelompok Swadaya Masyarakat untuk mengelola sampah berbasis 3R: Reduce, Reuse, Recycle.</p>
-  </div>
-</section>
-
-<section id="pelayanan">
-  <h2>Pelayanan</h2>
-  <div class="card">
-    <table style="width:100%; border-collapse: collapse;">
-      <thead style="background-color: #2e8b57; color: white;">
-        <tr>
-          <th style="padding: 10px; border: 1px solid #ddd;">No</th>
-          <th style="padding: 10px; border: 1px solid #ddd;">Jenis Pelayanan</th>
-          <th style="padding: 10px; border: 1px solid #ddd;">Syarat</th>
-          <th style="padding: 10px; border: 1px solid #ddd;">Waktu Layanan</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="padding: 10px; border: 1px solid #ddd;">1</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">Surat Keterangan Domisili</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">Fotokopi KTP & KK</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">1 Hari Kerja</td>
-        </tr>
-        <tr>
-          <td style="padding: 10px; border: 1px solid #ddd;">2</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">Surat Keterangan Tidak Mampu</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">KTP, KK, Surat Pengantar RT</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">1-2 Hari Kerja</td>
-        </tr>
-        <tr>
-          <td style="padding: 10px; border: 1px solid #ddd;">3</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">Surat Pengantar Nikah (N1-N4)</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">Fotokopi KTP, KK, Akta Kelahiran</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">2 Hari Kerja</td>
-        </tr>
-        <tr>
-          <td style="padding: 10px; border: 1px solid #ddd;">4</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">Surat Keterangan Usaha (SKU)</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">KTP, KK, Surat Pengantar RT</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">1 Hari Kerja</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<section id="pengaduan">
-  <h2>Pengaduan</h2>
-  <div class="card" style="padding: 2rem; margin: auto; text-align: center;">
-    <h3>Sampaikan Pengaduan Anda</h3>
-    <p style="color: #555; font-size: 1rem;">
-      Jika Anda memiliki keluhan atau saran terhadap pelayanan desa, silakan klik tombol di bawah ini untuk mengisi formulir pengaduan.
-    </p>
-    <button onclick="window.location.href='https://forms.gle/CONTOH_LINK_FORM_GOOGLE';"
-            style="margin-top: 1.5rem; padding: 16px 32px; font-size: 18px;
-                   background-color: #007bff; color: white;
-                   border: none; border-radius: 8px;
-                   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-                   cursor: pointer; transition: background-color 0.3s;">
-      Isi Formulir Sekarang
-    </button>
-    <p style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
-      Klik tombol di atas akan membuka Google Form di tab baru.
-    </p>
-  </div>
-</section>
-
-<section id="peta">
-  <h2>Peta Desa Tanete</h2>
-  <div class="card">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28152.511608657445!2d119.77300981675754!3d-3.953133481410392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d95c803467e6f7d%3A0x82a448d6a2d7c716!2sTanete%2C%20Maritengngae%2C%20Sidenreng%20Rappang%20Regency%2C%20South%20Sulawesi!5e1!3m2!1sen!2sid!4v1753923356722!5m2!1sen!2sid"
-      width="100%"
-      height="450"
-      style="border:0; border-radius: 8px;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-</section>
-
-<section id="kontak">
-    <h2>Kontak</h2>
-    <div class="card">
-    <p>E-Mail: Desatanete98@gmail.com</p>
-    <p>Instagram: @desatanete</p>
     </div>
+  </div>
 </section>
-    
-<footer>
-  <p>&copy; KKNT UNHAS 2025</p>
-</footer>
 
-<!-- Script grafik dan menu -->
+<!-- Pelayanan Desa -->
+<section id="pelayanan" class="bg-white py-16 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10">Pelayanan Desa</h2>
+
+    <!-- Jam Layanan & Kontak Cepat -->
+    <div class="grid md:grid-cols-3 gap-6 mb-10">
+      <div class="bg-gray-100 p-6 rounded-xl shadow">
+        <h3 class="text-xl font-semibold mb-2">Jam Layanan</h3>
+        <ul class="space-y-1 text-gray-700">
+          <li>Senin–Kamis: 08.00–15.00</li>
+          <li>Jumat: 08.00–11.30</li>
+          <li>Sabtu–Minggu: Tutup</li>
+        </ul>
+      </div>
+      <div class="bg-gray-100 p-6 rounded-xl shadow">
+        <h3 class="text-xl font-semibold mb-2">Lokasi Kantor</h3>
+        <p>Jl. Poros Sidrap, Maritengngae, Sidenreng Rappang</p>
+        <a href="#peta" class="inline-block mt-3 underline">Lihat Peta</a>
+      </div>
+      <div class="bg-gray-100 p-6 rounded-xl shadow">
+        <h3 class="text-xl font-semibold mb-2">Kontak</h3>
+        <p class="mb-2">Email: kantor@desatanete.id</p>
+        <p class="mb-4">Telp/WA: 08xx-xxxx-xxxx</p>
+        <div class="flex flex-wrap gap-2">
+          <a href="https://wa.me/62XXXXXXXXXX" target="_blank" class="px-4 py-2 bg-green-600 text-white rounded-full font-medium hover:bg-green-700 transition">WhatsApp</a>
+          <a href="mailto:kantor@desatanete.id" class="px-4 py-2 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition">Email</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kartu Layanan Utama -->
+    <div class="grid md:grid-cols-3 gap-6 mb-10">
+      <!-- Surat Keterangan Domisili -->
+      <article class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">Surat Keterangan Domisili</h3>
+        <p class="text-gray-700 mb-4">Layanan penerbitan keterangan domisili untuk keperluan administrasi.</p>
+        <ul class="text-sm text-gray-700 list-disc list-inside mb-4">
+          <li>Fotokopi KTP & KK</li>
+          <li>Pengantar RT/RW</li>
+        </ul>
+        <div class="flex gap-2">
+          <a href="https://forms.gle/isi-dengan-link-form-anda" target="_blank" class="px-4 py-2 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition">Ajukan Online</a>
+          <a href="#" class="px-4 py-2 bg-white border rounded-full font-medium hover:bg-gray-100 transition">Unduh Template</a>
+        </div>
+      </article>
+
+      <!-- KTP/KK (Fasilitasi) -->
+      <article class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">Fasilitasi KTP/KK</h3>
+        <p class="text-gray-700 mb-4">Pendataan & pengantar ke Disdukcapil untuk perekaman dan penerbitan dokumen.</p>
+        <ul class="text-sm text-gray-700 list-disc list-inside mb-4">
+          <li>Formulir F-1.01 (KK) / F-1.07 (KTP)</li>
+          <li>Dokumen pendukung sesuai perubahan</li>
+        </ul>
+        <div class="flex gap-2">
+          <a href="https://forms.gle/isi-dengan-link-form-anda" target="_blank" class="px-4 py-2 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition">Daftar</a>
+          <a href="#" class="px-4 py-2 bg-white border rounded-full font-medium hover:bg-gray-100 transition">Cek Status</a>
+        </div>
+      </article>
+
+      <!-- Surat Keterangan Usaha (SKU) -->
+      <article class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">Surat Keterangan Usaha (SKU)</h3>
+        <p class="text-gray-700 mb-4">Legalitas dasar bagi pelaku UMKM/perorangan di wilayah desa.</p>
+        <ul class="text-sm text-gray-700 list-disc list-inside mb-4">
+          <li>Fotokopi KTP & KK</li>
+          <li>Foto tempat usaha</li>
+        </ul>
+        <div class="flex gap-2">
+          <a href="https://forms.gle/isi-dengan-link-form-anda" target="_blank" class="px-4 py-2 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition">Ajukan</a>
+          <a href="#" class="px-4 py-2 bg-white border rounded-full font-medium hover:bg-gray-100 transition">Panduan</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- Alur Singkat (SOP Ringkas) -->
+    <div class="bg-gray-50 p-6 rounded-xl shadow mb-10">
+      <h3 class="text-xl font-semibold mb-4">Alur Layanan</h3>
+      <ol class="list-decimal list-inside space-y-2 text-gray-700">
+        <li>Isi formulir pengajuan online atau datang ke kantor desa.</li>
+        <li>Verifikasi berkas oleh perangkat desa (1–2 hari kerja).</li>
+        <li>Penerbitan surat/berita acara dan tanda tangan pejabat.</li>
+        <li>Pengambilan dokumen fisik atau kirim file PDF via email.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Pengaduan -->
+  <section id="pengaduan" class="py-16 px-6 max-w-3xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-6">Form Pengaduan Warga</h2>
+    <p class="text-center mb-8">Klik tombol di bawah ini untuk mengisi formulir pengaduan secara online.</p>
+    <div class="flex justify-center">
+      <a href="https://forms.gle/isi-dengan-link-form-anda" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold transition">
+        Isi Form Pengaduan
+      </a>
+    </div>
+  </section>
+  
+  
+<!-- Peta Desa -->
+<section id="peta" class="py-16 px-6 bg-gray-100">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-6">Peta Desa Tanete</h2>
+    <p class="mb-8 text-lg">Berikut adalah lokasi geografis Desa Tanete, Kecamatan Maritengngae, Kabupaten Sidenreng Rappang.</p>
+    <div class="w-full h-96 rounded-xl overflow-hidden shadow-lg">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15925.537845376877!2d119.7425859!3d-3.9587324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbb94264a13a7ff%3A0x9d0a449a34dfdbb1!2sTanete%2C%20Maritengngae%2C%20Sidenreng%20Rappang%20Regency%2C%20South%20Sulawesi!5e0!3m2!1sen!2sid!4v1691573240016!5m2!1sen!2sid" 
+        width="100%" 
+        height="100%" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-10">
+    <div class="max-w-6xl mx-auto px-6 md:flex md:justify-between">
+      <div class="mb-6 md:mb-0">
+        <h3 class="text-2xl font-bold mb-2">Desa Tanete</h3>
+        <p>Jl. Poros Sidrap, Kecamatan Maritengngae, Kabupaten Sidenreng Rappang</p>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-2">Sosial Media</h4>
+        <div class="flex space-x-4">
+          <a href="#" class="hover:text-blue-400 transition">Facebook</a>
+          <a href="#" class="hover:text-blue-300 transition">Twitter</a>
+          <a href="#" class="hover:text-pink-400 transition">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-8 text-sm text-gray-400">&copy; 2025 Desa Tanete. All rights reserved.</div>
+  </footer>
+
 <script>
-  function toggleMenu() {
-    const nav = document.querySelector('nav');
-    nav.classList.toggle('show');
-  }
-
-  const ctx = document.getElementById('pendudukChart').getContext('2d');
-  const pendudukChart = new Chart(ctx, {
+  // Umur
+  new Chart(document.getElementById("umurChart"), {
     type: 'bar',
     data: {
-      labels: ['Laki-laki', 'Perempuan', 'Jumlah KK'],
+      labels: ["0-5", "6-17", "18-25", "26-45", "46-60", "60+"],
       datasets: [{
-        label: 'Jumlah',
-        data: [1451, 1507, 927],
-        backgroundColor: ['#2e8b57', '#3cb371', '#90ee90'],
-        borderColor: '#2e8b57',
-        borderWidth: 1
+        label: "Jumlah",
+        data: [150, 400, 350, 700, 350, 200],
+        backgroundColor: '#3B82F6',
+        borderRadius: 10
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { beginAtZero: true, ticks: { stepSize: 100 } }
+      }
+    }
+  });
+
+  // Pendidikan
+  new Chart(document.getElementById("pendidikanChart"), {
+    type: 'doughnut',
+    data: {
+      labels: ["Tidak Sekolah", "SD", "SMP", "SMA", "Diploma", "Sarjana"],
+      datasets: [{
+        label: "Pendidikan",
+        data: [50, 500, 400, 600, 200, 400],
+        backgroundColor: [
+          "#F59E0B", "#10B981", "#3B82F6", "#6366F1", "#EC4899", "#F43F5E"
+        ]
       }]
     },
     options: {
       responsive: true,
       plugins: {
-        legend: {
-          display: false
-        },
-        tooltip: {
-          callbacks: {
-            label: function(context) {
-              return context.dataset.label + ': ' + context.raw + ' Jiwa';
-            }
-          }
-        }
-      },
+        legend: { position: 'bottom' }
+      }
+    }
+  });
+
+  // Pekerjaan
+  new Chart(document.getElementById("pekerjaanChart"), {
+    type: 'bar',
+    data: {
+      labels: ["Petani", "Peternak", "Pedagang", "PNS", "Buruh", "Lainnya"],
+      datasets: [{
+        label: "Jumlah",
+        data: [800, 300, 400, 100, 300, 250],
+        backgroundColor: "#10B981",
+        borderRadius: 10
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
       scales: {
-        y: {
-          beginAtZero: true,
-          title: {
-            display: true,
-            text: 'Jumlah'
-          }
-        }
+        y: { beginAtZero: true, ticks: { stepSize: 100 } }
       }
     }
   });
 </script>
 
-<script async src="https://api.counterapi.com/api/v1/desatanetesid/pageview.js"></script>
-
-<script>
-  function getCookie(name) {
-    const value = "; " + document.cookie;
-    const parts = value.split("; " + name + "=");
-    if (parts.length === 2) return parts.pop().split(";").shift();
-  }
-
-  function setCookie(name, value, days) {
-    let expires = "";
-    if (days) {
-      const d = new Date();
-      d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
-      expires = "; expires=" + d.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
-  }
-
-  // Logika untuk menyimpan jumlah kunjungan di localStorage
-  function updateVisitorCount() {
-    let count = localStorage.getItem('visitorCount') || 0;
-
-    // Tambahkan hanya jika belum tercatat hari ini
-    if (!getCookie('visitedToday')) {
-      count++;
-      localStorage.setItem('visitorCount', count);
-      setCookie('visitedToday', 'yes', 1); // cookie berlaku 1 hari
-    }
-
-    document.getElementById('visitor-count').textContent = count;
-  }
-
-  updateVisitorCount();
-</script>
-
 </body>
+</html>
