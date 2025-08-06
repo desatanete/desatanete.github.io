@@ -393,21 +393,21 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
 
   // Pendidikan
   new Chart(document.getElementById("pendidikanChart"), {
-    type: 'doughnut',
+    type: 'bar',
     data: {
-      labels: ["Tidak Sekolah", "SD", "SMP", "SMA", "Diploma", "Sarjana"],
+      labels: ["Petani", "Peternak", "Pedagang", "PNS", "Buruh", "Lainnya"],
       datasets: [{
-        label: "Pendidikan",
-        data: [50, 500, 400, 600, 200, 400],
-        backgroundColor: [
-          "#F59E0B", "#10B981", "#3B82F6", "#6366F1", "#EC4899", "#F43F5E"
-        ]
+        label: "Jumlah",
+        data: [800, 300, 400, 100, 300, 250],
+        backgroundColor: "#E91E63",
+        borderRadius: 10
       }]
     },
     options: {
       responsive: true,
-      plugins: {
-        legend: { position: 'bottom' }
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { beginAtZero: true, ticks: { stepSize: 100 } }
       }
     }
   });
