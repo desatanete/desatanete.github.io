@@ -122,22 +122,34 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
     </div>
   </div>
 
-  <!-- Grafik Kelompok Umur -->
-  <div class="max-w-5xl mx-auto mb-12 bg-white p-6 rounded-xl shadow">
-    <h3 class="text-xl font-semibold mb-4 text-center">Distribusi Penduduk Berdasarkan Umur</h3>
-    <canvas id="umurChart"></canvas>
-  </div>
+ <!-- Grid Grafik -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Distribusi Umur -->
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h3 class="text-xl font-semibold mb-4 text-center">Distribusi Umur</h3>
+        <div class="relative h-72">
+          <canvas id="umurChart"></canvas>
+        </div>
+      </div>
 
-  <!-- Grafik Pendidikan -->
-  <div class="max-w-5xl mx-auto mb-12 bg-white p-6 rounded-xl shadow">
-    <h3 class="text-xl font-semibold mb-4 text-center">Pendidikan Terakhir</h3>
-    <canvas id="pendidikanChart"></canvas>
-  </div>
+      <!-- Mata Pencaharian -->
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h3 class="text-xl font-semibold mb-4 text-center">Mata Pencaharian Utama</h3>
+        <div class="relative h-72">
+          <canvas id="pekerjaanChart"></canvas>
+        </div>
+      </div>
 
-  <!-- Grafik Pekerjaan -->
-  <div class="max-w-5xl mx-auto bg-white p-6 rounded-xl shadow">
-    <h3 class="text-xl font-semibold mb-4 text-center">Mata Pencaharian Utama</h3>
-    <canvas id="pekerjaanChart"></canvas>
+      <!-- Pendidikan Terakhir -->
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h3 class="text-xl font-semibold mb-4 text-center">Pendidikan Terakhir</h3>
+        <div class="relative h-72">
+          <canvas id="pendidikanChart"></canvas>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -443,7 +455,7 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
   new Chart(document.getElementById("pendidikanChart"), {
     type: 'bar',
     data: {
-      labels: ["Tidak/belum sekolah", "Tidak Tamat SD", "Tamat SD", "SMP", "SMA", "D1/D2", "S1/D3", "S2", "S3"],
+      labels: ["Tdk/belum sekolah", "Tdk Tamat SD", "Tamat SD", "SMP", "SMA", "D1/D2", "S1/D3", "S2", "S3"],
       datasets: [{
         label: "Jumlah",
         data: [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -464,7 +476,7 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
   new Chart(document.getElementById("pekerjaanChart"), {
     type: 'bar',
     data: {
-      labels: ["Petani", "buruh pabrik", "PNS", "Pegawai Swasta", "Pedagang/Wiraswasta", "Polri", "Dokter", "Bidan", "Perawat", "Lainnya"],
+      labels: ["Petani", "buruh pabrik", "PNS", "Pegawai Swasta", "Wiraswasta", "Polri", "Dokter", "Bidan", "Perawat", "Lainnya"],
       datasets: [{
         label: "Jumlah",
         data: [112, 26, 25, 357, 550, 2, 1, 3, 3, 2],
