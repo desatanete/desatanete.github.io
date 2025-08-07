@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,6 +9,51 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-white/60 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo / Judul -->
+        <div class="flex-shrink-0 text-xl font-bold text-gray-800">
+          Desa Tanete
+        </div>
+
+        <!-- Menu Toggle (Mobile) -->
+        <div class="md:hidden">
+          <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Menu Items -->
+        <ul id="menu"
+            class="hidden md:flex space-x-6 font-medium text-gray-800 transition-all duration-300">
+          <li><a href="#profil" class="hover:text-blue-600">Profil</a></li>
+          <li><a href="#statistik" class="hover:text-blue-600">Statistik</a></li>
+          <li><a href="#kelembagaan" class="hover:text-blue-600">Kelembagaan</a></li>
+          <li><a href="#visi-misi" class="hover:text-blue-600">Visi & Misi</a></li>
+          <li><a href="#pelayanan" class="hover:text-blue-600">Pelayanan</a></li>
+          <li><a href="#galeri" class="hover:text-blue-600">Galeri</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+      <ul class="space-y-2 font-medium text-gray-800">
+        <li><a href="#profil" class="block hover:text-blue-600">Profil</a></li>
+        <li><a href="#statistik" class="block hover:text-blue-600">Statistik</a></li>
+        <li><a href="#kelembagaan" class="block hover:text-blue-600">Kelembagaan</a></li>
+        <li><a href="#visi-misi" class="block hover:text-blue-600">Visi & Misi</a></li>
+        <li><a href="#pelayanan" class="block hover:text-blue-600">Pelayanan</a></li>
+        <li><a href="#galeri" class="block hover:text-blue-600">Galeri</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <!-- Hero Section -->
   <header class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('assets/desa.jpg');">
@@ -771,6 +816,15 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
     toggleBtn.textContent = expanded ? 'Tutup Galeri' : 'Lihat Selengkapnya';
   });
 </script>
+
+  <script>
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("mobile-menu");
+
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
 
 </body>
 </html>
