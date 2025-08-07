@@ -148,11 +148,17 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
           <canvas id="pendidikanChart"></canvas>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
+<!-- Tempelkan ini di dalam <body>, misalnya di bawah bagian data lainnya -->
+<section id="anggaran" class="bg-white py-16 px-6">
+  <h2 class="text-3xl font-bold text-center mb-10">Realisasi Anggaran Desa</h2>
+  <div class="max-w-4xl mx-auto">
+    <canvas id="anggaranChart" class="w-full h-96"></canvas>
+  </div>
+</section>
   
   <!-- Kelembagaan Desa -->
 <section id="kelembagaan" class="py-16 px-6 bg-white">
@@ -613,6 +619,76 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
       plugins: { legend: { display: false } },
       scales: {
         y: { beginAtZero: true, ticks: { stepSize: 100 } }
+      }
+    }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Script grafik anggaran -->
+<script>
+  // Kode JavaScript Chart anggaran di sini
+</script>
+
+<script>
+  new Chart(document.getElementById("anggaranChart"), {
+    type: 'bar',
+    data: {
+      labels: ['Pembangunan', 'Pemberdayaan', 'Administrasi', 'Keamanan', 'Lain-lain'],
+      datasets: [
+        {
+          label: 'Anggaran',
+          data: [60000000, 40000000, 25000000, 20000000, 15000000],
+          backgroundColor: '#3B82F6',
+          borderRadius: 10,
+          barThickness: 30
+        },
+        {
+          label: 'Realisasi',
+          data: [50000000, 30000000, 20000000, 15000000, 10000000],
+          backgroundColor: '#10B981',
+          borderRadius: 10,
+          barThickness: 30
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: true,
+          labels: {
+            usePointStyle: true,
+            boxWidth: 10,
+            padding: 20
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              let label = context.dataset.label || '';
+              if (label) label += ': ';
+              if (context.parsed.y !== null) {
+                label += 'Rp ' + context.parsed.y.toLocaleString('id-ID');
+              }
+              return label;
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            callback: function(value) {
+              return 'Rp ' + value.toLocaleString('id-ID');
+            },
+            stepSize: 10000000
+          }
+        }
       }
     }
   });
