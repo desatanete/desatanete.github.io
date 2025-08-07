@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profil Desa Tanete</title>
   <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-800">
 
@@ -149,17 +151,16 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
         </div>
       </div>
     </div>
-  </div>
 </section>
 
-<!-- Tempelkan ini di dalam <body>, misalnya di bawah bagian data lainnya -->
-<section id="anggaran" class="bg-white py-16 px-6">
-  <h2 class="text-3xl font-bold text-center mb-10">Realisasi Anggaran Desa</h2>
-  <div class="max-w-4xl mx-auto">
-    <canvas id="anggaranChart" class="w-full h-96"></canvas>
-  </div>
-</section>
-  
+  <section class="max-w-5xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-bold mb-6 text-blue-700 text-center">Statistik Realisasi Anggaran Desa</h2>
+    <div class="bg-white p-4 rounded-xl shadow-lg">
+      <canvas id="anggaranChart" class="w-full h-[400px] md:h-[500px]"></canvas>
+    </div>
+  </section>
+
+
   <!-- Kelembagaan Desa -->
 <section id="kelembagaan" class="py-16 px-6 bg-white">
   <h2 class="text-3xl font-bold text-center mb-10">Kelembagaan Desa</h2>
@@ -624,75 +625,76 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
   });
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<!-- Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<!-- Script grafik anggaran -->
 <script>
-  // Kode JavaScript Chart anggaran di sini
-</script>
+    const ctx = document.getElementById('anggaranChart').getContext('2d');
 
-<script>
-  new Chart(document.getElementById("anggaranChart"), {
-    type: 'bar',
-    data: {
-      labels: ['Pendapatan', 'Belanja Bidang Penyelenggaraan Pemerintahan Desa', 'Bidang Pelaksanaan Pembangunan Desa', 'Bidang Pembinaan Kemasyarakatan', 'Bidang Pemberdayaan Masyarakat', 'Bidang Penanggulangan Bencana, Darurat, dan Mendesak'],
+    const data = {
+      labels: [
+        "Pendapatan",
+        "Penyelenggaraan Pemerintahan Desa",
+        "Pelaksanaan Pembangunan Desa",
+        "Pembinaan Kemasyarakatan",
+        "Pemberdayaan Masyarakat",
+        "Penanggulangan Bencana dan Mendesak"
+      ],
       datasets: [
         {
           label: 'Anggaran',
-          data: [1853767000, 1192747670 , 462280400, 171707200, 72699500, 194400000 ],
-          backgroundColor: '#3B82F6',
-          borderRadius: 10,
-          barThickness: 30
+          data: [ 1853767000, 1192747670, 462280400 , 171707200,  72699500,  194400000],
+          backgroundColor: '#3B82F6'
         },
         {
           label: 'Realisasi',
-          data: [1829439710, 880891160, 415740980, 126667200, 47749500, 194400000],
-          backgroundColor: '#10B981',
-          borderRadius: 10,
-          barThickness: 30
+          data: [ 1829439710, 880891160,  415740980,  126667200,  47749500,  194400000],
+          backgroundColor: '#10B981'
         }
       ]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          display: true,
-          labels: {
-            usePointStyle: true,
-            boxWidth: 10,
-            padding: 20
+    };
+
+    const config = {
+      type: 'bar',
+      data: data,
+      options: {
+        indexAxis: 'y', // Horizontal bars
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'top',
+            labels: {
+              font: {
+                size: 14
+              }
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return context.dataset.label + ': ' + context.parsed.x + '';
+              }
+            }
           }
         },
-        tooltip: {
-          callbacks: {
-            label: function(context) {
-              let label = context.dataset.label || '';
-              if (label) label += ': ';
-              if (context.parsed.y !== null) {
-                label += 'Rp ' + context.parsed.y.toLocaleString('id-ID');
+        scales: {
+          x: {
+            beginAtZero: true,
+            title: {
+              display: true,
+            }
+          },
+          y: {
+            ticks: {
+              font: {
+                size: 14
               }
-              return label;
             }
           }
         }
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-          ticks: {
-            callback: function(value) {
-              return 'Rp ' + value.toLocaleString('id-ID');
-            },
-            stepSize: 10000000
-          }
-        }
       }
-    }
-  });
-</script>
+    };
 
+    new Chart(ctx, config);
+  </script>
+  
 </body>
 </html>
