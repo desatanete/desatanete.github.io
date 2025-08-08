@@ -1,0 +1,12 @@
+<%- include('partials/head', { title: item.judul }) %>
+<main class="max-w-3xl mx-auto px-6 py-10">
+  <h1 class="text-3xl font-bold"><%= item.judul %></h1>
+  <p class="text-sm text-gray-500 mt-1 mb-6"><%= new Date(item.createdAt).toLocaleDateString('id-ID', { dateStyle: 'long' }) %></p>
+  <% if (item.gambar) { %>
+    <img src="<%= item.gambar %>" alt="<%= item.judul %>" class="w-full rounded-xl mb-6">
+  <% } %>
+  <article class="prose max-w-none">
+    <p><%= item.isi %></p>
+  </article>
+</main>
+<%- include('partials/footer') %>
