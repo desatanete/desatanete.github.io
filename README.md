@@ -1,2 +1,2 @@
 # desatanete.github.io
-assets/preview.png
+<img src="assets/preview.png" alt="Description of image">
