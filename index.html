@@ -17,6 +17,29 @@
     scrollbar-width: none;  /* Firefox */
   }
 </style>
+
+
+<style>
+  /* Sembunyikan scrollbar agar lebih rapi */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+<style>
+  /* Supaya teks isi berita tidak panjang */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
+
 </head>
 <body class="bg-gray-50 text-gray-800">
 
@@ -703,6 +726,16 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
   </div>
 </section>
 
+<section id="berita" class="py-10 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-2xl font-bold mb-6">Berita Desa</h2>
+    <div id="berita-container" class="flex space-x-4 overflow-x-auto pb-4">
+      <!-- Card berita akan dimasukkan lewat JS -->
+    </div>
+  </div>
+</section>
+
+
   <!-- Footer -->
   <footer class="bg-gray-900 text-white py-10">
     <div class="max-w-6xl mx-auto px-6 md:flex md:justify-between">
@@ -880,6 +913,41 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
       menu.classList.toggle("hidden");
     });
   </script>
+
+<script>
+  // URL CSV hasil "Publish to Web" Google Sheets
+  const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS4iCJt6DESeRYT4GLiFSivV4Mv028O4Rz2lYbI5fRIPirT8owgpwaDDDdIMGeiPeZC8dBAVki66qvt/pub?gid=0&single=true&output=csv";
+
+  fetch(sheetURL)
+    .then(response => response.text())
+    .then(csvText => {
+      const rows = csvText.split("\n").map(row => row.split(","));
+      const beritaContainer = document.getElementById("berita-container");
+
+      // Mulai dari index 1 untuk skip header
+      for (let i = 1; i < rows.length; i++) {
+        const [tanggal, judul, gambar, isi] = rows[i].map(cell => cell.trim());
+
+        if (!judul) continue; // skip baris kosong
+
+        const card = document.createElement("div");
+        card.className = "flex-none w-64 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200";
+
+        card.innerHTML = `
+          <img src="${gambar}" alt="${judul}" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <p class="text-sm text-gray-500">${tanggal}</p>
+            <h3 class="text-lg font-semibold">${judul}</h3>
+            <p class="text-gray-700 text-sm mt-2 line-clamp-3">${isi}</p>
+          </div>
+        `;
+
+        beritaContainer.appendChild(card);
+      }
+    })
+    .catch(error => console.error("Gagal memuat berita:", error));
+</script>
+
 
 </body>
 </html>
