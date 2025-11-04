@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title || 'Desa Tanete' %></title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-white/60 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex-shrink-0 text-xl font-bold text-gray-800">Desa Tanete</div>
+        <ul class="hidden md:flex space-x-6 font-medium text-gray-800 transition-all duration-300">
+          <li><a href="/" class="hover:text-blue-600">Beranda</a></li>
+          <li><a href="/berita" class="hover:text-blue-600">Berita</a></li>
+          <li><a href="/pengaduan" class="hover:text-blue-600">Pengaduan</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="pt-20"></div>
