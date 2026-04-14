@@ -853,7 +853,7 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
     'ADD (APBD)', 
     'Pendapatan Lain'
   ];
-  const nilaiPendapatan = [150000000, 1200000000, 850000000, 50000000];
+  const nilaiPendapatan = [0, 826074000, 870398000, 0];
   
   // Hitung Total Pendapatan Otomatis
   const totalPendapatan = nilaiPendapatan.reduce((a, b) => a + b, 0);
@@ -896,8 +896,8 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
   const ctxA = document.getElementById('anggaranChart').getContext('2d');
   
   const labelBelanja = ['Pemerintahan', 'Pembangunan', 'Pembinaan', 'Pemberdayaan', 'Darurat', 'Pembiayaan'];
-  const dataAnggaran = [600000000, 950000000, 250000000, 400000000, 100000000, 150000000];
-  const dataRealisasi = [250000000, 450000000, 100000000, 150000000, 10000000, 50000000];
+  const dataAnggaran = [1061817937, 543669360, 180988800, 83400000, 155800000, 165214800];
+  const dataRealisasi = [919270076, 324719250, 165555200, 28032000, 130800000, 93550640];
 
   const totalAng = dataAnggaran.reduce((a, b) => a + b, 0);
   const totalReal = dataRealisasi.reduce((a, b) => a + b, 0);
