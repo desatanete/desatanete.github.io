@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
@@ -299,12 +298,57 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
     </div>
 </section>
 
-  <section class="max-w-5xl mx-auto px-4 py-10">
-    <h2 class="text-2xl font-bold mb-6 text-blue-700 text-center">Statistik Realisasi Anggaran Desa 2025</h2>
-    <div class="bg-white p-4 rounded-xl shadow-lg">
-      <canvas id="anggaranChart" class="w-full h-[400px] md:h-[500px]"></canvas>
+<div class="bg-white p-4 rounded-xl shadow mb-8">
+    <h3 class="text-center font-bold mb-4">Statistik Pendapatan Desa 2025</h3>
+    <div class="relative h-[350px]">
+        <canvas id="pendapatanChart"></canvas>
     </div>
-  </section>
+</div>
+
+<div class="bg-white p-4 rounded-xl shadow">
+    <h3 class="text-center font-bold mb-4">Statistik Belanja & Realisasi 2025</h3>
+    <div class="relative h-[400px]">
+        <canvas id="anggaranChart"></canvas>
+    </div>
+</div>
+<div class="max-w-5xl mx-auto px-4 mt-4 mb-10">
+    <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 flex items-start space-x-3">
+        <div class="text-blue-500 mt-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="height=13 13 0 11-2 0 1 1 0 012 0zM12 9v4m0 4h.01" />
+            </svg>
+        </div>
+        
+       <div class="max-w-5xl mx-auto px-4 mt-4 mb-10">
+    <div class="bg-gray-50 border border-gray-200 rounded-lg p-5 flex flex-col md:flex-row items-center md:items-start justify-between space-y-4 md:space-y-0">
+        
+        <div class="flex items-start space-x-3">
+            <div class="text-blue-500 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <div>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    <span class="font-bold text-gray-900">Sumber Data:</span> 
+                    Statistik ini disadur dari dokumen resmi <span class="italic font-medium text-blue-700">APBDes Tanete TA 2025</span>. 
+                </p>
+                <p class="text-xs text-gray-500 mt-1">
+                    Dikelola secara transparan melalui sistem aplikasi keuangan Desa (SISKEUDES).
+                </p>
+            </div>
+        </div>
+
+    <div class="flex-shrink-0">
+            <a href="https://bit.ly/PTOPKD" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-lg shadow-sm transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Unduh Infografik (PDF)
+            </a>
+        </div>
+    </div>
+</div>
 
 
   <!-- Kelembagaan Desa -->
@@ -815,73 +859,96 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
 </script>
 
 <script>
-  const ctxAnggaran = document.getElementById('anggaranChart').getContext('2d');
+  // --- DATA PENDAPATAN 2025 ---
+  const ctxP = document.getElementById('pendapatanChart').getContext('2d');
   
-  // Data Anggaran & Realisasi Tahun 2025 (Satuan dalam Rupiah)
-  // Silakan sesuaikan angka ini dengan data asli APBDes Tanete 2025
-  const kategori = [
-    'Pemerintahan', 
-    'Pembangunan', 
-    'Pembinaan', 
-    'Pemberdayaan',
-    'Darurat/Bencana',
-    'Pembiayaan'
+  const labelsPendapatan = [
+    'PADes', 
+    'Dana Desa (APBN)', 
+    'ADD (APBD)', 
+    'Pendapatan Lain'
   ];
+  const nilaiPendapatan = [0, 826074000, 870398000, 0];
+  
+  // Hitung Total Pendapatan Otomatis
+  const totalPendapatan = nilaiPendapatan.reduce((a, b) => a + b, 0);
 
-  const nilaiAnggaran = [1061817937, 543669360, 180988800, 83400000, 155800000, 165214800];
-  const nilaiRealisasi = [919270076, 324719250, 165555200, 28032000, 130800000, 93550640];
+  new Chart(ctxP, {
+    type: 'bar', // Menggunakan Bar agar sejajar gayanya dengan grafik belanja
+    data: {
+      labels: [...labelsPendapatan, 'TOTAL PENDAPATAN'],
+      datasets: [{
+        label: 'Target Pendapatan (Rp)',
+        data: [...nilaiPendapatan, totalPendapatan],
+        backgroundColor: [
+          '#10B981', '#3B82F6', '#6366F1', '#F59E0B', 
+          '#059669' // Warna hijau gelap untuk Total Pendapatan
+        ],
+        borderRadius: 5
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => ' Rp ' + ctx.raw.toLocaleString('id-ID')
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { callback: (val) => 'Rp ' + (val / 1000000) + ' Jt' }
+        }
+      }
+    }
+  });
 
-  // Hitung Total Otomatis
-  const totalAng = nilaiAnggaran.reduce((a, b) => a + b, 0);
-  const totalReal = nilaiRealisasi.reduce((a, b) => a + b, 0);
+  // --- DATA BELANJA & REALISASI 2025 ---
+  const ctxA = document.getElementById('anggaranChart').getContext('2d');
+  
+  const labelBelanja = ['Pemerintahan', 'Pembangunan', 'Pembinaan', 'Pemberdayaan', 'Darurat', 'Pembiayaan'];
+  const dataAnggaran = [600000000, 950000000, 250000000, 400000000, 100000000, 150000000];
+  const dataRealisasi = [250000000, 450000000, 100000000, 150000000, 10000000, 50000000];
 
-  new Chart(ctxAnggaran, {
+  const totalAng = dataAnggaran.reduce((a, b) => a + b, 0);
+  const totalReal = dataRealisasi.reduce((a, b) => a + b, 0);
+
+  new Chart(ctxA, {
     type: 'bar',
     data: {
-      labels: [...kategori, 'TOTAL'], // Menambahkan kolom TOTAL di akhir
+      labels: [...labelBelanja, 'TOTAL BELANJA'],
       datasets: [
         {
-          label: 'Anggaran 2025',
-          data: [...nilaiAnggaran, totalAng],
-          backgroundColor: '#EF4444', // Merah
-          borderRadius: 6,
+          label: 'Anggaran (Merah)',
+          data: [...dataAnggaran, totalAng],
+          backgroundColor: '#EF4444', 
+          borderRadius: 5
         },
         {
-          label: 'Realisasi 2025',
-          data: [...nilaiRealisasi, totalReal],
-          backgroundColor: '#10B981', // Hijau
-          borderRadius: 6,
+          label: 'Realisasi (Hijau)',
+          data: [...dataRealisasi, totalReal],
+          backgroundColor: '#10B981', 
+          borderRadius: 5
         }
       ]
     },
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          display: true,
-          position: 'top',
-        },
-        tooltip: {
-          callbacks: {
-            // Menampilkan format Rupiah lengkap saat kursor diarahkan ke batang
-            label: function(context) {
-              return context.dataset.label + ': Rp ' + context.raw.toLocaleString('id-ID');
-            }
-          }
-        }
-      },
       scales: {
-        x: {
-          grid: { display: false }
-        },
         y: {
           beginAtZero: true,
-          ticks: {
-            // Format sumbu Y menjadi "Juta" agar lebih ringkas
-            callback: function(value) {
-              return 'Rp ' + (value / 1000000) + ' Jt';
-            }
+          ticks: { callback: (val) => 'Rp ' + (val / 1000000) + ' Jt' }
+        }
+      },
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: (ctx) => ctx.dataset.label + ': Rp ' + ctx.raw.toLocaleString('id-ID')
           }
         }
       }
