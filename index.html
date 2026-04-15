@@ -299,21 +299,61 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
     </div>
 </section>
 
-<div class="bg-white p-4 rounded-xl shadow mb-8">
-    <h3 class="text-center font-bold mb-4">Statistik Pendapatan Desa 2025</h3>
-    <div class="relative h-[350px]">
-        <canvas id="pendapatanChart"></canvas>
+<section id="laporan-siskeudes" class="w-full bg-slate-50 py-16">
+  <div class="max-w-full">
+    
+    <div class="text-center mb-12 px-4">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 leading-tight">LAPORAN REALISASI PELAKSANAAN APBDesa</h2>
+      <p class="text-xl text-gray-700 uppercase tracking-wider">PEMERINTAH DESA TANETE TAHUN ANGGARAN 2025</p>
+      <div class="h-1 w-48 bg-gray-800 mx-auto mt-4"></div>
     </div>
-</div>
 
-<div class="bg-white p-4 rounded-xl shadow">
-    <h3 class="text-center font-bold mb-4">Statistik Belanja & Realisasi 2025</h3>
-    <div class="relative h-[400px]">
-        <canvas id="anggaranChart"></canvas>
+    <div class="w-full bg-white py-12 border-y border-gray-200 shadow-sm mb-10">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-2 h-10 bg-green-600"></div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 uppercase">I. PENDAPATAN DESA</h3>
+            <p class="text-sm text-gray-500 italic text-left">Kelompok: PAD, Transfer, Pendapatan Lain-lain</p>
+          </div>
+        </div>
+        <div class="relative w-full h-[450px]">
+          <canvas id="siskeudesPendapatan"></canvas>
+        </div>
+      </div>
     </div>
-</div>
 
-<div class="max-w-5xl mx-auto px-4 mt-4 mb-10">
+    <div class="w-full bg-white py-12 border-b border-gray-200 shadow-sm mb-10">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-2 h-10 bg-red-600"></div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 uppercase">II. BELANJA DESA</h3>
+            <p class="text-sm text-gray-500 italic text-left">Bidang: Pemerintahan, Pembangunan, Pembinaan, Pemberdayaan, Tak Terduga</p>
+          </div>
+        </div>
+        <div class="relative w-full h-[500px]">
+          <canvas id="siskeudesBelanja"></canvas>
+        </div>
+      </div>
+    </div>
+
+<div class="w-full bg-white py-12 border-b border-gray-200 shadow-sm mb-10">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-2 h-10 bg-amber-500"></div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 uppercase">III. PEMBIAYAAN DESA</h3>
+            <p class="text-sm text-gray-500 italic text-left">Kelompok: Penerimaan Pembiayaan (SiLPA) & Pengeluaran Pembiayaan</p>
+          </div>
+        </div>
+        <div class="relative w-full h-[350px]">
+          <canvas id="siskeudesPembiayaan"></canvas>
+        </div>
+      </div>
+    </div>
+
+  <div class="max-w-5xl mx-auto px-4 mt-4 mb-10">
     <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 flex items-start space-x-3">
         <div class="text-blue-500 mt-1">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -629,9 +669,9 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
       <div class="bg-gray-100 p-6 rounded-xl shadow">
         <h3 class="text-xl font-semibold mb-2">Kontak</h3>
         <p class="mb-2">Email: desatanete98@gmail.com</p>
-        <p class="mb-4">Telp/WA: 08xx-xxxx-xxxx</p>
+        <p class="mb-4">Telp/WA: 0856-9615-7511</p>
         <div class="flex flex-wrap gap-2">
-          <a href="https://wa.me/62XXXXXXXXXX" target="_blank" class="px-4 py-2 bg-green-600 text-white rounded-full font-medium hover:bg-green-700 transition">WhatsApp</a>
+          <a href="https://wa.me/+6285696157511" target="_blank" class="px-4 py-2 bg-green-600 text-white rounded-full font-medium hover:bg-green-700 transition">WhatsApp</a>
           <a href="mailto:desatanete98@gmail.com" class="px-4 py-2 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition">Email</a>
         </div>
       </div>
@@ -844,102 +884,104 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
 </script>
 
 <script>
-  // --- DATA PENDAPATAN 2025 ---
-  const ctxP = document.getElementById('pendapatanChart').getContext('2d');
-  
-  const labelsPendapatan = [
-    'PADes', 
-    'Dana Desa (APBN)', 
-    'ADD (APBD)', 
-    'Pendapatan Lain'
-  ];
-  const nilaiPendapatan = [0, 826074000, 870398000, 0];
-  
-  // Hitung Total Pendapatan Otomatis
-  const totalPendapatan = nilaiPendapatan.reduce((a, b) => a + b, 0);
-
-  new Chart(ctxP, {
-    type: 'bar', // Menggunakan Bar agar sejajar gayanya dengan grafik belanja
-    data: {
-      labels: [...labelsPendapatan, 'TOTAL PENDAPATAN'],
-      datasets: [{
-        label: 'Target Pendapatan (Rp)',
-        data: [...nilaiPendapatan, totalPendapatan],
-        backgroundColor: [
-          '#10B981', '#3B82F6', '#6366F1', '#F59E0B', 
-          '#059669' // Warna hijau gelap untuk Total Pendapatan
-        ],
-        borderRadius: 5
-      }]
+  // Konfigurasi Standar Siskeudes
+  const commonOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    indexAxis: 'y', // Menggunakan chart horizontal agar label panjang bidang terbaca jelas
+    plugins: {
+      legend: { position: 'top', labels: { font: { weight: 'bold' } } }
     },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: (ctx) => ' Rp ' + ctx.raw.toLocaleString('id-ID')
-          }
-        }
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-          ticks: { callback: (val) => 'Rp ' + (val / 1000000) + ' Jt' }
-        }
+    scales: {
+      x: { 
+        beginAtZero: true, 
+        ticks: { callback: (v) => 'Rp ' + v.toLocaleString('id-ID') } 
       }
     }
-  });
+  };
 
-  // --- DATA BELANJA & REALISASI 2025 ---
-  const ctxA = document.getElementById('anggaranChart').getContext('2d');
-  
-  const labelBelanja = ['Pemerintahan', 'Pembangunan', 'Pembinaan', 'Pemberdayaan', 'Darurat', 'Pembiayaan'];
-  const dataAnggaran = [1061817937, 543669360, 180988800, 83400000, 155800000, 165214800];
-  const dataRealisasi = [919270076, 324719250, 165555200, 28032000, 130800000, 93550640];
-
-  const totalAng = dataAnggaran.reduce((a, b) => a + b, 0);
-  const totalReal = dataRealisasi.reduce((a, b) => a + b, 0);
-
-  new Chart(ctxA, {
+  // --- I. GRAFIK PENDAPATAN (REKENING 4) ---
+  const ctxP = document.getElementById('siskeudesPendapatan').getContext('2d');
+  new Chart(ctxP, {
     type: 'bar',
     data: {
-      labels: [...labelBelanja, 'TOTAL BELANJA'],
+      labels: ['4.1. PAD Desa', '4.2. Dana Desa', '4.2. ADD', '4.2. Bagi Hasil Pajak/Retribusi', '4.3. Lain-lain Pendapatan'],
       datasets: [
         {
-          label: 'Anggaran (Merah)',
-          data: [...dataAnggaran, totalAng],
-          backgroundColor: '#EF4444', 
+          label: 'Anggaran (Pagu)',
+          data: [150000000, 1200000000, 850000000, 45000000, 15000000],
+          backgroundColor: '#94a3b8',
+        },
+        {
+          label: 'Realisasi (Capaian)',
+          data: [120000000, 1200000000, 425000000, 45000000, 10000000],
+          backgroundColor: '#16a34a',
+        }
+      ]
+    },
+    options: commonOptions
+  });
+
+  // --- II. GRAFIK BELANJA (BIDANG 1-5) ---
+  const ctxB = document.getElementById('siskeudesBelanja').getContext('2d');
+  new Chart(ctxB, {
+    type: 'bar',
+    data: {
+      labels: [
+        '1. Bidang Penyelenggaraan Pemerintahan', 
+        '2. Bidang Pelaksanaan Pembangunan', 
+        '3. Bidang Pembinaan Kemasyarakatan', 
+        '4. Bidang Pemberdayaan Masyarakat',
+        '5. Bidang Penanggulangan Bencana/Darurat'
+      ],
+      datasets: [
+        {
+          label: 'Anggaran (Pagu)',
+          data: [600000000, 950000000, 250000000, 400000000, 100000000],
+          backgroundColor: '#f87171',
+        },
+        {
+          label: 'Realisasi (Capaian)',
+          data: [350000000, 480000000, 120000000, 180000000, 5000000],
+          backgroundColor: '#2563eb',
+        }
+      ]
+    },
+    options: {
+      ...commonOptions,
+      indexAxis: 'y' // Sangat membantu untuk nama bidang yang panjang
+    }
+  });
+  
+  // --- III. GRAFIK PEMBIAYAAN (REKENING 6) ---
+  const ctxPem = document.getElementById('siskeudesPembiayaan').getContext('2d');
+  new Chart(ctxPem, {
+    type: 'bar',
+    data: {
+      labels: [
+        '6.1. Penerimaan Pembiayaan (SiLPA)', 
+        '6.2. Pengeluaran Pembiayaan (Penyertaan Modal)'
+      ],
+      datasets: [
+        {
+          label: 'Anggaran (Pagu)',
+          data: [120000000, 50000000], // Contoh: SiLPA 120jt, Penyertaan Modal BUMDes 50jt
+          backgroundColor: '#94a3b8',
           borderRadius: 5
         },
         {
-          label: 'Realisasi (Hijau)',
-          data: [...dataRealisasi, totalReal],
-          backgroundColor: '#10B981', 
+          label: 'Realisasi (Capaian)',
+          data: [120000000, 50000000],
+          backgroundColor: '#f59e0b', // Warna Amber/Oranye untuk Pembiayaan
           borderRadius: 5
         }
       ]
     },
     options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        y: {
-          beginAtZero: true,
-          ticks: { callback: (val) => 'Rp ' + (val / 1000000) + ' Jt' }
-        }
-              },
-      plugins: {
-        tooltip: {
-          callbacks: {
-            label: (ctx) => ctx.dataset.label + ': Rp ' + ctx.raw.toLocaleString('id-ID')
-          }
-        }
-      }
+      ...commonOptions, // Menggunakan konfigurasi yang sudah kita buat sebelumnya
+      indexAxis: 'y'
     }
   });
-  
 </script>
   
   <script>
