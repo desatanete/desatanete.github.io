@@ -1,0 +1,54 @@
+<%- include('partials/head', { title: 'Profil Desa Tanete' }) %>
+
+<header class="relative h-[60vh] md:h-[70vh] flex items-center justify-center bg-cover bg-center" style="background-image: url('/assets/desa.jpg');">
+  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+  <div class="text-center text-white z-10 px-4">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">Selamat Datang di Desa Tanete</h1>
+    <p class="text-lg md:text-2xl">Desa Mandiri dan Berkelanjutan di Kabupaten Sidrap</p>
+  </div>
+</header>
+
+<section class="py-16 px-6 max-w-6xl mx-auto">
+  <div class="grid md:grid-cols-3 gap-8 items-center">
+    <div class="md:col-span-2">
+      <h2 class="text-3xl font-bold mb-4">Profil Desa</h2>
+      <p class="text-lg text-justify leading-relaxed">Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, Kabupaten Sidenreng Rappang (Sidrap), Provinsi Sulawesi Selatan. Mayoritas penduduk Desa Tanete bermata pencaharian sebagai petani, peternak, dan pelaku usaha kecil.</p>
+    </div>
+    <div class="bg-blue-50 rounded-xl p-6">
+      <h3 class="text-xl font-semibold mb-3">Layanan Cepat</h3>
+      <div class="space-y-2">
+        <a class="block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700" href="/berita">Lihat Berita</a>
+        <a class="block px-4 py-2 bg-emerald-600 text-white rounded hover:bg-emerald-700" href="/pengaduan">Form Pengaduan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl md:text-3xl font-bold">Berita Terbaru</h2>
+      <a href="/berita" class="text-blue-600 hover:underline">Semua berita</a>
+    </div>
+    <% if (!news || news.length === 0) { %>
+      <p class="text-gray-600">Belum ada berita.</p>
+    <% } else { %>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <% news.forEach(item => { %>
+          <article class="bg-white rounded-xl shadow hover:shadow-md transition overflow-hidden">
+            <% if (item.gambar) { %>
+              <img src="<%= item.gambar %>" alt="<%= item.judul %>" class="w-full h-40 object-cover">
+            <% } %>
+            <div class="p-4">
+              <h3 class="font-semibold text-lg mb-1"><a class="hover:text-blue-600" href="/berita/<%= item.slug %>"><%= item.judul %></a></h3>
+              <p class="text-sm text-gray-500 mb-2"><%= new Date(item.createdAt).toLocaleDateString('id-ID') %></p>
+              <a class="text-blue-600 hover:underline" href="/berita/<%= item.slug %>">Baca selengkapnya</a>
+            </div>
+          </article>
+        <% }) %>
+      </div>
+    <% } %>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
