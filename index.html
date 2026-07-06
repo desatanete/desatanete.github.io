@@ -202,49 +202,95 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
 </section>
 
 <!-- Fasilitas Desa -->
-<section id="fasilitas" class="bg-gray-50 py-16 px-6">
+<section id="fasilitas" class="bg-gray-50 py-16 px-6 select-none">
   <div class="max-w-6xl mx-auto">
     <h2 class="text-3xl font-bold text-center mb-6">Fasilitas Desa</h2>
     <p class="text-center text-gray-600 mb-10">Berikut adalah berbagai fasilitas umum yang tersedia di Desa Tanete untuk mendukung kesejahteraan warga.</p>
 
-    <div class="overflow-x-auto hide-scrollbar">
-      <div class="flex gap-4 w-max">
-        <!-- Contoh fasilitas (ulangi dengan data berbeda) -->
-        <div class="min-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition">
+    <!-- Perbaikan pada container utama: Menambahkan id, cursor-grab, dan menghilangkan scrollbar secara aman -->
+    <div id="fasilitasContainer" class="overflow-x-auto cursor-grab active:cursor-grabbing style-scrollbar" style="scroll-behavior: smooth; -webkit-overflow-scrolling: touch;">
+      <div class="flex gap-4 w-max pb-4">
+        <!-- Contoh fasilitas -->
+        <div class="min-w-[200px] max-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition pointer-events-none">
           <img src="assets/kantordesa.jpg" alt="Kantor Desa" class="w-full h-36 object-cover rounded-lg mb-3">
           <h3 class="font-semibold text-lg">Kantor Desa</h3>
         </div>
-        <div class="min-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition">
+        <div class="min-w-[200px] max-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition pointer-events-none">
           <img src="https://cdn-sekolah.annibuku.com/40305719/5.jpg" alt="Sekolah Dasar" class="w-full h-36 object-cover rounded-lg mb-3">
           <h3 class="font-semibold text-lg">Sekolah Dasar</h3>
         </div>
-        <div class="min-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition">
+        <div class="min-w-[200px] max-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition pointer-events-none">
           <img src="assets/Mesjid.jpg" alt="Masjid" class="w-full h-36 object-cover rounded-lg mb-3">
           <h3 class="font-semibold text-lg">Masjid Jami Hikmat</h3>
         </div>
-        <div class="min-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition">
+        <div class="min-w-[200px] max-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition pointer-events-none">
           <img src="assets/posyandutanete.jpg" alt="Posyandu Hikmat" class="w-full h-36 object-cover rounded-lg mb-3">
           <h3 class="font-semibold text-lg">Posyandu Hikmat</h3>
         </div>
-        <div class="min-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition">
+        <div class="min-w-[200px] max-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition pointer-events-none">
           <img src="assets/Lapangan.jpg" alt="Lapangan Olahraga" class="w-full h-36 object-cover rounded-lg mb-3">
           <h3 class="font-semibold text-lg">Lapangan Olahraga</h3>
         </div>
-        <!-- Tambah hingga 15–20 fasilitas -->
-        <!-- Contoh tambahan -->
-        <div class="min-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition">
+        <div class="min-w-[200px] max-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition pointer-events-none">
           <img src="assets/balai-desa.jpg" alt="Balai Benih Ikan" class="w-full h-36 object-cover rounded-lg mb-3">
           <h3 class="font-semibold text-lg">Balai Benih Ikan</h3>
         </div>
-        <div class="min-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition">
+        <div class="min-w-[200px] max-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition pointer-events-none">
           <img src="assets/pustu.jpg" alt="Poskesdes" class="w-full h-36 object-cover rounded-lg mb-3">
           <h3 class="font-semibold text-lg">Poskesdes</h3>
         </div>
-        <!-- ... lanjutkan hingga 20 -->
       </div>
     </div>
   </div>
 </section>
+
+<!-- Tambahkan CSS ini di dalam tag <style> global Anda untuk menyembunyikan scrollbar tapi fungsi geser tetap jalan -->
+<style>
+  .style-scrollbar::-webkit-scrollbar {
+    height: 6px; /* Memberikan scrollbar tipis yang cantik di bagian bawah */
+  }
+  .style-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  .style-scrollbar::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+  }
+  .style-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+</style>
+
+<!-- JAVASCRIPT: Agar pengguna PC/Laptop bisa menggeser menggunakan klik & seret mouse -->
+<script>
+  const slider = document.getElementById('fasilitasContainer');
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+  
+  slider.addEventListener('mouseleave', () => {
+    isDown = false;
+  });
+  
+  slider.addEventListener('mouseup', () => {
+    isDown = false;
+  });
+  
+  slider.addEventListener('mousemove', (e) => {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2; // Angka 2 mengatur kecepatan geser layar
+    slider.scrollLeft = scrollLeft - walk;
+  });
+</script>
 
   <!-- Statistik Penduduk -->
 <section id="statistik" class="bg-gray-100 py-16 px-6">
