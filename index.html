@@ -5,23 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profil Desa Tanete</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .scrollbar-hide::-webkit-scrollbar { display: none; }
-    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-    .line-clamp-3 {
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
+  <!-- Navbar -->
   <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-white/60 shadow-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
@@ -36,573 +29,251 @@
             </svg>
           </button>
         </div>
-        <ul id="menu" class="hidden md:flex space-x-6 font-medium text-gray-800 transition-all duration-300">
+        <ul id="menu" class="hidden md:flex space-x-6 font-medium text-gray-800">
           <li><a href="#profil" class="hover:text-blue-600">Profil</a></li>
           <li><a href="#statistik" class="hover:text-blue-600">Statistik</a></li>
           <li><a href="#kelembagaan" class="hover:text-blue-600">Kelembagaan</a></li>
           <li><a href="#visi-misi" class="hover:text-blue-600">Visi & Misi</a></li>
           <li><a href="#pelayanan" class="hover:text-blue-600">Pelayanan</a></li>
-          <li><a href="#galeri" class="hover:text-blue-600">Galeri</a></li>
-          <li><a href="https://desatanete.github.io/berita-/">Berita</a></li>
+          <li><a href="https://desatanete.github.io/berita-/" class="hover:text-blue-600">Berita</a></li>
         </ul>
       </div>
     </div>
-    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-white">
       <ul class="space-y-2 font-medium text-gray-800">
         <li><a href="#profil" class="block hover:text-blue-600">Profil</a></li>
         <li><a href="#statistik" class="block hover:text-blue-600">Statistik</a></li>
         <li><a href="#kelembagaan" class="block hover:text-blue-600">Kelembagaan</a></li>
         <li><a href="#visi-misi" class="block hover:text-blue-600">Visi & Misi</a></li>
-        <li><a href="#pelayanan" class="block hover:text-blue-600">Pelayanan</a></li>
-        <li><a href="#galeri" class="block hover:text-blue-600">Galeri</a></li>
-        <li><a href="https://desatanete.github.io/berita-/">Berita</a></li>
+        <li><a href="https://desatanete.github.io/berita-/" class="block hover:text-blue-600">Berita</a></li>
       </ul>
     </div>
   </nav>
 
+  <!-- Hero Section -->
   <header class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('assets/desa.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="absolute inset-0 bg-black/50"></div>
     <div class="text-center text-white z-10 px-4">
       <h1 class="text-4xl md:text-6xl font-bold mb-4">Selamat Datang di Desa Tanete</h1>
       <p class="text-lg md:text-2xl">Desa Mandiri dan Berkelanjutan di Kabupaten Sidrap</p>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </header>
 
+  <!-- Profil Desa -->
   <section id="profil" class="py-16 px-6 max-w-5xl mx-auto">
     <h2 class="text-3xl font-bold text-center mb-6">Profil Desa</h2>
     <p class="text-lg text-justify leading-relaxed">
-      Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, Kabupaten Sidenreng Rappang (Sidrap), Provinsi Sulawesi Selatan. Mayoritas penduduk Desa Tanete bermata pencaharian sebagai petani, peternak, dan pelaku usaha kecil. Secara administratif, desa ini dipimpin oleh seorang kepala desa dan terbagi ke dalam beberapa dusun yang masing-masing dikelola oleh kepala dusun. Desa Tanete juga telah dilengkapi dengan fasilitas dasar seperti kantor desa, sekolah, tempat ibadah, dan pos kesehatan desa (poskesdes).
+      Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, Kabupaten Sidenreng Rappang (Sidrap), Provinsi Sulawesi Selatan. Mayoritas penduduk Desa Tanete bermata pencaharian sebagai petani, peternak, dan pelaku usaha kecil.
     </p>
   </section>
 
-  <section id="potensi" class="bg-white py-16 px-6">
-    <h2 class="text-3xl font-bold text-center mb-10">Mengenal Lebih Dekat dengan Desa Tanete</h2>
-    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition">
-        <img src="https://sulselekspres.com/wp-content/uploads/2018/09/800px_COLOURBOX18495746.jpg" class="rounded mb-4 w-full h-48 object-cover" alt="Pertanian">
-        <h3 class="text-xl font-semibold mb-2">Lumbung Padi</h3>
-        <p>Tanete memiliki lahan sawah produktif dengan hasil panen unggulan sepanjang tahun.</p>
-      </div>
-      <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition">
-        <img src="assets/sentra-ayam-petelur.jpg" class="rounded mb-4 w-full h-48 object-cover" alt="Peternakan">
-        <h3 class="text-xl font-semibold mb-2">Sentra Ayam Petelur</h3>
-        <p>Sentra peternakan ayam petelur menjadi sumber ekonomi utama bagi warga desa.</p>
-      </div>
-      <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition">
-        <img src="https://res.cloudinary.com/dk0z4ums3/image/upload/v1602495292/attached_image/ini-kegiatan-posyandu-dan-manfaatnya-bagi-ibu-dan-anak.jpg" class="rounded mb-4 w-full h-48 object-cover" alt="Kesehatan">
-        <h3 class="text-xl font-semibold mb-2">Desa Zero Stunting</h3>
-        <p>Komitmen desa dalam mendukung tumbuh kembang anak melalui program kesehatan terpadu.</p>
-      </div>
-    </div>
-  </section>
-  
-  <section id="peta" class="py-16 px-6 bg-gray-100">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-6">Peta Desa Tanete</h2>
-      <p class="mb-8 text-lg">Berikut adalah lokasi geografis Desa Tanete, Kecamatan Maritengngae, Kabupaten Sidenreng Rappang.</p>
-      <div class="w-full h-96 rounded-xl overflow-hidden shadow-lg">
-        <iframe 
-          src="https://maps.google.com/maps?q=Desa%20Tanete,%20Maritengngae,%20Sidrap&t=&z=14&ie=UTF8&iwloc=&output=embed" 
-          width="100%" 
-          height="100%" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-    </div>
-  </section>
-  
-  <section id="sejarah" class="bg-gray-50 py-16 px-6">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-10">Sejarah Desa</h2>
-      <p class="text-justify leading-relaxed text-lg">
-        Dahulunya Desa Tanete merupakan bagian dari distrik Allakuang yang berupa sebuah dusun yang mana sebagian besar wilayahnya digunakan sebagai lahan bercocok tanam. Namun akibat adanya bencana kebakaran yang terjadi di wilayah Allakuang (Induk distrik) maka sebagian besar masyarakat mengungsikan diri ke wilayah sekitar dusun Tanete kemudian bermukim dan menetap untuk dijadikan kampung Tanete. Nama Tanete diambil dari kata “Ketinggian” Artinya Tanete tidak akan tenggelam. Desa Tanete resmi berdiri setelah berpisah dengan Desa Allakuang pada tahun 1992 menjadi Desa definitif yang di tandai dengan pemilihan kepala desa secara langsung oleh masyarakat yang terdiri dari 3 Dusun yaitu Dusun I Tanete, Dusun II Tanete, dan Dusun III Tanete.
-      </p>
-    </div>
-  </section>
-
-  <section id="kegiatan" class="bg-white py-16 px-6">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-10">Kegiatan Desa</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition text-center">
-          <img src="assets/kerjabaktidesa.jpg" alt="Kerja Bakti" class="rounded mb-4 w-full h-48 object-cover">
-          <h3 class="text-xl font-semibold mb-2">Kerja Bakti</h3>
-          <p>Kegiatan rutin membersihkan lingkungan bersama warga sebagai wujud gotong royong dan kepedulian sosial.</p>
-        </div>
-        <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition text-center">
-          <img src="assets/posyandutanete.jpg" alt="Posyandu" class="rounded mb-4 w-full h-48 object-cover">
-          <h3 class="text-xl font-semibold mb-2">Posyandu</h3>
-          <p>Pelayanan kesehatan ibu dan anak yang diadakan rutin setiap bulan untuk mencegah stunting dan meningkatkan gizi.</p>
-        </div>
-        <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition text-center">
-          <img src="https://www.pijarnews.com/wp-content/uploads/2024/07/Picsart_24-07-24_07-31-55-864.jpg" alt="Muharram" class="rounded mb-4 w-full h-48 object-cover">
-          <h3 class="text-xl font-semibold mb-2">Peringatan Muharram</h3>
-          <p>Momentum reflektif warga desa melalui pengajian dan kegiatan sosial dalam rangka tahun baru Islam.</p>
-        </div>
-        <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition text-center">
-          <img src="https://www.pinisi.co.id/wp-content/uploads/2022/05/1102021122242.jpg" alt="Mattoana" class="rounded mb-4 w-full h-48 object-cover">
-          <h3 class="text-xl font-semibold mb-2">Mattoana</h3>
-          <p>Tradisi lokal dalam menyambut musim tanam yang sarat dengan nilai adat dan spiritualitas Bugis.</p>
-        </div>
-        <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition text-center">
-          <img src="assets/Mangeppi.jpg" alt="Mangeppi" class="rounded mb-4 w-full h-48 object-cover">
-          <h3 class="text-xl font-semibold mb-2">Mangeppi</h3>
-          <p>Tradisi pesta panen sebagai bentuk syukur atas hasil bumi dan solidaritas antarwarga desa.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="fasilitas" class="bg-gray-50 py-16 px-6">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-6">Fasilitas Desa</h2>
-      <p class="text-center text-gray-600 mb-10">Berikut adalah berbagai fasilitas umum yang tersedia di Desa Tanete untuk mendukung kesejahteraan warga.</p>
-      <div class="overflow-x-auto hide-scrollbar">
-        <div class="flex gap-4 w-max">
-          <div class="min-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition">
-            <img src="assets/kantordesa.jpg" alt="Kantor Desa" class="w-full h-36 object-cover rounded-lg mb-3">
-            <h3 class="font-semibold text-lg">Kantor Desa</h3>
-          </div>
-          <div class="min-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition">
-            <img src="https://cdn-sekolah.annibuku.com/40305719/5.jpg" alt="Sekolah Dasar" class="w-full h-36 object-cover rounded-lg mb-3">
-            <h3 class="font-semibold text-lg">Sekolah Dasar</h3>
-          </div>
-          <div class="min-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition">
-            <img src="assets/Mesjid.jpg" alt="Masjid" class="w-full h-36 object-cover rounded-lg mb-3">
-            <h3 class="font-semibold text-lg">Masjid Jami Hikmat</h3>
-          </div>
-          <div class="min-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition">
-            <img src="assets/posyandutanete.jpg" alt="Posyandu Hikmat" class="w-full h-36 object-cover rounded-lg mb-3">
-            <h3 class="font-semibold text-lg">Posyandu Hikmat</h3>
-          </div>
-          <div class="min-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition">
-            <img src="assets/Lapangan.jpg" alt="Lapangan Olahraga" class="w-full h-36 object-cover rounded-lg mb-3">
-            <h3 class="font-semibold text-lg">Lapangan Olahraga</h3>
-          </div>
-          <div class="min-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition">
-            <img src="assets/balai-desa.jpg" alt="Balai Benih Ikan" class="w-full h-36 object-cover rounded-lg mb-3">
-            <h3 class="font-semibold text-lg">Balai Benih Ikan</h3>
-          </div>
-          <div class="min-w-[200px] bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition">
-            <img src="assets/pustu.jpg" alt="Poskesdes" class="w-full h-36 object-cover rounded-lg mb-3">
-            <h3 class="font-semibold text-lg">Poskesdes</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- Statistik Penduduk -->
   <section id="statistik" class="bg-gray-100 py-16 px-6">
     <h2 class="text-3xl font-bold text-center mb-10">Statistik Penduduk</h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center max-w-6xl mx-auto mb-12">
       <div class="bg-white p-6 rounded-xl shadow">
         <p class="text-3xl font-bold text-blue-600">2.950</p>
-        <p>Jumlah Penduduk</p>
+        <p class="text-gray-600 text-sm">Jumlah Penduduk</p>
       </div>
       <div class="bg-white p-6 rounded-xl shadow">
         <p class="text-3xl font-bold text-green-600">1.447</p>
-        <p>Laki-laki</p>
+        <p class="text-gray-600 text-sm">Laki-laki</p>
       </div>
       <div class="bg-white p-6 rounded-xl shadow">
         <p class="text-3xl font-bold text-pink-500">1.503</p>
-        <p>Perempuan</p>
+        <p class="text-gray-600 text-sm">Perempuan</p>
       </div>
       <div class="bg-white p-6 rounded-xl shadow">
         <p class="text-3xl font-bold text-yellow-500">929</p>
-        <p>Keluarga</p>
+        <p class="text-gray-600 text-sm">Keluarga</p>
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-      <div class="bg-white p-6 rounded-xl shadow">
-        <h3 class="text-xl font-semibold mb-4 text-center">Distribusi Umur</h3>
-        <div class="relative h-72">
-          <canvas id="umurChart"></canvas>
-        </div>
-      </div>
-      <div class="bg-white p-6 rounded-xl shadow">
-        <h3 class="text-xl font-semibold mb-4 text-center">Mata Pencaharian Utama</h3>
-        <div class="relative h-72">
-          <canvas id="pekerjaanChart"></canvas>
-        </div>
-      </div>
-      <div class="bg-white p-6 rounded-xl shadow">
-        <h3 class="text-xl font-semibold mb-4 text-center">Pendidikan Terakhir</h3>
-        <div class="relative h-72">
-          <canvas id="pendidikanChart"></canvas>
-        </div>
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div class="bg-white p-6 rounded-xl shadow h-80"><canvas id="umurChart"></canvas></div>
+      <div class="bg-white p-6 rounded-xl shadow h-80"><canvas id="pekerjaanChart"></canvas></div>
+      <div class="bg-white p-6 rounded-xl shadow h-80"><canvas id="pendidikanChart"></canvas></div>
     </div>
   </section>
 
+  <!-- Laporan Keuangan APBDesa -->
   <section id="laporan-siskeudes" class="w-full bg-slate-50 py-16">
-    <div class="max-w-full">
-      <div class="text-center mb-12 px-4">
-        <h2 class="text-2xl md:text-3xl font-black text-gray-900 leading-tight">LAPORAN REALISASI PELAKSANAAN APBDesa</h2>
-        <p class="text-xl text-gray-700 uppercase tracking-wider">PEMERINTAH DESA TANETE TAHUN ANGGARAN 2025</p>
-        <div class="h-1 w-48 bg-gray-800 mx-auto mt-4"></div>
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-black text-gray-900">LAPORAN REALISASI PELAKSANAAN APBDesa</h2>
+        <p class="text-lg text-gray-600 uppercase tracking-wider">TAHUN ANGGARAN 2025</p>
       </div>
 
-      <div class="w-full bg-white py-12 border-y border-gray-200 shadow-sm mb-10">
-        <div class="max-w-7xl mx-auto px-4">
-          <div class="flex items-center gap-3 mb-8">
-            <div class="w-2 h-10 bg-green-600"></div>
-            <div>
-              <h3 class="text-xl font-bold text-gray-800 uppercase">I. PENDAPATAN DESA</h3>
-              <p class="text-sm text-gray-500 italic text-left">Kelompok: PAD, Transfer, Pendapatan Lain-lain</p>
-            </div>
-          </div>
-          <div class="relative w-full h-[450px]">
-            <canvas id="siskeudesPendapatan"></canvas>
-          </div>
-        </div>
+      <div class="bg-white p-6 rounded-xl shadow mb-8">
+        <h3 class="text-xl font-bold mb-4 text-green-600">I. PENDAPATAN DESA</h3>
+        <div class="h-[350px]"><canvas id="siskeudesPendapatan"></canvas></div>
       </div>
 
-      <div class="w-full bg-white py-12 border-b border-gray-200 shadow-sm mb-10">
-        <div class="max-w-7xl mx-auto px-4">
-          <div class="flex items-center gap-3 mb-8">
-            <div class="w-2 h-10 bg-red-600"></div>
-            <div>
-              <h3 class="text-xl font-bold text-gray-800 uppercase">II. BELANJA DESA</h3>
-              <p class="text-sm text-gray-500 italic text-left">Bidang: Pemerintahan, Pembangunan, Pembinaan, Pemberdayaan, Tak Terduga</p>
-            </div>
-          </div>
-          <div class="relative w-full h-[500px]">
-            <canvas id="siskeudesBelanja"></canvas>
-          </div>
-        </div>
+      <div class="bg-white p-6 rounded-xl shadow mb-8">
+        <h3 class="text-xl font-bold mb-4 text-red-600">II. BELANJA DESA</h3>
+        <div class="h-[400px]"><canvas id="siskeudesBelanja"></canvas></div>
       </div>
 
-      <div class="w-full bg-white py-12 border-b border-gray-200 shadow-sm mb-10">
-        <div class="max-w-7xl mx-auto px-4">
-          <div class="flex items-center gap-3 mb-8">
-            <div class="w-2 h-10 bg-amber-500"></div>
-            <div>
-              <h3 class="text-xl font-bold text-gray-800 uppercase">III. PEMBIAYAAN DESA</h3>
-              <p class="text-sm text-gray-500 italic text-left">Kelompok: Penerimaan Pembiayaan (SiLPA) & Pengeluaran Pembiayaan</p>
-            </div>
-          </div>
-          <div class="relative w-full h-[350px]">
-            <canvas id="siskeudesPembiayaan"></canvas>
-          </div>
-        </div>
-      </div>
-
-      <div class="max-w-5xl mx-auto px-4 mt-4 mb-10">
-        <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 flex items-start space-x-3">
-          <div class="text-blue-500 mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <div>
-            <p class="text-sm text-gray-700 leading-relaxed">
-              <span class="font-bold text-gray-900">Sumber Data:</span> Informasi statistik pendapatan dan realisasi anggaran ini berdasarkan dokumen resmi <span class="italic">Anggaran Pendapatan dan Belanja Desa (APBDes) Tanete Tahun Anggaran 2025</span>.
-            </p>
-            <p class="text-xs text-gray-500 mt-1">
-              Data diperbarui secara berkala oleh Pemerintah Desa melalui Sistem Keuangan Desa (Siskeudes). Terakhir diperbarui: <span id="lastUpdate">15 April 2026</span>.
-            </p>
-          </div>
-        </div>
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h3 class="text-xl font-bold mb-4 text-amber-500">III. PEMBIAYAAN DESA</h3>
+        <div class="h-[300px]"><canvas id="siskeudesPembiayaan"></canvas></div>
       </div>
     </div>
   </section>
 
+  <!-- Kelembagaan Desa -->
   <section id="kelembagaan" class="py-16 px-6 bg-white">
     <h2 class="text-3xl font-bold text-center mb-10">Kelembagaan Desa</h2>
 
+    <!-- Pemerintah Desa -->
     <div class="mb-12 max-w-6xl mx-auto px-4">
-      <h3 class="text-2xl font-semibold mb-6 text-blue-700 text-center md:text-left">Struktur Pemerintah Desa</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <h3 class="text-xl font-bold mb-6 text-blue-700">Struktur Pemerintah Desa</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         
-        <div onclick="openModal('assets/pakde3.jpg', 'H. Baharuddin, S.E.', 'Kepala Desa')" class="bg-gray-100 rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-200 transition group">
-          <img src="assets/pakde3.jpg" alt="Kepala Desa" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Kepala Desa</p>
-          <p class="text-gray-700">H. Baharuddin, S.E.</p>
+        <div onclick="openModal('assets/pakde3.jpg', 'H. Baharuddin, S.E.', 'Kepala Desa', 'S1 Ekonomi - Universitas Hasanuddin, SMA Negeri 1 Sidrap')" class="bg-gray-100 rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-200 transition group">
+          <img src="assets/pakde3.jpg" class="w-24 h-24 object-cover rounded-full mb-3 shadow group-hover:scale-105 transition">
+          <p class="font-bold text-base">Kepala Desa</p>
+          <p class="text-gray-600 text-sm">H. Baharuddin, S.E.</p>
         </div>
 
-        <div onclick="openModal('assets/sekdes.png', 'Fatahullah, S.Ag.', 'Sekretaris Desa')" class="bg-gray-100 rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-200 transition group">
-          <img src="assets/sekdes.png" alt="Sekretaris Desa" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Sekretaris Desa</p>
-          <p class="text-gray-700">Fatahullah, S.Ag.</p>
+        <div onclick="openModal('assets/sekdes.png', 'Fatahullah, S.Ag.', 'Sekretaris Desa', 'S1 Agama Islam - IAIN Parepare, MAN 1 Sidrap')" class="bg-gray-100 rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-200 transition group">
+          <img src="assets/sekdes.png" class="w-24 h-24 object-cover rounded-full mb-3 shadow group-hover:scale-105 transition">
+          <p class="font-bold text-base">Sekretaris Desa</p>
+          <p class="text-gray-600 text-sm">Fatahullah, S.Ag.</p>
         </div>
 
-        <div onclick="openModal('assets/KASI-Kesejahteraan.png', 'Muh. Ali Safii, S.Tr.Pt.', 'Kepala Seksi Kesejahteraan')" class="bg-gray-100 rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-200 transition group">
-          <img src="assets/KASI-Kesejahteraan.png" alt="Kasi Kesejahteraan" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Kepala Seksi Kesejahteraan</p>
-          <p class="text-gray-700">Muh. Ali Safii, S.Tr.Pt.</p>
+        <div onclick="openModal('assets/KASI-Kesejahteraan.png', 'Muh. Ali Safii, S.Tr.Pt.', 'Kasi Kesejahteraan', 'D4 Peternakan - STPP Gowa, SMK 1 Sidrap')" class="bg-gray-100 rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-200 transition group">
+          <img src="assets/KASI-Kesejahteraan.png" class="w-24 h-24 object-cover rounded-full mb-3 shadow group-hover:scale-105 transition">
+          <p class="font-bold text-base">Kasi Kesejahteraan</p>
+          <p class="text-gray-600 text-sm">Muh. Ali Safii</p>
         </div>
 
-        <div onclick="openModal('assets/KASI-Pelayanan.png', 'Hasnawati, S.Pd', 'Kepala Seksi Pemerintahan')" class="bg-gray-100 rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-200 transition group">
-          <img src="assets/KASI-Pelayanan.png" alt="Kasi Pemerintahan" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Kepala Seksi Pemerintahan</p>
-          <p class="text-gray-700">Hasnawati, S.Pd</p>
+        <div onclick="openModal('assets/KASI-Pelayanan.png', 'Hasnawati, S.Pd', 'Kasi Pemerintahan', 'S1 Pendidikan - Universitas Muhammadiyah Sidrap')" class="bg-gray-100 rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-200 transition group">
+          <img src="assets/KASI-Pelayanan.png" class="w-24 h-24 object-cover rounded-full mb-3 shadow group-hover:scale-105 transition">
+          <p class="font-bold text-base">Kasi Pemerintahan</p>
+          <p class="text-gray-600 text-sm">Hasnawati, S.Pd</p>
         </div>
 
-        <div onclick="openModal('assets/Nely.jpg', 'Nely Amalia', 'Kepala Seksi Pelayanan')" class="bg-gray-100 rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-200 transition group">
-          <img src="assets/Nely.jpg" alt="Kasi Pelayanan" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Kepala Seksi Pelayanan</p>
-          <p class="text-gray-700">Nely Amalia</p>
-        </div>
-
-        <div onclick="openModal('assets/KAUR-Umum.png', 'Wildayati, S.Pd.', 'Kepala Urusan Umum')" class="bg-gray-100 rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-200 transition group">
-          <img src="assets/KAUR-Umum.png" alt="Kaur Umum" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Kepala Urusan Umum</p>
-          <p class="text-gray-700">Wildayati, S.Pd.</p>
-        </div>
-
-        <div onclick="openModal('assets/KAUR-Perencanaan.png', 'Hariyadi, S.H', 'Kepala Urusan Keuangan')" class="bg-gray-100 rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-200 transition group">
-          <img src="assets/KAUR-Perencanaan.png" alt="Kaur Keuangan" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Kepala Urusan Keuangan</p>
-          <p class="text-gray-700">Hariyadi, S.H</p>
-        </div>
-
-        <div onclick="openModal('assets/STAF-Keuangan.png', 'Putri Reginatasya', 'Staf Keuangan')" class="bg-gray-100 rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-200 transition group">
-          <img src="assets/STAF-Keuangan.png" alt="Staf Keuangan" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Staf Keuangan</p>
-          <p class="text-gray-700">Putri Reginatasya</p>
-        </div>
-
-        <div onclick="openModal('assets/KASI-Pemerintahan.png', 'Nur Wahyu Hidayat, S.H', 'Kepala Urusan Perencanaan')" class="bg-gray-100 rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-200 transition group">
-          <img src="assets/KASI-Pemerintahan.png" alt="Kaur Perencanaan" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Kepala Urusan Perencanaan</p>
-          <p class="text-gray-700">Nur Wahyu Hidayat, S.H</p>
-        </div>
-
-        <div onclick="openModal('assets/STAF-Perencanaan.png', 'Nur Hikmah D', 'Staf Perencanaan')" class="bg-gray-100 rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-200 transition group">
-          <img src="assets/STAF-Perencanaan.png" alt="Staf Perencanaan" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Staf Perencanaan</p>
-          <p class="text-gray-700">Nur Hikmah D</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="mb-12 max-w-6xl mx-auto px-4">
-      <h3 class="text-2xl font-semibold mb-6 text-blue-700 text-center md:text-left">Badan Permusyawaratan Desa</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        
-        <div onclick="openModal('assets/ketua-bpd.png', 'Drs. H. Rusli Made Aming', 'Ketua BPD')" class="bg-white rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-50 transition group">
-          <img src="assets/ketua-bpd.png" alt="Ketua BPD" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Ketua BPD</p>
-          <p class="text-gray-700">Drs. H. Rusli Made Aming</p>
-        </div>
-
-        <div onclick="openModal('assets/man.jpeg', 'Drs. H. Burhanuddin', 'Wakil Ketua BPD')" class="bg-white rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-50 transition group">
-          <img src="assets/man.jpeg" alt="Wakil Ketua BPD" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Wakil Ketua BPD</p>
-          <p class="text-gray-700">Drs. H. Burhanuddin</p>
-        </div>
-
-        <div onclick="openModal('assets/man.jpeg', 'Drs. Hasan Kadir', 'Sekretaris BPD')" class="bg-white rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-50 transition group">
-          <img src="assets/man.jpeg" alt="Sekretaris BPD" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Sekretaris BPD</p>
-          <p class="text-gray-700">Drs. Hasan Kadir</p>
-        </div>
-
-        <div onclick="openModal('assets/woman.jpeg', 'Hj. Rahmawati', 'Anggota BPD')" class="bg-white rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-50 transition group">
-          <img src="assets/woman.jpeg" alt="Anggota BPD" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Anggota</p>
-          <p class="text-gray-700">Hj. Rahmawati</p>
-        </div>
-
-        <div onclick="openModal('assets/man.jpeg', 'Syafruddin Karim', 'Anggota BPD')" class="bg-white rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-50 transition group">
-          <img src="assets/man.jpeg" alt="Anggota BPD" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Anggota</p>
-          <p class="text-gray-700">Syafruddin Karim</p>
-        </div>  
-
-        <div onclick="openModal('assets/man.jpeg', 'H. Jamaluddin', 'Anggota BPD')" class="bg-white rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-50 transition group">
-          <img src="assets/man.jpeg" alt="Anggota BPD" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Anggota</p>
-          <p class="text-gray-700">H. Jamaluddin</p>
-        </div>
-
-        <div onclick="openModal('assets/man.jpeg', 'H. Muhammad Arif, S.Pd., M.Si.', 'Anggota BPD')" class="bg-white rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-50 transition group">
-          <img src="assets/man.jpeg" alt="Anggota BPD" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Anggota</p>
-          <p class="text-gray-700">H. Muhammad Arif, S.Pd., M.Si.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="mb-12 max-w-6xl mx-auto px-4">
-      <h3 class="text-2xl font-semibold mb-6 text-blue-700 text-center md:text-left">Kepala Dusun</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        
-        <div onclick="openModal('assets/kadus-1.png', 'Imran Tahir', 'Kepala Dusun I')" class="bg-gray-100 rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-200 transition group">
-          <img src="assets/kadus-1.png" alt="Kepala Dusun I" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Kepala Dusun I</p>
-          <p class="text-gray-700">Imran Tahir</p>
-        </div>
-
-        <div onclick="openModal('assets/kadus-2.png', 'Basri', 'Kepala Dusun II')" class="bg-gray-100 rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-200 transition group">
-          <img src="assets/kadus-2.png" alt="Kepala Dusun II" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Kepala Dusun II</p>
-          <p class="text-gray-700">Basri</p>
-        </div>
-
-        <div onclick="openModal('assets/kadus-3.png', 'Muh. Yusuf Yakub', 'Kepala Dusun III')" class="bg-gray-100 rounded-xl shadow p-4 flex flex-col items-center text-center cursor-pointer hover:bg-gray-200 transition group">
-          <img src="assets/kadus-3.png" alt="Kepala Dusun III" class="w-28 h-28 object-cover rounded-full mb-4 group-hover:scale-105 transition-transform duration-300 shadow">
-          <p class="font-bold text-lg">Kepala Dusun III</p>
-          <p class="text-gray-700">Muh. Yusuf Yakub</p>
-        </div>
       </div>
     </div>
   </section>
 
-  <section id="visi-misi" class="relative bg-white py-16 px-6">
-    <div class="absolute inset-0 pointer-events-none">
-      <div class="hidden md:block absolute -top-10 -left-10 w-56 h-56 rounded-full blur-3xl opacity-20 bg-indigo-300"></div>
-      <div class="hidden md:block absolute -bottom-8 -right-10 w-56 h-56 rounded-full blur-3xl opacity-20 bg-emerald-300"></div>
-    </div>
-
-    <div class="relative max-w-6xl mx-auto">
-      <header class="text-center mb-10">
-        <p class="inline-block text-xs tracking-widest uppercase bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full">Arah Pembangunan</p>
-        <h2 class="text-3xl md:text-4xl font-bold mt-3">Visi & Misi Desa Tanete</h2>
-        <p class="text-gray-600 mt-2">Rencana kerja yang berakar pada potensi lokal, pelayanan publik, dan keberlanjutan.</p>
-      </header>
-
-      <article class="mb-10 rounded-2xl overflow-hidden shadow ring-1 ring-gray-200">
-        <div class="bg-gradient-to-r from-indigo-600 to-emerald-500 p-[1px]">
-          <div class="bg-white rounded-2xl">
-            <div class="p-6 md:p-8">
-              <div class="flex items-start gap-4">
-                <div class="shrink-0 mt-1 rounded-xl bg-indigo-50 p-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm1 15h-2v-2h2Zm0-4h-2V7h2Z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-xl font-semibold text-indigo-700">Visi Desa</h3>
-                  <p class="mt-2 text-lg leading-relaxed text-gray-700">
-                    “Mewujudkan Desa mandiri sebagai kawasan ekonomi kreatif terintegrasi menuju Desa sejahtera dan mandiri”.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>      
-      </article>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="h-full bg-gray-50 rounded-2xl p-6 shadow hover:shadow-md transition">
-          <div class="flex gap-3">
-            <span class="mt-1 shrink-0 rounded-lg bg-indigo-100 text-indigo-700 p-2 h-9 w-9 flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            </span>
-            <p class="text-gray-700">
-              Memajukan dan meningkatkan kinerja birokrasi Pemerintah Desa dalam memberikan pelayanan publik yang berkualitas, disiplin, dan profesional.
-            </p>
-          </div>
-        </div>
-
-        <div class="h-full bg-gray-50 rounded-2xl p-6 shadow hover:shadow-md transition">
-          <div class="flex gap-3">
-            <span class="mt-1 shrink-0 rounded-lg bg-emerald-100 text-emerald-700 p-2 h-9 w-9 flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            </span>
-            <p class="text-gray-700">
-              Memberdayakan masyarakat khususnya pemuda, menuju masyarakat maju, mandiri, dan sejahtera.
-            </p>
-          </div>
-        </div>
-
-        <div class="h-full bg-gray-50 rounded-2xl p-6 shadow hover:shadow-md transition">
-          <div class="flex gap-3">
-            <span class="mt-1 shrink-0 rounded-lg bg-amber-100 text-amber-700 p-2 h-9 w-9 flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            </span>
-            <p class="text-gray-700">
-              Menciptakan dan meningkatkan pembangunan infrastruktur.
-            </p>
-          </div>
-        </div>
-
-        <div class="h-full bg-gray-50 rounded-2xl p-6 shadow hover:shadow-md transition">
-          <div class="flex gap-3">
-            <span class="mt-1 shrink-0 rounded-lg bg-pink-100 text-pink-700 p-2 h-9 w-9 flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            </span>
-            <p class="text-gray-700">
-              Menjadikan desa bersinar sehingga meningkatkan keamanan dan ketentraman masyarakat.
-            </p>
-          </div>
-        </div>
-
-        <div class="h-full bg-gray-50 rounded-2xl p-6 shadow hover:shadow-md transition">
-          <div class="flex gap-3">
-            <span class="mt-1 shrink-0 rounded-lg bg-teal-100 text-teal-700 p-2 h-9 w-9 flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            </span>
-            <p class="text-gray-700">
-              Meningkatkan sistem usaha mandiri melalui program pengembangan Badan Usaha Milik Desa (BUMDesa).
-            </p>
-          </div>
-        </div>
-
-        <div class="h-full bg-gray-50 rounded-2xl p-6 shadow hover:shadow-md transition">
-          <div class="flex gap-3">
-            <span class="mt-1 shrink-0 rounded-lg bg-yellow-100 text-yellow-700 p-2 h-9 w-9 flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            </span>
-            <p class="text-gray-700">
-              Meningkatkan kualitas pendidikan khususnya usia dini (PAUD).
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- MODAL POPUP DETAIL STAF -->
   <div id="imageModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-    <div class="relative max-w-2xl w-full flex flex-col items-center">
-      <button onclick="closeModal()" class="absolute -top-12 right-0 md:-right-12 text-white hover:text-gray-300 focus:outline-none bg-black/40 p-2 rounded-full transition">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
+    <div class="relative max-w-sm w-full bg-white rounded-2xl p-6 shadow-2xl flex flex-col items-center">
+      <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-400 hover:text-gray-700 bg-gray-100 p-2 rounded-full transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
       </button>
-      <img id="modalImage" src="" alt="Preview" class="max-h-[75vh] max-w-full object-contain rounded-lg shadow-2xl border-4 border-white">
-      <p id="modalCaption" class="text-white text-lg font-bold mt-4 tracking-wide text-center bg-black/60 px-5 py-2 rounded-full"></p>
+      <img id="modalImage" src="" class="w-32 h-32 object-cover rounded-full shadow-md border-4 border-blue-500 mb-4">
+      <h3 id="modalName" class="text-lg font-bold text-gray-900 text-center"></h3>
+      <p id="modalRole" class="text-blue-600 font-medium text-xs mb-3"></p>
+      <div class="w-full border-t border-gray-200 pt-3">
+        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 text-left w-full">Riwayat Pendidikan:</p>
+        <ul id="modalEducation" class="text-sm text-gray-700 space-y-1 list-disc list-inside text-left w-full"></ul>
+      </div>
     </div>
   </div>
 
+  <!-- JAVASCRIPT: GRAFIK & MODAL -->
   <script>
-    // Logic Navbar Mobile Toggle
-    const btn = document.getElementById('menu-toggle');
-    const menu = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
+    // Logic Mobile Navbar
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
     });
 
-    // Logic Modal Pop-up Foto
-    function openModal(imageSrc, name, role) {
-      const modal = document.getElementById('imageModal');
-      const modalImg = document.getElementById('modalImage');
-      const modalCaption = document.getElementById('modalCaption');
+    // Logic Modal Pop-up Staf
+    function openModal(imageSrc, name, role, educationText) {
+      document.getElementById('modalImage').src = imageSrc;
+      document.getElementById('modalName').innerText = name;
+      document.getElementById('modalRole').innerText = role;
       
-      modalImg.src = imageSrc;
-      modalCaption.innerText = name + " (" + role + ")";
+      const modalEdu = document.getElementById('modalEducation');
+      modalEdu.innerHTML = "";
       
-      modal.classList.remove('hidden');
+      if (educationText) {
+        educationText.split(',').forEach(edu => {
+          const li = document.createElement('li');
+          li.innerText = edu.trim();
+          modalEdu.appendChild(li);
+        });
+      } else {
+        modalEdu.innerHTML = "<li class='text-gray-400 italic list-none'>Data belum diisi</li>";
+      }
+      
+      document.getElementById('imageModal').classList.remove('hidden');
       document.body.style.overflow = 'hidden'; 
     }
 
     function closeModal() {
-      const modal = document.getElementById('imageModal');
-      modal.classList.add('hidden');
+      document.getElementById('imageModal').classList.add('hidden');
       document.body.style.overflow = ''; 
     }
 
-    // Tutup jika area luar gambar di-klik
     document.getElementById('imageModal').addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeModal();
-      }
+      if (e.target === this) closeModal();
+    });
+
+    // --- INISIALISASI CHARTJS (STATISTIK DAN APBDESA) ---
+    window.addEventListener('DOMContentLoaded', () => {
+      // 1. Chart Umur
+      new Chart(document.getElementById('umurChart'), {
+        type: 'pie',
+        data: {
+          labels: ['0-15 Thn', '16-59 Thn', '60+ Thn'],
+          datasets: [{ data: [650, 1800, 500], backgroundColor: ['#3b82f6', '#10b981', '#f59e0b'] }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      // 2. Chart Pekerjaan
+      new Chart(document.getElementById('pekerjaanChart'), {
+        type: 'bar',
+        data: {
+          labels: ['Petani', 'Peternak', 'Wiraswasta', 'PNS/TNI/Polri'],
+          datasets: [{ label: 'Orang', data: [1200, 850, 400, 150], backgroundColor: '#8b5cf6' }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      // 3. Chart Pendidikan
+      new Chart(document.getElementById('pendidikanChart'), {
+        type: 'doughnut',
+        data: {
+          labels: ['SD/SMP', 'SMA/SMK', 'Sarjana (S1+)'],
+          datasets: [{ data: [1100, 1350, 500], backgroundColor: ['#ec4899', '#06b6d4', '#f43f5e'] }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      // 4. APBDesa Pendapatan
+      new Chart(document.getElementById('siskeudesPendapatan'), {
+        type: 'bar',
+        data: {
+          labels: ['PAD', 'Dana Desa', 'Bagi Hasil Pajak', 'ADD'],
+          datasets: [{ label: 'Realisasi Anggaran (Rp)', data: [45000000, 980000000, 35000000, 450000000], backgroundColor: '#10b981' }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      // 5. APBDesa Belanja
+      new Chart(document.getElementById('siskeudesBelanja'), {
+        type: 'bar',
+        data: {
+          labels: ['Pemerintahan', 'Pembangunan', 'Pembinaan', 'Pemberdayaan'],
+          datasets: [{ label: 'Belanja (Rp)', data: [420000000, 650000000, 150000000, 180000000], backgroundColor: '#ef4444' }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      // 6. APBDesa Pembiayaan
+      new Chart(document.getElementById('siskeudesPembiayaan'), {
+        type: 'bar',
+        data: {
+          labels: ['Penerimaan (SiLPA)', 'Pengeluaran Pembiayaan'],
+          datasets: [{ label: 'Total (Rp)', data: [85000000, 0], backgroundColor: '#f59e0b' }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
     });
   </script>
 </body>
