@@ -92,132 +92,16 @@
     </div>
   </nav>
 
-<!-- Hero Section (Slider/Geser dengan File Lokal) -->
-  <header class="relative h-screen bg-gray-900 overflow-hidden">
-    
-    <!-- Kontainer Slider Utama (Gambar & Teks) -->
-    <div id="hero-slider" class="relative w-full h-full flex transition-transform duration-700 ease-in-out z-10">
-      
-      <!-- === Slide 1 === -->
-      <!-- Pastikan file 'desa.jpg' ada di dalam folder 'assets' -->
-
-      <!-- Slide 1 -->
-<div class="w-full h-full flex-shrink-0 relative bg-cover bg-center bg-no-repeat" 
-     style="background-image: url('https://desatanete.github.io/assets/pemerintahdesa.png');">
-        
-        <!-- Overlay Gelap (Agar teks tetap terbaca jelas) -->
-        <div class="absolute inset-0 bg-black/0"></div>
-        
-        <div class="relative z-20 w-full h-full flex flex-col items-center justify-center text-center text-white px-4">
-          <h1 class="text-4xl md:text-6xl font-bold mb-4"></h1>
-          <p class="text-lg md:text-2xl"></p>
-        </div>
-      </div>
-
-      <!-- === Slide 2 === -->
-      <!-- Ganti 'foto2.jpg' dengan nama file gambar kedua Anda di folder assets -->
-<!-- Slide 2 -->
-<div class="w-full h-full flex-shrink-0 relative bg-cover bg-center bg-no-repeat" 
-     style="background-image: url('https://desatanete.github.io/assets/desa.jpg');">
-
-        <div class="absolute inset-0 bg-black/50"></div>
-        
-        <div class="relative z-20 w-full h-full flex flex-col items-center justify-center text-center text-white px-4">
-          <h1 class="text-4xl md:text-6xl font-bold mb-4">Potensi Pertanian Unggul</h1>
-          <p class="text-lg md:text-2xl">Meningkatkan Kesejahteraan Melalui Inovasi Tani</p>
-        </div>
-      </div>
-
-      <!-- === Slide 3 === -->
-      <!-- Ganti 'foto3.jpg' dengan nama file gambar ketiga Anda di folder assets -->
-      <div class="w-full h-full flex-shrink-0 relative bg-cover bg-center bg-no-repeat" 
-     style="background-image: url('https://desatanete.github.io/assets/jumat-bersih.jpg');">
-
-        <div class="absolute inset-0 bg-black/50"></div>
-        
-        <div class="relative z-20 w-full h-full flex flex-col items-center justify-center text-center text-white px-4">
-          <h1 class="text-4xl md:text-6xl font-bold mb-4">Masyarakat Harmonis</h1>
-          <p class="text-lg md:text-2xl">Menjaga Tradisi, Merangkul Masa Depan</p>
-        </div>
-      </div>
-
+  <!-- Hero Section -->
+  <header class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('assets/desa.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="text-center text-white z-10 px-4">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Selamat Datang di Desa Tanete</h1>
+      <p class="text-lg md:text-2xl">Desa Mandiri dan Berkelanjutan di Kabupaten Sidrap</p>
     </div>
-
-    <!-- Tombol Navigasi Manual -->
-    <button id="prev-slide" class="absolute left-4 top-1/2 transform -translate-y-1/2 z-30 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full backdrop-blur-sm transition">
-      &#10094;
-    </button>
-    <button id="next-slide" class="absolute right-4 top-1/2 transform -translate-y-1/2 z-30 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full backdrop-blur-sm transition">
-      &#10095;
-    </button>
-
-    <!-- Indikator Titik -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex space-x-2">
-      <div class="dot w-3 h-3 rounded-full bg-white cursor-pointer transition-colors" onclick="goToSlide(0)"></div>
-      <div class="dot w-3 h-3 rounded-full bg-white/50 cursor-pointer transition-colors" onclick="goToSlide(1)"></div>
-      <div class="dot w-3 h-3 rounded-full bg-white/50 cursor-pointer transition-colors" onclick="goToSlide(2)"></div>
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </header>
-  
-  <script>
-    // Logika Navbar Mobile Menu
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
 
-    // Logika Slider / Geser Hero Section
-    const slider = document.getElementById('hero-slider');
-    const slides = slider.children;
-    const totalSlides = slides.length;
-    let currentIndex = 0;
-    const dots = document.querySelectorAll('.dot');
-
-    function updateSliderPosition() {
-      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-      // Update warna indikator titik
-      dots.forEach((dot, index) => {
-        if(index === currentIndex) {
-          dot.classList.replace('bg-white/50', 'bg-white');
-        } else {
-          dot.classList.replace('bg-white', 'bg-white/50');
-        }
-      });
-    }
-
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateSliderPosition();
-    }
-
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-      updateSliderPosition();
-    }
-
-    function goToSlide(index) {
-      currentIndex = index;
-      updateSliderPosition();
-    }
-
-    // Event Listener Tombol Navigasi
-    document.getElementById('next-slide').addEventListener('click', nextSlide);
-    document.getElementById('prev-slide').addEventListener('click', prevSlide);
-
-    // Otomatis geser setiap 5 detik
-    let autoSlideInterval = setInterval(nextSlide, 5000);
-
-    // Reset timer jika user mengklik tombol manual agar tidak tabrakan
-    const controls = document.querySelectorAll('#prev-slide, #next-slide, .dot');
-    controls.forEach(control => {
-      control.addEventListener('click', () => {
-        clearInterval(autoSlideInterval);
-        autoSlideInterval = setInterval(nextSlide, 5000);
-      });
-    });
-  </script>
-  
 <!-- Bagian Sambutan Kepala Desa -->
   <section id="sambutan-kades" class="py-16 bg-white border-b border-gray-100">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -475,7 +359,7 @@ Desa Tanete merupakan salah satu desa yang terletak di Kecamatan Maritengngae, K
     </div>
   </div>
 
-  <!-- Grid Grafik -->
+ <!-- Grid Grafik -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       
       <!-- Distribusi Umur -->
