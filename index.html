@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
@@ -92,16 +91,110 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('assets/desa.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="text-center text-white z-10 px-4">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4">Selamat Datang di Desa Tanete</h1>
-      <p class="text-lg md:text-2xl">Desa Mandiri dan Berkelanjutan di Kabupaten Sidrap</p>
+<!-- Hero Section (Slider/Geser) -->
+  <header class="relative h-screen bg-cover bg-center overflow-hidden" style="background-image: url('assets/desa.jpg');">
+    <!-- Overlay Gelap -->
+    <div class="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+    
+    <!-- Kontainer Slider -->
+    <div id="hero-slider" class="relative w-full h-full flex transition-transform duration-700 ease-in-out z-20">
+      
+      <!-- Slide 1 -->
+      <div class="w-full h-full flex-shrink-0 flex flex-col items-center justify-center text-center text-white px-4">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">Selamat Datang di Desa Tanete</h1>
+        <p class="text-lg md:text-2xl">Desa Mandiri dan Berkelanjutan di Kabupaten Sidrap</p>
+      </div>
+
+      <!-- Slide 2 (Tambahan Konten Baru Saat Digeser) -->
+      <div class="w-full h-full flex-shrink-0 flex flex-col items-center justify-center text-center text-white px-4">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">Gotong Royong & Inovatif</h1>
+        <p class="text-lg md:text-2xl">Bersama Membangun Desa yang Sejahtera dan Unggul</p>
+      </div>
+
+      <!-- Slide 3 (Tambahan Konten Baru Saat Digeser) -->
+      <div class="w-full h-full flex-shrink-0 flex flex-col items-center justify-center text-center text-white px-4">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">Pelayanan Digital Efektif</h1>
+        <p class="text-lg md:text-2xl">Kemudahan Akses Informasi dan Layanan Bagi Warga</p>
+      </div>
+
     </div>
+
+    <!-- Tombol Navigasi Manual (Kiri & Kanan) -->
+    <button id="prev-slide" class="absolute left-4 top-1/2 transform -translate-y-1/2 z-30 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full backdrop-blur-sm transition">
+      &#10094;
+    </button>
+    <button id="next-slide" class="absolute right-4 top-1/2 transform -translate-y-1/2 z-30 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full backdrop-blur-sm transition">
+      &#10095;
+    </button>
+
+    <!-- Indikator Titik Posisi Slider -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex space-x-2">
+      <div class="dot w-3 h-3 rounded-full bg-white cursor-pointer" onclick="goToSlide(0)"></div>
+      <div class="dot w-3 h-3 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(1)"></div>
+      <div class="dot w-3 h-3 rounded-full bg-white/50 cursor-pointer" onclick="goToSlide(2)"></div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </header>
+  <script>
+    // Logika Navbar Mobile Menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
 
+    // Logika Slider / Geser Hero Section
+    const slider = document.getElementById('hero-slider');
+    const slides = slider.children;
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+    const dots = document.querySelectorAll('.dot');
+
+    function updateSliderPosition() {
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      // Update warna indikator titik
+      dots.forEach((dot, index) => {
+        if(index === currentIndex) {
+          dot.classList.replace('bg-white/50', 'bg-white');
+        } else {
+          dot.classList.replace('bg-white', 'bg-white/50');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSliderPosition();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateSliderPosition();
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      updateSliderPosition();
+    }
+
+    // Event Listener Tombol Navigasi
+    document.getElementById('next-slide').addEventListener('click', nextSlide);
+    document.getElementById('prev-slide').addEventListener('click', prevSlide);
+
+    // Otomatis geser setiap 5 detik
+    let autoSlideInterval = setInterval(nextSlide, 5000);
+
+    // Reset timer jika user mengklik tombol manual agar tidak tabrakan
+    const controls = document.querySelectorAll('#prev-slide, #next-slide, .dot');
+    controls.forEach(control => {
+      control.addEventListener('click', () => {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(nextSlide, 5000);
+      });
+    });
+  </script>
+  
 <!-- Bagian Sambutan Kepala Desa -->
   <section id="sambutan-kades" class="py-16 bg-white border-b border-gray-100">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
