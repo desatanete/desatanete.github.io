@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
@@ -6,41 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profil Desa Tanete</title>
   <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-  .hide-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
+    .hide-scrollbar::-webkit-scrollbar,
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
 
-  .hide-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
-</style>
+    .hide-scrollbar,
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
 
-
-<style>
-  /* Sembunyikan scrollbar agar lebih rapi */
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-</style>
-
-<style>
-  /* Supaya teks isi berita tidak panjang */
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-</style>
-
+    .line-clamp-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
@@ -58,22 +43,20 @@
         <div class="md:hidden">
           <button id="menu-toggle" class="text-gray-800 focus:outline-none">
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
 
         <!-- Menu Items -->
-        <ul id="menu"
-            class="hidden md:flex space-x-6 font-medium text-gray-800 transition-all duration-300">
+        <ul id="menu" class="hidden md:flex space-x-6 font-medium text-gray-800 transition-all duration-300">
           <li><a href="#profil" class="hover:text-blue-600">Profil</a></li>
           <li><a href="#statistik" class="hover:text-blue-600">Statistik</a></li>
           <li><a href="#kelembagaan" class="hover:text-blue-600">Kelembagaan</a></li>
           <li><a href="#visi-misi" class="hover:text-blue-600">Visi & Misi</a></li>
           <li><a href="#pelayanan" class="hover:text-blue-600">Pelayanan</a></li>
           <li><a href="#galeri" class="hover:text-blue-600">Galeri</a></li>
-          <li><a href=https://desatanete.github.io/berita-/>Berita</a></li>
+          <li><a href="https://desatanete.github.io/berita-/">Berita</a></li>
         </ul>
       </div>
     </div>
@@ -87,32 +70,48 @@
         <li><a href="#visi-misi" class="block hover:text-blue-600">Visi & Misi</a></li>
         <li><a href="#pelayanan" class="block hover:text-blue-600">Pelayanan</a></li>
         <li><a href="#galeri" class="block hover:text-blue-600">Galeri</a></li>
-        <li><a href=https://desatanete.github.io/berita-/>Berita</a></li>
+        <li><a href="https://desatanete.github.io/berita-/">Berita</a></li>
       </ul>
     </div>
   </nav>
 
- <!-- Hero Section (Mobile Friendly & Tidak Terpotong) -->
+  <!-- Hero Section -->
   <header class="relative w-full h-[50vh] sm:h-[70vh] md:h-screen bg-gray-900 overflow-hidden flex items-center justify-center">
-    
-    <!-- Kontainer Gambar Latar -->
-    <!-- Di HP menggunakan bg-contain (gambar utuh terlihat semua), di desktop menggunakan bg-cover -->
     <div class="absolute inset-0 bg-contain sm:bg-cover bg-center bg-no-repeat transition-all duration-300" 
          style="background-image: url('https://desatanete.github.io/assets/pemerintahdesa.png');">
     </div>
-
-    <!-- Overlay Gelap (Diaktifkan tipis jika ada teks yang ingin dimasukkan nantinya agar kontras) -->
     <div class="absolute inset-0 bg-black bg-opacity-0 z-10"></div>
-    
-    <!-- Konten Teks (Sudah responsif untuk layar kecil) -->
     <div class="relative text-center text-white z-20 px-6 max-w-4xl">
-      <!-- Jika ingin menambahkan judul teks silakan isi di sini, ukuran sudah otomatis menyesuaikan HP/Laptop -->
       <h1 class="text-2xl sm:text-4xl md:text-6xl font-bold mb-2 md:mb-4 drop-shadow-lg leading-tight"></h1>
       <p class="text-sm sm:text-lg md:text-2xl drop-shadow-md"></p>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </header>
+
+  <!-- BAGIAN PENGUMUMAN (RUNNING TEXT TANPA TOMBOL CLOSE) -->
+  <div class="bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-700 text-white text-sm font-medium shadow-md">
+    <div class="max-w-7xl mx-auto flex items-center px-4 py-2.5">
+      
+      <!-- Badge Pengumuman -->
+      <div class="flex items-center space-x-2 flex-shrink-0 bg-red-600 px-3 py-1 rounded-md shadow-sm text-xs font-bold uppercase tracking-wider animate-pulse">
+        <svg class="w-4 h-4 fill-current text-white" viewBox="0 0 20 20">
+          <path d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 00-3 3v2a3 3 0 003 3h3.763l7.79 3.894A1 1 0 0018 17V3zM15.586 11H11V9h4.586l1.414 1.414L15.586 11z"/>
+        </svg>
+        <span>Pengumuman</span>
+      </div>
+
+      <!-- Teks Berjalan -->
+      <div class="overflow-hidden ml-4 w-full">
+        <marquee onmouseover="this.stop();" onmouseout="this.start();" scrollamount="5" class="cursor-pointer py-0.5">
+          Selamat Datang di Website Resmi Desa Tanete
+        </marquee>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
 
 <!-- Bagian Sambutan Kepala Desa -->
   <section id="sambutan-kades" class="py-16 bg-white border-b border-gray-100">
