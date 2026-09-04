@@ -1,0 +1,33 @@
+<%- include('partials/head', { title: 'Form Pengaduan' }) %>
+<section class="max-w-2xl mx-auto px-6 py-10">
+  <h1 class="text-3xl font-bold mb-6">Form Pengaduan Warga</h1>
+  <% if (typeof error !== 'undefined' && error) { %>
+    <div class="mb-4 p-3 bg-red-100 text-red-700 rounded"><%= error %></div>
+  <% } %>
+  <form method="post" action="/pengaduan" class="space-y-4">
+    <div>
+      <label class="block text-sm font-medium">Nama</label>
+      <input name="nama" required class="mt-1 w-full border rounded px-3 py-2" />
+    </div>
+    <div>
+      <label class="block text-sm font-medium">Kontak (WA/Email)</label>
+      <input name="kontak" class="mt-1 w-full border rounded px-3 py-2" />
+    </div>
+    <div>
+      <label class="block text-sm font-medium">Kategori</label>
+      <select name="kategori" class="mt-1 w-full border rounded px-3 py-2">
+        <option>Umum</option>
+        <option>Pelayanan</option>
+        <option>Infrastruktur</option>
+        <option>Kesehatan</option>
+        <option>Keamanan</option>
+      </select>
+    </div>
+    <div>
+      <label class="block text-sm font-medium">Isi Pengaduan</label>
+      <textarea name="isi" rows="6" required class="mt-1 w-full border rounded px-3 py-2"></textarea>
+    </div>
+    <button class="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Kirim Pengaduan</button>
+  </form>
+</section>
+<%- include('partials/footer') %>

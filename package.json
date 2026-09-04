@@ -1,0 +1,31 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Farhanfauziandi/farhanfauziandi.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Farhanfauziandi/farhanfauziandi.github.io/issues"
+  },
+  "homepage": "https://github.com/Farhanfauziandi/farhanfauziandi.github.io#readme",
+  "dependencies": {
+    "dayjs": "^1.11.13",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-basic-auth": "^1.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
