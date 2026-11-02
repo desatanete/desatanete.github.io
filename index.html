@@ -93,7 +93,7 @@
       </ul>
 
       <!-- Mobile Menu Button -->
-      <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-gray-700 dark:text-gray-200 text-xl focus:outline-none">
+      <button onclick="toggleMobileMenu()" class="lg:hidden text-gray-700 dark:text-gray-200 text-xl focus:outline-none">
         <i class="fa-solid fa-bars"></i>
       </button>
     </div>
@@ -111,7 +111,6 @@
       <a href="#transparansi" class="block hover:text-emerald-600">APBDes 2026, RKPDes & PPID</a>
       <a href="#kelembagaan" class="block hover:text-emerald-600">Struktur Aparatur Desa</a>
       <a href="#layanan" class="block hover:text-emerald-600">Pelayanan & Integrasi Digital</a>
-      <a href="#pembangunan" class="block hover:text-emerald-600">Pembangunan 2026</a>
       <a href="#agenda-kalender" class="block hover:text-emerald-600">Agenda & Kalender Kegiatan</a>
       <a href="https://desatanete.github.io/berita-/" class="block font-semibold text-emerald-600">Berita Desa Aktual</a>
     </div>
@@ -486,7 +485,7 @@
                   <td class="px-4 py-2 text-right">91%</td>
                 </tr>
                 <tr>
-                  <td class="px-4 py-2 pl-8">• Bidang Pemberdayaan Masyarakat (UMKM & BUMDes)</td>
+                  <td class="px-4 py-2 pl-8">• Bidang Pemberdayaan Masyarakat Desa</td>
                   <td class="px-4 py-2">83.400.000</td>
                   <td class="px-4 py-2">28.032.000</td>
                   <td class="px-4 py-2 text-right">34%</td>
@@ -907,6 +906,14 @@
 
   <!-- JAVASCRIPT LOGIC LENGKAP -->
   <script>
+    // Toggle Mobile Menu Navigation
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenu) {
+        mobileMenu.classList.toggle('hidden');
+      }
+    }
+
     // Search functionality for Aspect 5
     function searchSite() {
       const q = document.getElementById('searchInput').value.toLowerCase();
