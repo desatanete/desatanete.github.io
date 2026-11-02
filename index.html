@@ -76,7 +76,9 @@
       <!-- Menu Pencarian (Fitur Aspek 5) -->
       <div class="hidden lg:flex items-center relative max-w-xs w-full mx-4">
         <input type="text" id="searchInput" onkeyup="searchSite()" placeholder="Cari layanan, berita, data..." class="w-full pl-9 pr-4 py-2 text-xs bg-gray-100 dark:bg-slate-700 rounded-full focus:outline-none focus:ring-2 focus:ring-emerald-500 text-gray-800 dark:text-gray-100">
-        <i class="fa-solid fa-magnifying-glass absolute left-3 text-gray-400 text-xs"></i>
+        <button onclick="searchSite()" class="absolute left-3 text-gray-400 text-xs hover:text-emerald-600 focus:outline-none">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
       </div>
 
       <!-- Desktop Nav -->
@@ -101,8 +103,10 @@
     <!-- Mobile Search & Menu Dropdown -->
     <div id="mobile-menu" class="hidden lg:hidden bg-white dark:bg-slate-800 border-t px-4 py-3 space-y-3 text-xs">
       <div class="relative w-full">
-        <input type="text" onkeyup="searchSiteMobile(this.value)" placeholder="Cari info desa..." class="w-full pl-9 pr-4 py-2 text-xs bg-gray-100 dark:bg-slate-700 rounded-lg">
-        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400 text-xs"></i>
+        <input type="text" id="searchInputMobile" onkeyup="searchSiteMobile(this.value)" placeholder="Cari info desa..." class="w-full pl-9 pr-4 py-2 text-xs bg-gray-100 dark:bg-slate-700 rounded-lg">
+        <button onclick="searchSiteMobile(document.getElementById('searchInputMobile').value)" class="absolute left-3 top-2.5 text-gray-400 text-xs hover:text-emerald-600 focus:outline-none">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
       </div>
       <a href="#profil" class="block hover:text-emerald-600">Profil & Visi Misi</a>
       <a href="#peta-batas" class="block hover:text-emerald-600">Peta & Batas Wilayah</a>
@@ -906,6 +910,30 @@
 
   <!-- JAVASCRIPT LOGIC LENGKAP -->
   <script>
+    // Dark Mode Toggle Logic
+    function toggleDarkMode() {
+      const html = document.documentElement;
+      const themeText = document.getElementById('theme-text');
+      const isDark = html.classList.toggle('dark');
+      
+      if (themeText) {
+        themeText.innerText = isDark ? 'Mode Terang' : 'Mode Gelap';
+      }
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+
+    // Load Saved Theme Preference on Load
+    (function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+        window.addEventListener('DOMContentLoaded', () => {
+          const themeText = document.getElementById('theme-text');
+          if (themeText) themeText.innerText = 'Mode Terang';
+        });
+      }
+    })();
+
     // Toggle Mobile Menu Navigation
     function toggleMobileMenu() {
       const mobileMenu = document.getElementById('mobile-menu');
@@ -914,17 +942,40 @@
       }
     }
 
-    // Search functionality for Aspect 5
+    // Search functionality for Aspect 5 (Live Filter & Smart Scroll)
     function searchSite() {
-      const q = document.getElementById('searchInput').value.toLowerCase();
-      if(q.length > 2) {
-        // Simple contextual alert/scroll search highlight
-        console.log("Searching for:", q);
-      }
+      const q = document.getElementById('searchInput').value.toLowerCase().trim();
+      executeSearch(q);
     }
 
     function searchSiteMobile(val) {
-      console.log("Mobile Search:", val);
+      const q = val.toLowerCase().trim();
+      executeSearch(q);
+    }
+
+    function executeSearch(query) {
+      if (!query) {
+        // Reset ketersediaan tampilan jika kata kunci kosong
+        document.querySelectorAll('section, div.p-6, div.p-5, div.p-4').forEach(el => {
+          el.style.display = '';
+        });
+        return;
+      }
+
+      // Cari elemen section atau kartu yang cocok dengan kata kunci
+      const searchableElements = document.querySelectorAll('section, header, div.p-6, div.p-5');
+      let found = false;
+
+      searchableElements.forEach(el => {
+        const text = el.innerText.toLowerCase();
+        if (text.includes(query)) {
+          el.style.display = '';
+          if (!found) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            found = true;
+          }
+        }
+      });
     }
 
     // Chatbot widget toggle for Aspect 6
