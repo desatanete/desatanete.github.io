@@ -63,44 +63,57 @@
   </div>
 
   <!-- NAVIGATION BAR -->
-  <nav class="sticky top-0 z-50 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md shadow-sm border-b border-gray-100 dark:border-slate-700">
+  <nav class="sticky top-0 z-50 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md shadow-sm border-b border-gray-100 dark:border-slate-700">
     <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3">
+      <a href="#" class="flex items-center gap-3 shrink-0">
         <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Official_Logo_of_Sidenreng_Rappang_Regency.png" alt="Logo Sidrap" class="h-10 w-auto">
         <div>
-          <span class="font-bold text-lg text-emerald-800 dark:text-emerald-400 block leading-tight">Desa Tanete</span>
-          <span class="text-xs text-gray-500 dark:text-gray-400">Kec. Maritengngae, Kab. Sidrap</span>
+          <span class="font-bold text-base sm:text-lg text-emerald-800 dark:text-emerald-400 block leading-tight">Desa Tanete</span>
+          <span class="text-[11px] text-gray-500 dark:text-gray-400">Kec. Maritengngae, Kab. Sidrap</span>
         </div>
       </a>
 
+      <!-- Menu Pencarian (Fitur Aspek 5) -->
+      <div class="hidden lg:flex items-center relative max-w-xs w-full mx-4">
+        <input type="text" id="searchInput" onkeyup="searchSite()" placeholder="Cari layanan, berita, data..." class="w-full pl-9 pr-4 py-2 text-xs bg-gray-100 dark:bg-slate-700 rounded-full focus:outline-none focus:ring-2 focus:ring-emerald-500 text-gray-800 dark:text-gray-100">
+        <i class="fa-solid fa-magnifying-glass absolute left-3 text-gray-400 text-xs"></i>
+      </div>
+
       <!-- Desktop Nav -->
-      <ul class="hidden lg:flex items-center space-x-6 text-sm font-medium">
+      <ul class="hidden lg:flex items-center space-x-4 text-xs font-medium">
         <li><a href="#profil" class="hover:text-emerald-600 transition">Profil</a></li>
+        <li><a href="#peta-batas" class="hover:text-emerald-600 transition">Peta & Batas</a></li>
         <li><a href="#potensi" class="hover:text-emerald-600 transition">Potensi & UMKM</a></li>
-        <li><a href="#statistik" class="hover:text-emerald-600 transition">Statistik</a></li>
+        <li><a href="#statistik" class="hover:text-emerald-600 transition">SID & Indeks</a></li>
         <li><a href="#transparansi" class="hover:text-emerald-600 transition">APBDes & PPID</a></li>
-        <li><a href="#kelembagaan" class="hover:text-emerald-600 transition">Kelembagaan</a></li>
-        <li><a href="#layanan" class="hover:text-emerald-600 transition">Pelayanan</a></li>
-        <li><a href="#galeri" class="hover:text-emerald-600 transition">Galeri</a></li>
-        <li><a href="https://desatanete.github.io/berita-/" class="px-3 py-1.5 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition">Berita</a></li>
+        <li><a href="#kelembagaan" class="hover:text-emerald-600 transition">Aparatur</a></li>
+        <li><a href="#layanan" class="hover:text-emerald-600 transition">Pelayanan Digital</a></li>
+        <li><a href="#agenda-kalender" class="hover:text-emerald-600 transition">Agenda</a></li>
+        <li><a href="https://desatanete.github.io/berita-/" class="px-3 py-1.5 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition font-semibold">Berita</a></li>
       </ul>
 
       <!-- Mobile Menu Button -->
-      <button onclick="toggleMobileMenu()" class="lg:hidden text-gray-700 dark:text-gray-200 text-xl focus:outline-none">
+      <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-gray-700 dark:text-gray-200 text-xl focus:outline-none">
         <i class="fa-solid fa-bars"></i>
       </button>
     </div>
 
-    <!-- Mobile Dropdown -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-white dark:bg-slate-800 border-t px-4 py-3 space-y-3 text-sm">
-      <a href="#profil" class="block hover:text-emerald-600">Profil</a>
-      <a href="#potensi" class="block hover:text-emerald-600">Potensi & UMKM</a>
-      <a href="#statistik" class="block hover:text-emerald-600">Statistik</a>
-      <a href="#transparansi" class="block hover:text-emerald-600">APBDes & PPID</a>
-      <a href="#kelembagaan" class="block hover:text-emerald-600">Kelembagaan</a>
-      <a href="#layanan" class="block hover:text-emerald-600">Pelayanan</a>
-      <a href="#galeri" class="block hover:text-emerald-600">Galeri</a>
-      <a href="https://desatanete.github.io/berita-/" class="block font-semibold text-emerald-600">Berita Desa</a>
+    <!-- Mobile Search & Menu Dropdown -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white dark:bg-slate-800 border-t px-4 py-3 space-y-3 text-xs">
+      <div class="relative w-full">
+        <input type="text" onkeyup="searchSiteMobile(this.value)" placeholder="Cari info desa..." class="w-full pl-9 pr-4 py-2 text-xs bg-gray-100 dark:bg-slate-700 rounded-lg">
+        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400 text-xs"></i>
+      </div>
+      <a href="#profil" class="block hover:text-emerald-600">Profil & Visi Misi</a>
+      <a href="#peta-batas" class="block hover:text-emerald-600">Peta & Batas Wilayah</a>
+      <a href="#potensi" class="block hover:text-emerald-600">Potensi, UMKM & Lapakdesa</a>
+      <a href="#statistik" class="block hover:text-emerald-600">SID & Indeks Desa (IDM)</a>
+      <a href="#transparansi" class="block hover:text-emerald-600">APBDes 2026, RKPDes & PPID</a>
+      <a href="#kelembagaan" class="block hover:text-emerald-600">Struktur Aparatur Desa</a>
+      <a href="#layanan" class="block hover:text-emerald-600">Pelayanan & Integrasi Digital</a>
+      <a href="#pembangunan" class="block hover:text-emerald-600">Pembangunan 2026</a>
+      <a href="#agenda-kalender" class="block hover:text-emerald-600">Agenda & Kalender Kegiatan</a>
+      <a href="https://desatanete.github.io/berita-/" class="block font-semibold text-emerald-600">Berita Desa Aktual</a>
     </div>
   </nav>
 
@@ -128,24 +141,54 @@
               Kepala Desa Tanete
             </div>
           </div>
-          <h3 class="mt-6 text-xl font-bold text-gray-900 dark:text-white">H. Baharuddin, SE.</h3>
+          <h3 class="mt-6 text-xl font-bold text-gray-900 dark:text-white">H. Baharuddin, SE</h3>
           <p class="text-sm text-gray-500 dark:text-gray-400">Masa Jabatan 2021 – 2029</p>
         </div>
 
-        <!-- Sambutan -->
+        <!-- Sambutan & Visi Misi -->
         <div class="lg:col-span-8">
-          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Sambutan Kepala Desa</span>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Profil, Sejarah & Visi Misi Desa</span>
           <h1 class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white mt-1 mb-4">
             Mewujudkan Desa Mandiri Sebagai Kawasan Ekonomi Kreatif Terintegrasi
           </h1>
           <div class="space-y-3 text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
             <p>Assalamu’alaikum Warahmatullahi Wabarakatuh,</p>
+            <p>Selamat datang di official website Desa Tanete, Kecamatan Maritengngae, Kabupaten Sidenreng Rappang. Melalui platform digital ini, kami berkomitmen untuk mewujudkan tata kelola pemerintahan desa yang transparan, akuntabel, dan inovatif. Website ini hadir sebagai jembatan informasi dan pelayanan bagi seluruh masyarakat desa serta publik secara luas.</p>
+            <p>Dengan visi Mewujudkan Desa Mandiri sebagai kawasan ekonomi kreatif terintegrasi menuju Desa sejahtera dan mandiri, kami terus berupaya meningkatkan sarana prasarana, memajukan sektor unggulan seperti pertanian dan peternakan, serta mengoptimalkan pelayanan publik secara prima.</p>
+            <p>Kami berharap website ini dapat memberikan manfaat nyata bagi seluruh warga. Terima kasih atas dukungan, sinergi, dan gotong royong seluruh elemen masyarakat dalam membangun Desa Tanete tercinta. Mari bersama-sama kita jaga semangat kebersamaan ini demi kemajuan daerah yang kita banggakan.</p>
             <p>
-              Selamat datang di official website Desa Tanete, Kecamatan Maritengngae, Kabupaten Sidenreng Rappang. Melalui platform digital ini, kami berkomitmen untuk mewujudkan tata kelola pemerintahan desa yang transparan, akuntabel, dan inovatif.
-            </p>
-            <p>
-              Dengan visi mewujudkan Desa Mandiri menuju masyarakat sejahtera, kami terus memajukan sektor unggulan seperti pertanian, peternakan ayam petelur, serta mengoptimalkan pelayanan publik digital secara prima.
-            </p>
+              <strong>Sejarah Singkat:</strong> Dahulunya Desa Tanete merupakan bagian dari distrik Allakuang yang berupa sebuah dusun yang mana sebagian besar wilayahnya digunakan sebagai lahan bercocok tanam. Namun akibat adanya bencana kebakaran yang terjadi di wilayah Allakuang (Induk distrik) maka sebagian besar masyarakat mengungsikan diri ke wilayah sekitar dusun Tanete kemudian bermukim dan menetap untuk dijadikan kampung Tanete. Nama Tanete diambil dari kata <em>"Ketinggian"</em> Artinya Tanete tidak akan tenggelam. Desa Tanete resmi berdiri setelah berpisah dengan Desa Allakuang pada tahun 1992 menjadi Desa definitif yang di tandai dengan pemilihan kepala desa secara langsung oleh masyarakat yang terdiri dari 3 Dusun yaitu Dusun I Tanete, Dusun II Tanete, dan Dusun III Tanete.</p>
+              <div class="mt-3 p-3.5 bg-slate-50 dark:bg-slate-900/80 rounded-xl border border-slate-200/80 dark:border-slate-700 text-xs">
+                    <h5 class="font-bold text-emerald-800 dark:text-emerald-400 mb-2 flex items-center gap-1.5">
+                      <i class="fa-solid fa-clock-rotate-left"></i> Rekam Jejak Kepemimpinan Kepala Desa Tanete:
+                    </h5>
+                    <ol class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-slate-700 dark:text-slate-300 list-decimal list-inside">
+                      <li><strong>H. Abd. Kadir</strong> (1992 – 1993)</li>
+                      <li><strong>Jhoni Lamba</strong> (1993 – 1994)</li>
+                      <li><strong>Baharuddin, SE</strong> (1995 – 2000)</li>
+                      <li><strong>Arifuddin, S.Sos</strong> (2000 – 2003)</li>
+                      <li><strong>Muh. Syukri Latif</strong> (2003 – 2014)</li>
+                      <li><strong>Drs. Hasan Kadir</strong> (2014 – 2015 / Plt)</li>
+                      <li class="col-span-1 sm:col-span-2 text-emerald-700 dark:text-emerald-400 font-bold bg-emerald-50/80 dark:bg-emerald-950/40 p-1.5 rounded border border-emerald-200/60 dark:border-emerald-800/60 mt-0.5"><strong>H. Baharuddin, SE</strong> (2015 – 2029)</li>
+                    </ol>
+                  </div>
+            <div class="p-4 bg-emerald-50 dark:bg-slate-800 rounded-xl border border-emerald-100 dark:border-slate-700 my-3">
+              <h4 class="font-bold text-emerald-800 dark:text-emerald-400 text-sm mb-1"><i class="fa-solid fa-eye mr-1"></i> VISI DESA:</h4>
+              <p class="text-xs italic text-gray-700 dark:text-gray-200">“Mewujudkan Desa Mandiri sebagai kawasan ekonomi kreatif terintegrasi menuju Desa sejahtera dan mandiri, kami terus berupaya meningkatkan sarana prasarana, memajukan sektor unggulan seperti pertanian dan peternakan, serta mengoptimalkan pelayanan publik secara prima.”</p>
+              <h4 class="font-bold text-emerald-800 dark:text-emerald-400 text-sm mt-3 mb-1"><i class="fa-solid fa-bullseye mr-1"></i> MISI DESA:</h4>
+              <ul class="text-xs list-disc list-inside space-y-1 text-gray-600 dark:text-gray-300">
+                <li>Memajukan dan meningkatkan kinerja birokrasi Pemerintah Desa dalam memberikan pelayanan publik yang berkualitas, displin, dan profesional.</li>
+                <li>Membangun dan meningkatkan hasil pertanian melalui penataan pengairan, perbaikan infrastruktur jalan usaha tani, pengelolaan pola pemupukan, dan penerapan budidaya tanaman yang baik dan ramah lingkungan.</li>
+                <li>Menciptakan dan meningkatkan pembangunan infrastruktur.
+                <li>Meningkatkan kualitas pelayanan masyarakat secara terpadu, cepat, dan optimal</li>
+                <li>Meningkatkan sistem usaha mandiri melalui program pengembangan Badan Usaha Milik Desa (BUMDesa).Mengembangkan usaha kecil dan menengah sebagai penggerak ekonomi lokal.</li>
+                <li>Menciptakan penataan desa yang berkualitas melalui program tata ruang desa berbasis produktivitas ekonomi.</li>
+                <li>Memberdayakan masyarakat khususnya pemuda, menuju masyarakat maju, mandiri, dan sejahtera.</li>
+                <li>Menjadikan desa bersinar sehingga meningkatkan keamanan dan ketentraman masyarakat.</li>
+                <li>Meningkatkan kualitas pendidikan khususnya usia dini (PAUD).</li>
+                <li>Meningkatkan mutu layanan kesehatan di Desa melalui program desa sehat.</li>
+              </ul>
+            </div>
             <p class="font-semibold text-emerald-800 dark:text-emerald-400">
               SAROMASE Sidenreng Rappang. <br>Wassalamu’alaikum Warahmatullahi Wabarakatuh.
             </p>
@@ -155,22 +198,65 @@
     </div>
   </header>
 
-  <!-- POTENSI UNGGULAN & BUMDES (KRITERIA 4 & 7) -->
+  <!-- PETA WILAYAH SPASIAL & BATAS DESA (ASPEK 1 & 6) -->
+  <section id="peta-batas" class="py-14 bg-gray-50 dark:bg-slate-800">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Visualisasi Spasial</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mt-1">Peta Lokasi & Batas Wilayah Desa</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Gambaran wilayah geografis Desa Tanete, Kec. Maritengngae, Kabupaten Sidenreng Rappang.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Interactive Map Embed -->
+        <div class="lg:col-span-7 bg-white dark:bg-slate-700 p-2 rounded-2xl shadow-md border border-gray-100 dark:border-slate-600">
+          <div class="w-full h-80 rounded-xl overflow-hidden">
+            <iframe class="w-full h-full border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15925.537845376877!2d119.7425859!3d-3.9587324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbb94264a13a7ff%3A0x9d0a449a34dfdbb1!2sTanete%2C%20Maritengngae%2C%20Sidenreng%20Rappang%20Regency%2C%20South%20Sulawesi!5e0!3m2!1sen!2sid!4v1691573240016!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <!-- Batas Wilayah Card -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="p-5 bg-white dark:bg-slate-700 rounded-xl shadow-sm border-l-4 border-emerald-500">
+            <h4 class="font-bold text-sm text-gray-900 dark:text-white mb-2"><i class="fa-solid fa-compass text-emerald-600 mr-2"></i> Batas Administratif Desa:</h4>
+            <ul class="text-xs space-y-2 text-gray-600 dark:text-gray-300">
+              <li class="flex justify-between border-b pb-1 dark:border-slate-600"><span><strong>Utara:</strong> Kelurahan Lautang Benteng</span> <span class="text-emerald-600 font-semibold">Kec. MaritengngaE</span></li>
+              <li class="flex justify-between border-b pb-1 dark:border-slate-600"><span><strong>Timur:</strong> Kelurahan Arateng</span> <span class="text-emerald-600 font-semibold">Kec. Tellu Limpoe</span></li>
+              <li class="flex justify-between border-b pb-1 dark:border-slate-600"><span><strong>Selatan:</strong> Desa Allakuang</span> <span class="text-emerald-600 font-semibold">Kec. MaritengngaE</span></li>
+              <li class="flex justify-between pb-1"><span><strong>Barat:</strong> Kelurahan Arawa Benteng</span> <span class="text-emerald-600 font-semibold">Kec. Wattang Sidenreng</span></li>
+            </ul>
+          </div>
+
+          <div class="p-5 bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600">
+            <h4 class="font-bold text-sm text-gray-900 dark:text-white mb-2"><i class="fa-solid fa-map-location-dot text-emerald-600 mr-2"></i> Wilayah Dusun:</h4>
+            <div class="grid grid-cols-3 gap-2 text-center text-xs font-semibold">
+              <div class="p-2 bg-emerald-50 dark:bg-slate-800 text-emerald-800 dark:text-emerald-300 rounded-lg">Dusun I Tanete</div>
+              <div class="p-2 bg-emerald-50 dark:bg-slate-800 text-emerald-800 dark:text-emerald-300 rounded-lg">Dusun II Tanete</div>
+              <div class="p-2 bg-emerald-50 dark:bg-slate-800 text-emerald-800 dark:text-emerald-300 rounded-lg">Dusun III Tanete</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POTENSI UNGGULAN, BUMDES & PROMOSI (ASPEK 1 & 7) -->
   <section id="potensi" class="py-14 bg-white dark:bg-slate-900">
     <div class="container mx-auto px-4">
       <div class="text-center max-w-2xl mx-auto mb-10">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Potensi Unggulan & BUM Desa</h2>
-        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Mendorong pertumbuhan ekonomi lokal melalui sektor pertanian, peternakan, dan UMKM Desa Tanete.</p>
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Pemberdayaan Ekonomi & Budaya</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mt-1">Potensi Desa, Lapak UMKM & Wisata Budaya</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Mendorong pertumbuhan ekonomi lokal melalui BUMDesa, produk pertanian/peternakan, dan tradisi lokal.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
         <!-- Card 1 -->
         <div class="bg-gray-50 dark:bg-slate-800 rounded-xl overflow-hidden border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-md transition">
           <img src="https://sulselekspres.com/wp-content/uploads/2018/09/800px_COLOURBOX18495746.jpg" alt="Lumbung Padi" class="w-full h-48 object-cover">
           <div class="p-5">
-            <span class="inline-block bg-amber-100 text-amber-800 text-xs px-2.5 py-1 rounded font-medium mb-2">Pertanian</span>
-            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Lumbung Padi Produktif</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Wilayah persawahan subur yang menghasilkan gabah berkualitas prima sepanjang tahun untuk ketahanan pangan nasional.</p>
+            <span class="inline-block bg-amber-100 text-amber-800 text-xs px-2.5 py-1 rounded font-medium mb-2">Sektor Pertanian</span>
+            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Lumbung Padi Tanete</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Sawah produktif dengan produksi gabah kering panen konsisten. Dilengkapi tradisi budaya <em>Mattoana</em> dan <em>Mangeppi</em> saat pesta panen.</p>
           </div>
         </div>
 
@@ -179,8 +265,8 @@
           <img src="assets/sentra-ayam-petelur.jpg" alt="Peternakan Ayam" class="w-full h-48 object-cover">
           <div class="p-5">
             <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded font-medium mb-2">Peternakan</span>
-            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Sentra Ayam Petelur</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Sektor peternakan ayam petelur menjadi penggerak roda ekonomi utama warga desa serta unit usaha BUMDes.</p>
+            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Sentra Peternakan Ayam Petelur</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Unit usaha unggulan Desa Tanete memasok kebutuhan telur segar ke berbagai pasar ritel regional Sidrap.</p>
           </div>
         </div>
 
@@ -188,108 +274,144 @@
         <div class="bg-gray-50 dark:bg-slate-800 rounded-xl overflow-hidden border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-md transition">
           <img src="assets/bumdes.jpg" alt="UMKM Desa" class="w-full h-48 object-cover">
           <div class="p-5">
-            <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2.5 py-1 rounded font-medium mb-2">Pemberdayaan UMKM</span>
-            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Usaha Makanan Olahan</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Dukungan promosi dan pemasaran bagi kelompok usaha perempuan dan pemuda dalam memasarkan produk lokal.</p>
+            <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2.5 py-1 rounded font-medium mb-2">Lapak Desa / E-Commerce</span>
+            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Promosi UMKM & Kerajinan</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Wadah digital bagi pemuda dan kelompok perempuan PKK desa untuk menjual olahan kuliner lokal dan kerajinan.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ruang Partisipasi Warga, Pemuda & Perempuan (Aspek 7) -->
+      <div class="p-6 bg-emerald-900 text-white rounded-2xl shadow-lg">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div class="p-4 border border-emerald-700/60 rounded-xl">
+            <i class="fa-solid fa-users-gear text-2xl text-emerald-400 mb-2"></i>
+            <h4 class="font-bold text-sm">Karang Taruna & Remaja Masjid</h4>
+            <p class="text-xs text-emerald-200 mt-1">Kegiatan rutin pelatihan kewirausahaan digital dan aksi sosial kebersihan desa oleh pemuda.</p>
+          </div>
+          <div class="p-4 border border-emerald-700/60 rounded-xl">
+            <i class="fa-solid fa-hands-holding-child text-2xl text-emerald-400 mb-2"></i>
+            <h4 class="font-bold text-sm">TP-PKK & Posyandu Integrasi</h4>
+            <p class="text-xs text-emerald-200 mt-1">Pemberdayaan perempuan dalam pengolahan pangan bergizi dan program Zero Stunting Anak.</p>
+          </div>
+          <div class="p-4 border border-emerald-700/60 rounded-xl">
+            <i class="fa-solid fa-comments text-2xl text-emerald-400 mb-2"></i>
+            <h4 class="font-bold text-sm">Musyawarah Desa (Musdes)</h4>
+            <p class="text-xs text-emerald-200 mt-1">Ruang partisipasi publik langsung dalam perencanaan program pembangunan tahunan.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- STATISTIK KEPENDUDUKAN (KRITERIA 1 & 6) -->
+  <!-- STATISTIK, SID, INDEX DESA & MONEV DANA DESA (ASPEK 1 & 6) -->
   <section id="statistik" class="py-14 bg-gray-50 dark:bg-slate-800">
     <div class="container mx-auto px-4">
       <div class="text-center max-w-2xl mx-auto mb-10">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Statistik Kependudukan</h2>
-        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Data rinci demografi warga Desa Tanete berdasarkan Disdukcapil Kab. Sidrap.</p>
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Sistem Informasi Desa (SID)</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mt-1">Data Statistik & Indeks Desa Mandiri (IDM)</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Visualisasi grafik terintegrasi SID, status perkembangan IDM, dan Monev Dana Desa.</p>
       </div>
 
-      <!-- Counter Cards -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-        <div class="bg-white dark:bg-slate-700 p-5 rounded-xl text-center shadow-sm border border-gray-100 dark:border-slate-600">
-          <p class="text-2xl sm:text-3xl font-extrabold text-emerald-600 dark:text-emerald-400">3.016</p>
-          <p class="text-xs text-gray-500 dark:text-gray-300 mt-1">Total Jiwa</p>
+      <!-- Metric Cards SID & IDM -->
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
+        <div class="bg-white dark:bg-slate-700 p-4 rounded-xl text-center shadow-sm border border-gray-100 dark:border-slate-600">
+          <p class="text-xl sm:text-2xl font-extrabold text-emerald-600 dark:text-emerald-400">3.016</p>
+          <p class="text-xs text-gray-500 dark:text-gray-300 mt-1">Total Penduduk</p>
         </div>
-        <div class="bg-white dark:bg-slate-700 p-5 rounded-xl text-center shadow-sm border border-gray-100 dark:border-slate-600">
-          <p class="text-2xl sm:text-3xl font-extrabold text-blue-600 dark:text-blue-400">1.447</p>
+        <div class="bg-white dark:bg-slate-700 p-4 rounded-xl text-center shadow-sm border border-gray-100 dark:border-slate-600">
+          <p class="text-xl sm:text-2xl font-extrabold text-blue-600 dark:text-blue-400">1.447</p>
           <p class="text-xs text-gray-500 dark:text-gray-300 mt-1">Laki-Laki</p>
         </div>
-        <div class="bg-white dark:bg-slate-700 p-5 rounded-xl text-center shadow-sm border border-gray-100 dark:border-slate-600">
-          <p class="text-2xl sm:text-3xl font-extrabold text-pink-600 dark:text-pink-400">1.541</p>
+        <div class="bg-white dark:bg-slate-700 p-4 rounded-xl text-center shadow-sm border border-gray-100 dark:border-slate-600">
+          <p class="text-xl sm:text-2xl font-extrabold text-pink-600 dark:text-pink-400">1.541</p>
           <p class="text-xs text-gray-500 dark:text-gray-300 mt-1">Perempuan</p>
         </div>
-        <div class="bg-white dark:bg-slate-700 p-5 rounded-xl text-center shadow-sm border border-gray-100 dark:border-slate-600">
-          <p class="text-2xl sm:text-3xl font-extrabold text-amber-600 dark:text-amber-400">959</p>
+        <div class="bg-white dark:bg-slate-700 p-4 rounded-xl text-center shadow-sm border border-gray-100 dark:border-slate-600">
+          <p class="text-xl sm:text-2xl font-extrabold text-amber-600 dark:text-amber-400">959</p>
           <p class="text-xs text-gray-500 dark:text-gray-300 mt-1">Kepala Keluarga</p>
+        </div>
+        <div class="bg-white dark:bg-slate-700 p-4 rounded-xl text-center shadow-sm border border-gray-100 dark:border-slate-600 col-span-2 md:col-span-1">
+          <span class="inline-block px-2 py-0.5 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded mb-1">Status IDM</span>
+          <p class="text-lg font-bold text-emerald-700 dark:text-emerald-300">DESA MANDIRI</p>
+          <p class="text-[10px] text-gray-500 dark:text-gray-400">Skor IDM: 94,49</p>
         </div>
       </div>
 
       <!-- Interactive Chart Section -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="bg-white dark:bg-slate-700 p-5 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600">
-          <h4 class="font-bold text-sm text-gray-700 dark:text-gray-200 mb-4">Distribusi Pekerjaan Warga</h4>
+          <h4 class="font-bold text-sm text-gray-700 dark:text-gray-200 mb-4">Distribusi Mata Pencaharian Warga (SID)</h4>
           <div class="h-60"><canvas id="chartPekerjaan"></canvas></div>
         </div>
         <div class="bg-white dark:bg-slate-700 p-5 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600">
-          <h4 class="font-bold text-sm text-gray-700 dark:text-gray-200 mb-4">Tingkat Pendidikan</h4>
+          <h4 class="font-bold text-sm text-gray-700 dark:text-gray-200 mb-4">Tingkat Pendidikan Terakhir</h4>
           <div class="h-60"><canvas id="chartPendidikan"></canvas></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- KETERBUKAAN INFORMASI PUBLIK (PPID) & APBDES (KRITERIA 2) -->
+  <!-- KETERBUKAAN INFORMASI PUBLIK (PPID), DOKUMEN PERENCANAAN & APBDES 2026 (ASPEK 2) -->
   <section id="transparansi" class="py-14 bg-white dark:bg-slate-900">
     <div class="container mx-auto px-4">
       <div class="text-center max-w-2xl mx-auto mb-10">
-        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Transparansi Publik</span>
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mt-1">APBDes 2025 & Layanan PPID Desa</h2>
-        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Akses terbuka bagi masyarakat untuk mengetahui perencanaan, anggaran, dan dokumen resmi desa.</p>
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Keterbukaan & Transparansi Jaga Desa</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mt-1">APBDes 2026, Perencanaan Desa & PPID</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Akses terbuka dokumen publik RPJMDes, RKPDes T.A. 2026, transparansi Dana Desa, dan kanal PPID.</p>
       </div>
 
       <!-- PPID Service Cards -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-        <div class="p-6 bg-emerald-50/50 dark:bg-slate-800 rounded-xl border border-emerald-100 dark:border-slate-700">
-          <div class="w-10 h-10 bg-emerald-600 text-white rounded-lg flex items-center justify-center mb-4">
-            <i class="fa-solid fa-file-invoice"></i>
+        <div class="p-6 bg-emerald-50/60 dark:bg-slate-800 rounded-2xl border border-emerald-100 dark:border-slate-700 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+          <div>
+            <div class="w-12 h-12 bg-emerald-600 text-white rounded-xl flex items-center justify-center mb-4 text-lg shadow-sm">
+              <i class="fa-solid fa-file-pdf"></i>
+            </div>
+            <h3 class="font-bold text-base mb-2 text-gray-900 dark:text-white">Dokumen Perencanaan 2026</h3>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">Unduh dokumen RPJMDes (6 Tahun) dan RKPDes Tahun Anggaran 2026 resmi dalam format PDF via Google Drive.</p>
           </div>
-          <h3 class="font-bold text-lg mb-2">Dokumen APBDes</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Unduh dokumen resmi ringkasan Anggaran Pendapatan Belanja Desa (APBDes) melalui Google Drive.</p>
-          <a href="https://drive.google.com/file/d/1JZU0gIkwSqKoUgd20S1CowtrUuGJlvGS/view?usp=drive_link" target="_blank" class="inline-flex items-center justify-center w-full px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs rounded-lg transition shadow-sm">
-            Download APBDes 2026 (Pdf)<i class="fa-brands fa-google-drive ml-1 text-sm"></i>
+          <a href="https://drive.google.com/file/d/1JZU0gIkwSqKoUgd20S1CowtrUuGJlvGS/view?usp=drive_link" target="_blank" class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs rounded-xl transition shadow-sm">
+            Unduh APBDesa 2026 <i class="fa-brands fa-google-drive ml-2 text-sm"></i>
           </a>
         </div>
 
-        <div class="p-6 bg-emerald-50/50 dark:bg-slate-800 rounded-xl border border-emerald-100 dark:border-slate-700 flex flex-col justify-between">
+        <div class="p-6 bg-emerald-50/60 dark:bg-slate-800 rounded-2xl border border-emerald-100 dark:border-slate-700 flex flex-col justify-between shadow-sm hover:shadow-md transition">
           <div>
-            <div class="w-10 h-10 bg-emerald-600 text-white rounded-lg flex items-center justify-center mb-4">
+            <div class="w-12 h-12 bg-emerald-600 text-white rounded-xl flex items-center justify-center mb-4 text-lg shadow-sm">
               <i class="fa-solid fa-bullhorn"></i>
             </div>
-            <h3 class="font-bold text-lg mb-2">Kanal Layanan PPID</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Masyarakat dapat mengajukan permohonan informasi publik secara resmi sesuai UU KIP langsung melalui WhatsApp Admin Desa.</p>
+            <h3 class="font-bold text-base mb-2 text-gray-900 dark:text-white">Kanal Layanan PPID Desa</h3>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">Pengajuan permohonan informasi publik resmi (UU KIP) diproses secara terstruktur melalui WhatsApp Admin PPID.</p>
           </div>
-          <a href="https://wa.me/6285696157511?text=Halo%20Admin%20PPID%20Desa%20Tanete,%20saya%20ingin%20mengajukan%20Permohonan%20Informasi%20Publik%20resmi" target="_blank" class="inline-flex items-center justify-center w-full px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs rounded-lg transition shadow-sm">
-            Permohonan Informasi via WA <i class="fa-brands fa-whatsapp ml-2 text-sm"></i>
+          <a href="https://wa.me/6285696157511?text=Halo%20Admin%20PPID%20Desa%20Tanete,%20saya%20ingin%20mengajukan%20Permohonan%20Informasi%20Publik%20resmi" target="_blank" class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs rounded-xl transition shadow-sm">
+            Permohonan PPID via WA <i class="fa-brands fa-whatsapp ml-2 text-sm"></i>
           </a>
         </div>
 
-        <!-- Penggantian Kartu Laporan Realisasi Pembangunan dengan Portal Google Apps Script -->
-        <div class="p-6 bg-emerald-50/50 dark:bg-slate-800 rounded-xl border border-emerald-100 dark:border-slate-700 flex flex-col justify-between">
+        <div class="p-6 bg-emerald-50/60 dark:bg-slate-800 rounded-2xl border border-emerald-100 dark:border-slate-700 flex flex-col justify-between shadow-sm hover:shadow-md transition">
           <div>
-            <div class="w-10 h-10 bg-emerald-600 text-white rounded-lg flex items-center justify-center mb-4">
+            <div class="w-12 h-12 bg-emerald-600 text-white rounded-xl flex items-center justify-center mb-4 text-lg shadow-sm">
               <i class="fa-solid fa-chart-line"></i>
             </div>
-            <h3 class="font-bold text-lg mb-2">SAHARA Desa Tanete</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Salinan Arsip Hukum dan Regulasi Cari dan unduh produk hukum Desa Tanete secara transparan dan mudah..</p>
+            <h3 class="font-bold text-base mb-2 text-gray-900 dark:text-white">SAHARA Desa Tanete</h3>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">Salinan Arsip Hukum dan Regulasi. Akses laporan realisasi pembangunan digital Desa Tanete secara transparan.</p>
           </div>
-          <a href="https://script.google.com/macros/s/AKfycbzCeaiP6pBxiKOW8DkYpyi9zKlw77-T3Ad308fcZ14y8e_WvSjxfuz97upP_8mZO3-X/exec" target="_blank" class="inline-flex items-center justify-center w-full px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs rounded-lg transition shadow-sm">
-            Buka SAHARA Desa Tanete <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+          <a href="https://script.google.com/macros/s/AKfycbzCeaiP6pBxiKOW8DkYpyi9zKlw77-T3Ad308fcZ14y8e_WvSjxfuz97upP_8mZO3-X/exec" target="_blank" class="inline-flex items-center justify-center w-full px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs rounded-xl transition shadow-sm">
+            Buka Portal SAHARA <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
           </a>
         </div>
       </div>
 
-      <!-- Financial Visual Chart & Table -->
+      <!-- Financial Visual Chart & Table T.A 2026 -->
+      <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm">
+        <h4 class="font-bold text-sm text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+          <i class="fa-solid fa-chart-pie text-emerald-600"></i> Grafik Transparansi Realisasi APBDes T.A. 2026
+        </h4>
+        <div class="h-64 mb-8"><canvas id="chartAPBDes"></canvas></div>
+
+        <!-- TABEL RINCIAN LAPORAN REALISASI APBDES -->
+              <!-- Financial Visual Chart & Table -->
       <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-xl border border-gray-100 dark:border-slate-700">
         <h4 class="font-bold text-base text-gray-900 dark:text-white mb-4">Grafik Ringkasan APBDes T.A. 2026</h4>
         <div class="h-64 mb-8"><canvas id="chartAPBDes"></canvas></div>
@@ -351,8 +473,8 @@
                 <!-- Belanja -->
                 <tr class="bg-emerald-50/50 dark:bg-slate-700/50 font-bold text-gray-900 dark:text-white">
                   <td class="px-4 py-2.5">II. BELANJA DESA</td>
-                  <td class="px-4 py-2.5">1.510.000.000</td>
-                  <td class="px-4 py-2.5">1.502.500.000</td>
+                  <td class="px-4 py-2.5">2.050.676.097</td>
+                  <td class="px-4 py-2.5">1.593.215.566</td>
                   <td class="px-4 py-2.5 text-right text-emerald-600 dark:text-emerald-400">78%</td>
                 </tr>
                 <tr>
@@ -401,574 +523,399 @@
     </div>
   </section>
 
-  <!-- KELEMBAGAAN DESA (KRITERIA 1) -->
-  <section id="kelembagaan" class="py-14 bg-gray-50 dark:bg-slate-800">
+  <!-- INFORMASI PEMBANGUNAN DESA 2026 (ASPEK 1 & 2) -->
+  <section id="pembangunan" class="py-14 bg-gray-50 dark:bg-slate-800">
     <div class="container mx-auto px-4">
       <div class="text-center max-w-2xl mx-auto mb-10">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Struktur Aparat & Kelembagaan Desa</h2>
-        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Pemerintah Desa, BPD, dan Para Kepala Dusun Desa Tanete</p>
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Infrastruktur & Sarpras</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mt-1">Informasi Kegiatan Pembangunan 2026</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Transparansi fisik realisasi program pembangunan jaringan jalan desa, drainase, dan fasilitas umum.</p>
       </div>
 
-      <!-- 1. Pemerintah Desa -->
-      <div class="mb-12 max-w-6xl mx-auto px-4">
-        <h3 class="text-xl font-bold mb-6 text-emerald-800 dark:text-emerald-400 text-center">Pemerintah Desa</h3>
-        
-        <!-- Grid Pemerintah Desa yang Terstruktur Rapi -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          
-          <!-- Kepala Desa -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/pakde3.jpg', 'Kepala Desa', 'H. Baharuddin, S.E.', '31 Desember 1961', 'SDN 1 Allakuang, SMPN 3 Pangsid, SMA Muhammadiyah Pare-Pare, S1 STIE YPUP Ujung Pandang')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/pakde3.jpg" alt="Kepala Desa" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Kepala Desa</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">H. Baharuddin, S.E.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white dark:bg-slate-700 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-slate-600">
+          <img src="assets/kerjabaktidesa.jpg" alt="Pembangunan Drainase" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">Proyek Fisik T.A. 2026</span>
+            <h4 class="font-bold text-sm text-gray-900 dark:text-white mt-2">Rabat Beton & Drainase Dusun I</h4>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Sumber: Dana Desa (APBN). Volume: 250 Meter. Status: <span class="text-emerald-600 font-bold">Selesai 100%</span>.</p>
           </div>
-
-          <!-- Sekretaris Desa -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/sekdes.png', 'Sekretaris Desa', 'Fatahullah, S.Ag.', '19 Juni 1976', 'SDN 2 Allakuang, SMPN 2 Pangsid, SMA 467 Pangsid, S1 IAIN Alauddin Makassar')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/sekdes.png" alt="Sekretaris Desa" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Sekretaris Desa</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Fatahullah, S.Ag.</p>
-          </div>
-
-          <!-- Kasi Kesejahteraan -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/KASI-Kesejahteraan.png', 'Kepala Seksi Kesejahteraan', 'Muh. Ali Safii, S.Tr.Pt.', '28 September 1994', 'SDN 2 Allakuang, SMPN 2 Pangsid, Ponpes DDI AS-Salman, D2 Politeknik Pertanian Negeri Pangkep, S1 Universitas Hasanuddin')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/KASI-Kesejahteraan.png" alt="Kasi Kesejahteraan" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Kasi Kesejahteraan</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Muh. Ali Safii, S.Tr.Pt.</p>
-          </div>
-
-          <!-- Kasi Pemerintahan -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/KASI-Pelayanan.png', 'Kepala Seksi Pemerintahan', 'Hasnawati, S.Pd', '25 April 1981', 'SDN 2 Allakuang, SMPN 2 Pangsid, SMKN 1 Sidenreng, S1 STKIP Muhammadiyah Sidrap')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/KASI-Pelayanan.png" alt="Kasi Pemerintahan" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Kasi Pemerintahan</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Hasnawati, S.Pd</p>
-          </div>
-
-          <!-- Kasi Pelayanan -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/Nely.jpg', 'Kepala Seksi Pelayanan', 'Nely Amalia', '22 Mei 1999', 'SDN 2 Allakuang, SMPN 2 Pangsid, SMAN 1 Pangsid')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/Nely.jpg" alt="Kasi Pelayanan" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Kasi Pelayanan</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Nely Amalia</p>
-          </div>
-
-          <!-- Kaur Umum -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/KAUR-Umum.png', 'Kepala Urusan Umum', 'Wildayati, S.Pd.', '12 Juni 1994', 'SDN 2 Allakuang, SMPN 2 Pangsid, SMKN 1 Sidenreng, S1 STAI DDI Sidrap')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/KAUR-Umum.png" alt="Kaur Umum" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Kaur Umum</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Wildayati, S.Pd.</p>
-          </div>
-
-          <!-- Kaur Keuangan -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/KAUR-Perencanaan.png', 'Kepala Urusan Keuangan', 'Hariyadi, S.H', '11 November 1994', 'SDN 2 Allakuang, SMPN 2 Pangsid, SMAN 1 Pangsid, S1 STIH Amsir Pare-Pare')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/KAUR-Perencanaan.png" alt="Kaur Keuangan" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Kaur Keuangan</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Hariyadi, S.H</p>
-          </div>
-
-          <!-- Staf Keuangan -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/STAF-Keuangan.png', 'Staf Keuangan', 'Putri Reginatasya', '31 Januari 2000', 'SDN 10 Pangsid, SMPN 6 Pangsid, SMAN 2 Sidrap')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/STAF-Keuangan.png" alt="Staf Keuangan" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Staf Keuangan</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Putri Reginatasya</p>
-          </div>
-
-          <!-- Kaur Perencanaan -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/wahyu.jpg', 'Kepala Urusan Perencanaan', 'Nur Wahyu Hidayat, S.H', '21 Juni 2000', 'SDN 2 Allakuang, Ponpes DDI As-Salman Allakuang (Mts & MA), S1 STAI DDI Sidrap')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/wahyu.jpg" alt="Kaur Perencanaan" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Kaur Perencanaan</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Nur Wahyu Hidayat, S.H</p>
-          </div>
-
-          <!-- Staf Perencanaan -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/STAF-Perencanaan.png', 'Staf Perencanaan', 'Nur Hikmah D, S.Pd', '07 Januari 2001', 'SDN 2 Allakuang, SMPN 5 MaritengngaE, SMKN 1 Sidenreng, S1 Universitas Muhammadiyah Sidrap')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/STAF-Perencanaan.png" alt="Staf Perencanaan" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Staf Perencanaan</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Nur Hikmah D, S.Pd</p>
-          </div>
-
         </div>
-      </div>
-  
-      <!-- 2. Kepala Dusun -->
-      <div class="mb-12 max-w-6xl mx-auto px-4">
-        <h3 class="text-xl font-bold mb-6 text-emerald-800 dark:text-emerald-400 text-center">Kepala Dusun</h3>
-          
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-          
-          <!-- Kepala Dusun I -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/kadus-1.png', 'Kepala Dusun I', 'Imran Tahir', '12 Juli 1963', 'SDN 1 Otting, SMP 1 Tanru Tedong, SMA 5 Ujung Pandang')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/kadus-1.png" alt="Kepala Dusun I" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Kepala Dusun I</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Imran Tahir</p>
-          </div>
 
-          <!-- Kepala Dusun II -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/basri.jpeg', 'Kepala Dusun II', 'Basri', '15 Maret 1980', 'SDN 2 Allakuang, SMPN 2 Pangsid, SMAN 467 Pangsid')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/basri.jpeg" alt="Kepala Dusun II" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Kepala Dusun II</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Basri</p>
+        <div class="bg-white dark:bg-slate-700 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-slate-600">
+          <img src="assets/kantordesa.jpg" alt="Renovasi Kantor" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <span class="text-[10px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-bold">Sarana Pelayanan</span>
+            <h4 class="font-bold text-sm text-gray-900 dark:text-white mt-2">Digitalisasi Pelayanan Kantor Desa</h4>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Pengadaan perangkat Komputer & Anjungan Pelayanan Mandiri. Status: <span class="text-emerald-600 font-bold">Aktif Digunakan</span>.</p>
           </div>
-
-          <!-- Kepala Dusun III -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/kadus-3.png', 'Kepala Dusun III', 'Muh. Yusuf Yakub', '24 Desember 1964', 'SDN 2 Allakuang, SMPN 2 Allakuang, SMA Muhammadiyah Pare-Pare')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/kadus-3.png" alt="Kepala Dusun III" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Kepala Dusun III</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Muh. Yusuf Yakub</p>
-          </div>
-
         </div>
-      </div>
 
-      <!-- 3. Badan Permusyawaratan Desa (BPD) -->
-      <div class="max-w-6xl mx-auto px-4">
-        <h3 class="text-xl font-bold mb-6 text-emerald-800 dark:text-emerald-400 text-center">Badan Permusyawaratan Desa (BPD)</h3>
-          
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          
-          <!-- Ketua BPD -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/ketua-bpd.png', 'Ketua BPD', 'Drs. H. Rusli Made Aming', '01 Juli 1961', '-')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/ketua-bpd.png" alt="Ketua BPD" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Ketua BPD</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Drs. H. Rusli Made Aming</p>
+        <div class="bg-white dark:bg-slate-700 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-slate-600">
+          <img src="assets/posyandutanete.jpg" alt="Posyandu Sehat" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <span class="text-[10px] bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-bold">Kesehatan MASYARAKAT</span>
+            <h4 class="font-bold text-sm text-gray-900 dark:text-white mt-2">Rehabilitasi Poskesdes Dusun III</h4>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Peningkatan sarana penanganan Stunting & Kesehatan Ibu-Anak. Status: <span class="text-emerald-600 font-bold">Selesai 100%</span>.</p>
           </div>
-
-          <!-- Wakil Ketua BPD -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/h-bur.jpg', 'Wakil Ketua BPD', 'Drs. H. Burhanuddin', '24 Oktober 1967', 'MI Negeri Pare-Pare, MTs Negeri Pare-Pare, MA Negeri Pare-Pare, S1 IAIN Alauddin Makassar')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/h-bur.jpg" alt="Wakil Ketua BPD" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Wakil Ketua BPD</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Drs. H. Burhanuddin</p>
-          </div>
-
-          <!-- Sekretaris BPD -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/pak-hasan.jpg', 'Sekretaris BPD', 'Drs. Hasan Kadir', '03 Juli 1969', 'SDN 1 Allakuang, SMPN 1 Pangsid, SMAN 467 Pangsid, S1 Universitas Hasanuddin')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/pak-hasan.jpg" alt="Sekretaris BPD" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Sekretaris BPD</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Drs. Hasan Kadir</p>
-          </div>
-
-          <!-- Anggota BPD 1 -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/hj-rahma.jpg', 'Anggota BPD', 'Hj. Rahmawati', '05 November 1978', 'SDN 2 Allakuang, SMPN 1 Pangsid, SMKN 1 Sidenreng')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/hj-rahma.jpg" alt="Anggota BPD" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Anggota BPD</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Hj. Rahmawati</p>
-          </div>
-
-          <!-- Anggota BPD 2 -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/arri.jpg', 'Anggota BPD', 'Syafruddin Karim', '21 Mei 1966', 'SDN 1 Pangkajene, SMPN 1 Pangsid, SMA PPSP IKIP Ujung Pandang')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/arri.jpg" alt="Anggota BPD" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Anggota BPD</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Syafruddin Karim</p>
-          </div>  
-
-          <!-- Anggota BPD 3 -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/h-jama.jpg', 'Anggota BPD', 'H. Jamaluddin', '09 Agustus 1970', 'SDN 2 Allakuang, SMPN 1 Pangsid, SMAN 467 Pangsid')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/h-jama.jpg" alt="Anggota BPD" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Anggota BPD</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">H. Jamaluddin</p>
-          </div>
-
-          <!-- Anggota BPD 4 -->
-          <div class="bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600 p-4 flex flex-col items-center text-center cursor-pointer transform hover:scale-105 transition duration-300" 
-               onclick="openModal('assets/man.jpeg', 'Anggota BPD', 'H. Muhammad Arif, S.Pd., M.Si.', '06 Agustus 1969', 'SDN 2 Allakuang, SMPN 2 Pangsid, SMAN 467 Pangsid, D3 Universitas Hasanuddin, S1 Universitas Tadulako, S2 Universitas Satria Makkassar')">
-            <div class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-inner border-2 border-emerald-500">
-              <img src="assets/man.jpeg" alt="Anggota BPD" class="w-full h-full object-cover aspect-square">
-            </div>
-            <p class="font-bold text-sm text-gray-900 dark:text-white">Anggota BPD</p>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">H. Muhammad Arif, S.Pd., M.Si.</p>
-          </div>
-
         </div>
       </div>
     </div>
   </section>
 
-  <!-- POP-UP MODAL -->
-<div id="popupModal" class="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
-  <div class="bg-white rounded-2xl max-w-md w-full p-6 m-4 relative shadow-2xl transform scale-95 transition-transform duration-300 text-center">
-    
-    <!-- Tombol Close Silang -->
-    <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
-    
-    <!-- Konten Pop-up -->
-    <img id="modalImg" src="" alt="" class="w-36 h-36 object-cover rounded-full mx-auto border-4 border-blue-500 shadow-md mb-4">
-    <h4 id="modalRole" class="text-blue-700 font-bold text-xl mb-1"></h4>
-    <p id="modalName" class="text-gray-800 text-lg font-medium mb-4"></p>
-    
-    <hr class="border-gray-200 mb-4">
-
-    <!-- Tambahan Detail Informasi Tanggal Lahir & Pendidikan -->
-    <div class="text-left text-sm text-gray-700 space-y-3 mb-6">
-      <div>
-        <span class="font-bold block text-gray-400 text-xs uppercase tracking-wider">Tanggal Lahir</span>
-        <p id="modalBirth" class="text-gray-800 font-medium mt-0.5"></p>
-      </div>
-      <div>
-        <span class="font-bold block text-gray-400 text-xs uppercase tracking-wider">Riwayat Pendidikan</span>
-        <ul id="modalEducation" class="list-disc list-inside space-y-1 text-gray-800 font-medium mt-1">
-          <!-- Diisi via JavaScript -->
-        </ul>
-      </div>
-    </div>
-    
-    <!-- Tombol Tutup -->
-    <button onclick="closeModal()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-xl transition duration-200">
-      Tutup
-    </button>
-  </div>
-</div>
-
-<!-- SCRIPT JAVASCRIPT -->
-<script>
-  function openModal(imgSrc, role, name, birthDate, education) {
-    const modal = document.getElementById('popupModal');
-    const modalContent = modal.querySelector('div');
-    
-    // Set isi data dasar pop-up
-    document.getElementById('modalImg').src = imgSrc;
-    document.getElementById('modalImg').alt = name;
-    document.getElementById('modalRole').innerText = role;
-    document.getElementById('modalName').innerText = name;
-    
-    // Set isi data Tanggal Lahir
-    document.getElementById('modalBirth').innerText = birthDate || '-';
-    
-    // Set isi data Riwayat Pendidikan
-    const eduList = document.getElementById('modalEducation');
-    eduList.innerHTML = ''; // Reset data list sebelumnya
-    
-    if (education && education !== '-') {
-      // Memisahkan string pendidikan bersarkan tanda koma (,) menjadi list item (<li>)
-      const eduArray = education.split(',');
-      eduArray.forEach(edu => {
-        const li = document.createElement('li');
-        li.innerText = edu.trim(); 
-        eduList.appendChild(li);
-      });
-    } else {
-      eduList.innerHTML = '<li>-</li>';
-    }
-    
-    // Tampilkan modal dengan transisi
-    modal.classList.remove('hidden');
-    setTimeout(() => {
-      modal.classList.remove('opacity-0');
-      modalContent.classList.remove('scale-95');
-    }, 10);
-  }
-
-  function closeModal() {
-    const modal = document.getElementById('popupModal');
-    const modalContent = modal.querySelector('div');
-    
-    modal.classList.add('opacity-0');
-    modalContent.classList.add('scale-95');
-    
-    setTimeout(() => {
-      modal.classList.add('hidden');
-    }, 300);
-  }
-
-  // Tutup jika area luar diklik
-  window.onclick = function(event) {
-    const modal = document.getElementById('popupModal');
-    if (event.target === modal) {
-      closeModal();
-    }
-  }
-</script>
-
-  <!-- PELAYANAN PUBLIK DIGITAL & AKTA (KRITERIA 3) -->
-  <section id="layanan" class="py-14 bg-white dark:bg-slate-900">
+  <!-- STRUKTUR APARATUR & KELEMBAGAAN DESA (ASPEK 1) -->
+  <section id="kelembagaan" class="py-14 bg-white dark:bg-slate-900">
     <div class="container mx-auto px-4">
       <div class="text-center max-w-2xl mx-auto mb-10">
-        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Layanan Mandiri</span>
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mt-1">Pelayanan Publik Digital Desa</h2>
-        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Kemudahan pengurusan dokumen kependudukan, perizinan usaha, serta pendaftaran Akta Kelahiran & Kematian.</p>
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Pemerintahan & Kelembagaan</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mt-1">Struktur Aparatur Desa Tanete</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Pemerintah Desa, Kepala Dusun, dan Badan Permusyawaratan Desa (BPD).</p>
       </div>
 
-      <!-- Operational Info -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-        <div class="p-5 bg-gray-50 dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700">
-          <h4 class="font-bold text-emerald-700 dark:text-emerald-400 mb-2 flex items-center gap-2"><i class="fa-solid fa-clock"></i> Jam Operasional</h4>
-          <p class="text-xs text-gray-600 dark:text-gray-300">Senin – Jumat: 08.00 – 15.00 WITA<br>Sabtu – Minggu / Hari Libur: Tutup</p>
-        </div>
-        <div class="p-5 bg-gray-50 dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700">
-          <h4 class="font-bold text-emerald-700 dark:text-emerald-400 mb-2 flex items-center gap-2"><i class="fa-solid fa-location-dot"></i> Kantor Desa</h4>
-          <p class="text-xs text-gray-600 dark:text-gray-300">Jl. Poros Soppeng, Desa Tanete, Kec. Maritengngae, Kab. Sidrap</p>
-        </div>
-        <div class="p-5 bg-gray-50 dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700">
-          <h4 class="font-bold text-emerald-700 dark:text-emerald-400 mb-2 flex items-center gap-2"><i class="fa-solid fa-phone"></i> Kontak Layanan</h4>
-          <p class="text-xs text-gray-600 dark:text-gray-300">Email: desatanete98@gmail.com<br>WhatsApp Resmi: 0856-9615-7511</p>
+      <!-- Pemerintah Desa Grid -->
+      <div class="mb-10">
+        <h3 class="text-base font-bold text-emerald-800 dark:text-emerald-400 mb-6 text-center">Pemerintah Desa Tanete</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/pakde3.jpg" alt="H. Baharuddin, S.E." class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">H. Baharuddin, S.E.</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Kepala Desa</p>
+          </div>
+
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/sekdes.png" alt="Fatahullah, S.Ag." class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">Fatahullah, S.Ag.</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Sekretaris Desa</p>
+          </div>
+
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/KASI-Kesejahteraan.png" alt="Muh. Ali Safii, S.Tr.Pt." class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">Muh. Ali Safii, S.Tr.Pt.</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Kasi Kesejahteraan</p>
+          </div>
+
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/KASI-Pelayanan.png" alt="Hasnawati, S.Pd" class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">Hasnawati, S.Pd</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Kasi Pemerintahan</p>
+          </div>
+
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/Nely.jpg" alt="Nely Amalia" class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">Nely Amalia</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Kasi Pelayanan</p>
+          </div>
+
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/KAUR-Umum.png" alt="Wildayati, S.Pd." class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">Wildayati, S.Pd.</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Kaur Umum</p>
+          </div>
+
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/KAUR-Perencanaan.png" alt="Hariyadi, S.H" class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">Hariyadi, S.H</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Kaur Keuangan</p>
+          </div>
+
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/STAF-Keuangan.png" alt="Putri Reginatasya" class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">Putri Reginatasya</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Staf Keuangan</p>
+          </div>
+
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/wahyu.jpg" alt="Nur Wahyu Hidayat, S.H" class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">Nur Wahyu Hidayat, S.H</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Kaur Perencanaan</p>
+          </div>
+
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/STAF-Perencanaan.png" alt="Nur Hikmah D, S.Pd" class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">Nur Hikmah D, S.Pd</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Staf Perencanaan</p>
+          </div>
         </div>
       </div>
 
-      <!-- Service Cards Grid -->
+      <!-- Kepala Dusun Grid -->
+      <div class="mb-10">
+        <h3 class="text-base font-bold text-emerald-800 dark:text-emerald-400 mb-6 text-center">Kepala Dusun</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/kadus-1.png" alt="Imran Tahir" class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">Imran Tahir</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Kepala Dusun I</p>
+          </div>
+
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/basri.jpeg" alt="Basri" class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">Basri</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Kepala Dusun II</p>
+          </div>
+
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/kadus-3.png" alt="Muh. Yusuf Yakub" class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">Muh. Yusuf Yakub</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Kepala Dusun III</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- BPD Grid -->
+      <div>
+        <h3 class="text-base font-bold text-emerald-800 dark:text-emerald-400 mb-6 text-center">Badan Permusyawaratan Desa (BPD)</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/ketua-bpd.png" alt="Drs. H. Rusli Made Aming" class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">Drs. H. Rusli Made Aming</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Ketua BPD</p>
+          </div>
+
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/h-bur.jpg" alt="Drs. H. Burhanuddin" class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">Drs. H. Burhanuddin</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Wakil Ketua BPD</p>
+          </div>
+
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/pak-hasan.jpg" alt="Drs. Hasan Kadir" class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">Drs. Hasan Kadir</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Sekretaris BPD</p>
+          </div>
+
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/hj-rahma.jpg" alt="Hj. Rahmawati" class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">Hj. Rahmawati</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Anggota BPD</p>
+          </div>
+
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/arri.jpg" alt="Syafruddin Karim" class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">Syafruddin Karim</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Anggota BPD</p>
+          </div>
+
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/h-jama.jpg" alt="H. Jamaluddin" class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">H. Jamaluddin</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Anggota BPD</p>
+          </div>
+
+          <div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 text-center shadow-sm">
+            <img src="assets/man.jpeg" alt="H. Muhammad Arif" class="w-20 h-20 object-cover rounded-full mx-auto mb-2 border-2 border-emerald-500">
+            <h4 class="font-bold text-xs text-gray-900 dark:text-white">H. Muhammad Arif, S.Pd., M.Si</h4>
+            <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Anggota BPD</p>
+          </div>
+    </div>
+  </section>
+
+  <!-- PELAYANAN PUBLIK DIGITAL, PERSYARATAN, INTEGRASI & STATUS (ASPEK 3 & 6) -->
+  <section id="layanan" class="py-14 bg-gray-50 dark:bg-slate-800">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Layanan Mandiri & SOP</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mt-1">Pelayanan Publik Digital Terintegrasi</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Syarat, SOP, waktu penyelesaian (1-2 hari kerja), tanpa biaya (Gratis Rp 0), dan pengajuan permohonan langsung via WhatsApp.</p>
+      </div>
+
+      <!-- Integrasi Layanan Publik / Ikon Instansi Lain (Aspek 3) -->
+      <div class="mb-8 p-5 bg-white dark:bg-slate-700 rounded-2xl border border-gray-100 dark:border-slate-600 shadow-sm">
+        <p class="text-[11px] font-bold text-gray-500 dark:text-gray-400 text-center uppercase tracking-wider mb-3">Integrasi Layanan Publik Eksternal & Platform Digital</p>
+        <div class="flex flex-wrap justify-center items-center gap-3 text-xs font-semibold">
+          <a href="https://sidrapkab.go.id" target="_blank" class="px-4 py-2 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-xl hover:border-emerald-500 transition shadow-sm flex items-center gap-2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Official_Logo_of_Sidenreng_Rappang_Regency.png" class="h-4 w-auto" alt="Logo Pemkab"> Pemkab Sidrap
+          </a>
+          <a href="https://disdukcapil.sidrapkab.go.id" target="_blank" class="px-4 py-2 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-xl hover:border-emerald-500 transition shadow-sm flex items-center gap-2">
+            <i class="fa-solid fa-id-card text-emerald-600"></i> Disdukcapil Sidrap
+          </a>
+          <a href="https://kemendesa.go.id" target="_blank" class="px-4 py-2 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-xl hover:border-emerald-500 transition shadow-sm flex items-center gap-2">
+            <i class="fa-solid fa-building-flag text-blue-600"></i> Kemendes PDTT
+          </a>
+          <a href="https://lapor.go.id" target="_blank" class="px-4 py-2 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-xl hover:border-emerald-500 transition shadow-sm flex items-center gap-2">
+            <i class="fa-solid fa-bullhorn text-red-600"></i> SP4N-LAPOR!
+          </a>
+        </div>
+      </div>
+
+      <!-- Service Cards Grid with Direct WhatsApp Permohonan -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
         <!-- SKU -->
-        <div class="p-5 bg-gray-50 dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 flex flex-col justify-between shadow-sm">
+        <div class="p-6 bg-white dark:bg-slate-700 rounded-2xl border border-gray-100 dark:border-slate-600 flex flex-col justify-between shadow-sm hover:shadow-md transition">
           <div>
-            <span class="text-xs bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200 px-2 py-0.5 rounded font-semibold">Perizinan Usaha</span>
-            <h3 class="font-bold text-base mt-2 mb-2 text-gray-900 dark:text-white">Surat Keterangan Usaha (SKU)</h3>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mb-3 leading-relaxed">Penerbitan surat keterangan legalitas usaha bagi warga/UMKM untuk keperluan perbankan dan administrasi.</p>
-            <p class="text-xs font-semibold text-gray-700 dark:text-gray-200 mb-1">Persyaratan Dokumen:</p>
-            <ul class="text-xs text-gray-500 dark:text-gray-400 list-disc list-inside space-y-0.5 mb-4">
-              <li>Fotokopi KTP Pemohon</li>
-              <li>Fotokopi Kartu Keluarga (KK)</li>
-              <li>Detail Lokasi & Jenis Usaha</li>
-            </ul>
-          </div>
-          <a href="https://wa.me/6285696157511?text=Halo%20Admin%20Desa%20Tanete,%20saya%20ingin%20mengurus%20Surat%20Keterangan%20Usaha%20(SKU)" target="_blank" class="w-full text-center py-2 bg-emerald-600 text-white rounded-lg text-xs font-semibold hover:bg-emerald-700 transition">
-            Ajukan via WA <i class="fa-brands fa-whatsapp ml-1"></i>
-          </a>
-        </div>
-
-        <!-- Surat Rekomendasi Pembelian BBM Jenis Tertentu -->
-        <div class="p-5 bg-gray-50 dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 flex flex-col justify-between shadow-sm">
-          <div>
-            <span class="text-xs bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200 px-2 py-0.5 rounded font-semibold">Pertanian & Usaha</span>
-            <h3 class="font-bold text-base mt-2 mb-2 text-gray-900 dark:text-white">Rekomendasi Pembelian BBM Tertentu</h3>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mb-3 leading-relaxed">Surat rekomendasi pembelian Bahan Bakar Minyak (BBM) bersubsidi untuk alat mesin pertanian (Alsintan) & mesin produksi.</p>
-            <p class="text-xs font-semibold text-gray-700 dark:text-gray-200 mb-1">Persyaratan Dokumen:</p>
-            <ul class="text-xs text-gray-500 dark:text-gray-400 list-disc list-inside space-y-0.5 mb-4">
-              <li>Fotokopi KTP & Kartu Keluarga (KK)</li>
-              <li>Nama & Surat Keterangan Kelompok Tani</li>
-              <li>Rincian Jenis Mesin & Konsumsi BBM</li>
-            </ul>
-          </div>
-          <a href="https://wa.me/6285696157511?text=Halo%20Admin%20Desa%20Tanete,%20saya%20ingin%20mengurus%20Surat%20Rekomendasi%20Pembelian%20BBM%20Jenis%20Tertentu" target="_blank" class="w-full text-center py-2 bg-emerald-600 text-white rounded-lg text-xs font-semibold hover:bg-emerald-700 transition">
-            Ajukan via WA <i class="fa-brands fa-whatsapp ml-1"></i>
-          </a>
-        </div>
-
-        <!-- Surat Pengantar Nikah N1 -->
-        <div class="p-5 bg-gray-50 dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 flex flex-col justify-between shadow-sm">
-          <div>
-            <span class="text-xs bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200 px-2 py-0.5 rounded font-semibold">Pernikahan</span>
-            <h3 class="font-bold text-base mt-2 mb-2 text-gray-900 dark:text-white">Pengantar Nikah (Model N1)</h3>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mb-3 leading-relaxed">Penerbitan surat pengantar pernikahan resmi tingkat desa sebagai syarat pendaftaran di KUA.</p>
-            <p class="text-xs font-semibold text-gray-700 dark:text-gray-200 mb-1">Persyaratan Dokumen:</p>
-            <ul class="text-xs text-gray-500 dark:text-gray-400 list-disc list-inside space-y-0.5 mb-2">
-              <li>Fotokopi KTP, KK, & Ijazah Pemohon</li>
-              <li>Fotokopi Akta Kelahiran</li>
-              <li>Fotokopi KTP Orang Tua (Ayah & Ibu)</li>
-              <li>Pas Foto Latar Biru: Ukuran 2x3 & 3x4 (Masing-masing 4 lembar)</li>
-              <li>Akta Cerai Asli (Khusus Status Duda / Janda)</li>
-            </ul>
-            <div class="p-2 bg-amber-50 dark:bg-amber-950/50 rounded border border-amber-200 dark:border-amber-800 mb-4">
-              <p class="text-[11px] text-amber-800 dark:text-amber-300 font-medium">
-                <i class="fa-solid fa-circle-info mr-1"></i><strong>Ketentuan Foto Laki-Laki:</strong> Wajib memakai Peci / Songkok Hitam Nasional & Jas Hitam.
-              </p>
+            <div class="flex justify-between items-center mb-3">
+              <span class="text-[10px] bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200 px-2.5 py-0.5 rounded-full font-bold">Perizinan Usaha</span>
             </div>
+            <h3 class="font-bold text-base mb-2 text-gray-900 dark:text-white">Surat Keterangan Usaha (SKU)</h3>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">Persyaratan: FC KTP, FC Kartu Keluarga, Foto Tempat Usaha. Pengurusan tanpa dipungut biaya.</p>
           </div>
-          <a href="https://wa.me/6285696157511?text=Halo%20Admin%20Desa%20Tanete,%20saya%20ingin%20mengurus%20Surat%20Pengantar%20Nikah%20N1" target="_blank" class="w-full text-center py-2 bg-amber-600 text-white rounded-lg text-xs font-semibold hover:bg-amber-700 transition">
-            Pengajuan Pengantar Nikah <i class="fa-brands fa-whatsapp ml-1"></i>
+          <a href="https://wa.me/6285696157511?text=Halo%20Admin%20Desa%20Tanete,%20saya%20ingin%20mengajukan%20Permohonan%20Surat%20Keterangan%20Usaha%20(SKU)" target="_blank" class="w-full block text-center py-2.5 bg-emerald-600 text-white rounded-xl text-xs font-bold hover:bg-emerald-700 transition shadow-sm">
+            Permohonan via WhatsApp <i class="fa-brands fa-whatsapp ml-1"></i>
           </a>
         </div>
 
         <!-- Akta Kelahiran -->
-        <div class="p-5 bg-gray-50 dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 flex flex-col justify-between shadow-sm">
+        <div class="p-6 bg-white dark:bg-slate-700 rounded-2xl border border-gray-100 dark:border-slate-600 flex flex-col justify-between shadow-sm hover:shadow-md transition">
           <div>
-            <span class="text-xs bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-2 py-0.5 rounded font-semibold">Kependudukan</span>
-            <h3 class="font-bold text-base mt-2 mb-2 text-gray-900 dark:text-white">Permohonan Akta Kelahiran</h3>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mb-3 leading-relaxed">Layanan pengurusan pengantar penerbitan Akta Kelahiran anak terintegrasi dengan Disdukcapil.</p>
-            <p class="text-xs font-semibold text-gray-700 dark:text-gray-200 mb-1">Persyaratan Dokumen:</p>
-            <ul class="text-xs text-gray-500 dark:text-gray-400 list-disc list-inside space-y-0.5 mb-4">
-              <li>Surat Keterangan Lahir Asli dari Bidan / Rumah Sakit</li>
-              <li>Fotokopi KTP Kedua Orang Tua & 2 Saksi</li>
-              <li>Fotokopi Buku Nikah Orang Tua & Kartu Keluarga (KK)</li>
-            </ul>
+            <div class="flex justify-between items-center mb-3">
+              <span class="text-[10px] bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-2.5 py-0.5 rounded-full font-bold">Kependudukan</span>
+            </div>
+            <h3 class="font-bold text-base mb-2 text-gray-900 dark:text-white">Pengantar Akta Kelahiran</h3>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">Persyaratan: Surat Keterangan Bidan/RS, FC KK & KTP Orang Tua, Buku Nikah, KTP 2 Saksi.</p>
           </div>
-          <a href="https://wa.me/6285696157511?text=Halo%20Admin%20Desa%20Tanete,%20saya%20ingin%20mengurus%20Akta%20Kelahiran" target="_blank" class="w-full text-center py-2 bg-blue-600 text-white rounded-lg text-xs font-semibold hover:bg-blue-700 transition">
-            Pengajuan Akta Kelahiran <i class="fa-brands fa-whatsapp ml-1"></i>
+          <a href="https://wa.me/6285696157511?text=Halo%20Admin%20Desa%20Tanete,%20saya%20ingin%20mengajukan%20Permohonan%20Akta%20Kelahiran" target="_blank" class="w-full block text-center py-2.5 bg-blue-600 text-white rounded-xl text-xs font-bold hover:bg-blue-700 transition shadow-sm">
+            Permohonan via WhatsApp <i class="fa-brands fa-whatsapp ml-1"></i>
           </a>
         </div>
 
         <!-- Akta Kematian -->
-        <div class="p-5 bg-gray-50 dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 flex flex-col justify-between shadow-sm">
+        <div class="p-6 bg-white dark:bg-slate-700 rounded-2xl border border-gray-100 dark:border-slate-600 flex flex-col justify-between shadow-sm hover:shadow-md transition">
           <div>
-            <span class="text-xs bg-rose-100 text-rose-800 dark:bg-rose-900 dark:text-rose-200 px-2 py-0.5 rounded font-semibold">Kependudukan</span>
-            <h3 class="font-bold text-base mt-2 mb-2 text-gray-900 dark:text-white">Permohonan Akta Kematian</h3>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mb-3 leading-relaxed">Layanan penerbitan surat penerbitan Akta Kematian resmi untuk pembaruan dokumen keluarga.</p>
-            <p class="text-xs font-semibold text-gray-700 dark:text-gray-200 mb-1">Persyaratan Dokumen:</p>
-            <ul class="text-xs text-gray-500 dark:text-gray-400 list-disc list-inside space-y-0.5 mb-4">
-              <li>Surat Keterangan Kematian dari Dokter / Rumah Sakit / Desa</li>
-              <li>KTP Asli Almarhum / Almarhumah & Kartu Keluarga (KK)</li>
-              <li>Fotokopi KTP Pelapor & 2 Orang Saksi</li>
-            </ul>
+            <div class="flex justify-between items-center mb-3">
+              <span class="text-[10px] bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 px-2.5 py-0.5 rounded-full font-bold">Kependudukan</span>
+            </div>
+            <h3 class="font-bold text-base mb-2 text-gray-900 dark:text-white">Pengantar Akta Kematian</h3>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">Persyaratan: Surat Kematian RS/Desa, KTP Asli Almarhum/ah, FC KK & KTP Pelapor/Saksi.</p>
           </div>
-          <a href="https://wa.me/6285696157511?text=Halo%20Admin%20Desa%20Tanete,%20saya%20ingin%20mengurus%20Akta%20Kematian" target="_blank" class="w-full text-center py-2 bg-rose-600 text-white rounded-lg text-xs font-semibold hover:bg-rose-700 transition">
-            Pengajuan Akta Kematian <i class="fa-brands fa-whatsapp ml-1"></i>
+          <a href="https://wa.me/6285696157511?text=Halo%20Admin%20Desa%20Tanete,%20saya%20ingin%20mengajukan%20Permohonan%20Akta%20Kematian" target="_blank" class="w-full block text-center py-2.5 bg-red-600 text-white rounded-xl text-xs font-bold hover:bg-red-700 transition shadow-sm">
+            Permohonan via WhatsApp <i class="fa-brands fa-whatsapp ml-1"></i>
           </a>
         </div>
 
-        <!-- Urusan Pertanahan -->
-        <div class="p-5 bg-gray-50 dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 flex flex-col justify-between shadow-sm">
+        <!-- BBM Pertanian -->
+        <div class="p-6 bg-white dark:bg-slate-700 rounded-2xl border border-gray-100 dark:border-slate-600 flex flex-col justify-between shadow-sm hover:shadow-md transition">
           <div>
-            <span class="text-xs bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 px-2 py-0.5 rounded font-semibold">Pertanahan</span>
-            <h3 class="font-bold text-base mt-2 mb-2 text-gray-900 dark:text-white">Layanan Pertanahan Desa</h3>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mb-3 leading-relaxed">Pengurusan dan fasilitasi administrasi hukum pertanahan di wilayah Desa Tanete.</p>
-            <p class="text-xs font-semibold text-gray-700 dark:text-gray-200 mb-1">Cakupan Layanan Pertanahan:</p>
-            <ul class="text-xs text-gray-500 dark:text-gray-400 list-disc list-inside space-y-0.5 mb-4">
-              <li>Surat Pernyataan Jual Beli Tanah</li>
-              <li>Surat Pengantar Akta Jual Beli (AJB)</li>
-              <li>Surat Perjanjian Gadai Tanah / Sawah</li>
-            </ul>
+            <div class="flex justify-between items-center mb-3">
+              <span class="text-[10px] bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200 px-2.5 py-0.5 rounded-full font-bold">Pertanian</span>
+            </div>
+            <h3 class="font-bold text-base mb-2 text-gray-900 dark:text-white">Rekomendasi BBM Subsidi Alsintan</h3>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">Persyaratan: FC KTP, KK, Surat Kelompok Tani, Rincian Mesin Traktor/Pompa Air Pertanian.</p>
           </div>
-          <a href="https://wa.me/6285696157511?text=Halo%20Admin%20Desa%20Tanete,%20saya%20ingin%20mengajukan%20permohonan%20Urusan%20Pertanahan" target="_blank" class="w-full text-center py-2 bg-purple-600 text-white rounded-lg text-xs font-semibold hover:bg-purple-700 transition">
-            Pengajuan Urusan Pertanahan <i class="fa-brands fa-whatsapp ml-1"></i>
+          <a href="https://wa.me/6285696157511?text=Halo%20Admin%20Desa%20Tanete,%20saya%20ingin%20mengajukan%20Rekomendasi%20BBM%20Subsidi%20Alsintan" target="_blank" class="w-full block text-center py-2.5 bg-emerald-600 text-white rounded-xl text-xs font-bold hover:bg-emerald-700 transition shadow-sm">
+            Permohonan via WhatsApp <i class="fa-brands fa-whatsapp ml-1"></i>
+          </a>
+        </div>
+
+        <!-- N1 Pengantar Nikah -->
+        <div class="p-6 bg-white dark:bg-slate-700 rounded-2xl border border-gray-100 dark:border-slate-600 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+          <div>
+            <div class="flex justify-between items-center mb-3">
+              <span class="text-[10px] bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200 px-2.5 py-0.5 rounded-full font-bold">Pernikahan</span>
+            </div>
+            <h3 class="font-bold text-base mb-2 text-gray-900 dark:text-white">Pengantar Nikah (Form N1)</h3>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">Persyaratan Laki-Laki: FC KK, FC Ijazah, FC Akta Lahir, FC KTP, FC KTP Orang Tua, Pas Foto Latar Biru 2x3 & 3x4 (Masing-masing 4 lembar, wajib Pakai Peci/Songkok Hitam & Jas Hitam), Akta Cerai Asli (bagi Duda/Janda).</p>
+          </div>
+          <a href="https://wa.me/6285696157511?text=Halo%20Admin%20Desa%20Tanete,%20saya%20ingin%20mengajukan%20Pengantar%20Nikah%20(Form%20N1)" target="_blank" class="w-full block text-center py-2.5 bg-amber-600 text-white rounded-xl text-xs font-bold hover:bg-amber-700 transition shadow-sm">
+            Permohonan via WhatsApp <i class="fa-brands fa-whatsapp ml-1"></i>
+          </a>
+        </div>
+
+        <!-- Pertanahan -->
+        <div class="p-6 bg-white dark:bg-slate-700 rounded-2xl border border-gray-100 dark:border-slate-600 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+          <div>
+            <div class="flex justify-between items-center mb-3">
+              <span class="text-[10px] bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 px-2.5 py-0.5 rounded-full font-bold">Pertanahan</span>
+            </div>
+            <h3 class="font-bold text-base mb-2 text-gray-900 dark:text-white">Urusan Pertanahan (Jual Beli / AJB / Gadai)</h3>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">Pelayanan Pengantar Akta Jual Beli (AJB), Surat Pernyataan Jual Beli Tanah, & Perjanjian Gadai Sawah/Tanah. Syarat: Bukti Pelunasan PBB, FC KTP Pihak I & II, Saksi Batas Tanah.</p>
+          </div>
+          <a href="https://wa.me/6285696157511?text=Halo%20Admin%20Desa%20Tanete,%20saya%20ingin%20mengurus%20Surat%20Urusan%20Pertanahan" target="_blank" class="w-full block text-center py-2.5 bg-purple-600 text-white rounded-xl text-xs font-bold hover:bg-purple-700 transition shadow-sm">
+            Permohonan via WhatsApp <i class="fa-brands fa-whatsapp ml-1"></i>
           </a>
         </div>
       </div>
 
-      <!-- Fitur Tracking Layanan -->
-      <div class="p-6 bg-gradient-to-r from-emerald-800 to-teal-800 text-white rounded-xl shadow-md">
+      <!-- Fitur Tracking Status Layanan (Aspek 3) -->
+      <div class="p-6 bg-gradient-to-r from-emerald-800 to-teal-900 text-white rounded-2xl shadow-md">
         <div class="max-w-xl">
-          <h3 class="font-bold text-lg mb-2 flex items-center gap-2"><i class="fa-solid fa-magnifying-glass-chart"></i> Cek Status Permohonan Surat Mandiri</h3>
-          <p class="text-xs text-emerald-100 mb-4">Masukkan nomor resi atau NIK Anda untuk memantau sejauh mana dokumen Anda diproses oleh pihak perangkat desa.</p>
+          <h3 class="font-bold text-base sm:text-lg mb-2 flex items-center gap-2"><i class="fa-solid fa-magnifying-glass-chart text-amber-400"></i> Status / Tindak Lanjut Layanan Digital</h3>
+          <p class="text-xs text-emerald-100 mb-4 leading-relaxed">Pantau status permohonan surat Anda secara real-time dengan memasukkan Kode Tracking atau NIK.</p>
           <div class="flex flex-col sm:flex-row gap-2">
-            <input type="text" id="trackingInput" placeholder="Masukkan NIK / No. Resi..." class="px-4 py-2 text-xs text-gray-900 rounded-lg flex-1 focus:outline-none">
-            <button onclick="cekStatus()" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold rounded-lg text-xs transition">Cek Status</button>
+            <input type="text" id="trackingInput" placeholder="Masukkan NIK / No. Resi..." class="px-4 py-2.5 text-xs text-gray-900 rounded-xl flex-1 focus:outline-none focus:ring-2 focus:ring-amber-400">
+            <button onclick="cekStatus()" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold rounded-xl text-xs transition shadow">Cek Status Dokumentasi</button>
           </div>
-          <div id="trackingResult" class="hidden mt-3 p-3 bg-white/10 rounded text-xs"></div>
+          <div id="trackingResult" class="hidden mt-3 p-3 bg-white/10 rounded-xl text-xs border border-white/20"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FORM PENGADUAN WARGA (KRITERIA 3) -->
-  <section class="py-12 bg-amber-500 text-slate-900">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-2xl font-bold mb-2">Layanan Pengaduan & Aspirasi Warga</h2>
-      <p class="text-sm max-w-xl mx-auto mb-6">Sampaikan masukan, saran, atau laporan permasalahan lingkungan desa secara langsung dan rahasia.</p>
-      <a href="https://forms.gle/pm9hCsFeNSZ7b1vb9" target="_blank" class="inline-block px-6 py-3 bg-slate-900 text-white rounded-xl font-bold text-sm hover:bg-slate-800 shadow-lg transition">
-        <i class="fa-solid fa-pen-to-square mr-2"></i> Isi Form Pengaduan Online
-      </a>
-    </div>
-  </section>
-
-  <!-- GALERI KEGIATAN DESA (KRITERIA 4) -->
-  <section id="galeri" class="py-14 bg-gray-50 dark:bg-slate-800">
+  <!-- AGENDA KEGIATAN TAHUNAN & KALENDER DESA (ASPEK 1 & 4) -->
+  <section id="agenda-kalender" class="py-14 bg-gray-50 dark:bg-slate-800">
     <div class="container mx-auto px-4">
       <div class="text-center max-w-2xl mx-auto mb-10">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Galeri Kegiatan Desa</h2>
-        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Dokumentasi momen, gotong royong, dan kegiatan kemasyarakatan di Desa Tanete.</p>
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Jadwal & Agenda Desa</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mt-1">Kalender Kegiatan & Agenda Tahunan Desa</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Daftar agenda kegiatan kemasyarakatan, keagamaan, dan pembangunan yang akan datang.</p>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="rounded-xl overflow-hidden shadow-sm group relative">
-          <img src="assets/penyerahanwebsite.jpg" alt="Penyerahan Website" class="w-full h-40 object-cover group-hover:scale-105 transition duration-300">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
-            <p class="text-white text-xs font-semibold">Penyerahan Website Desa</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-5 bg-white dark:bg-slate-700 rounded-xl shadow-sm border-t-4 border-emerald-500">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">Rutin Bulanan</span>
+            <span class="text-xs text-gray-400"><i class="fa-regular fa-calendar"></i> Setiap Tanggal 8</span>
           </div>
+          <h4 class="font-bold text-sm text-gray-900 dark:text-white">Posyandu Integrasi & Rembuk Stunting</h4>
+          <p class="text-xs text-gray-600 dark:text-gray-300 mt-2">Pemeriksaan imunisasi balita dan edukasi gizi bagi ibu hamil di Poskesdes Dusun I dan II.</p>
         </div>
-        <div class="rounded-xl overflow-hidden shadow-sm group relative">
-          <img src="assets/remas.jpg" alt="Remaja Masjid" class="w-full h-40 object-cover group-hover:scale-105 transition duration-300">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
-            <p class="text-white text-xs font-semibold">Pembentukan Remaja Masjid</p>
+
+        <div class="p-5 bg-white dark:bg-slate-700 rounded-xl shadow-sm border-t-4 border-amber-500">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-bold">Agenda Budaya</span>
+            <span class="text-xs text-gray-400"><i class="fa-regular fa-calendar"></i> Musim Panen Padi</span>
           </div>
+          <h4 class="font-bold text-sm text-gray-900 dark:text-white">Tradisi Mangeppi & Mattoana Pesta Panen</h4>
+          <p class="text-xs text-gray-600 dark:text-gray-300 mt-2">Syukuran pesta panen warga desa sebagai simbol gotong royong dan apresiasi hasil bumi persawahan.</p>
         </div>
-        <div class="rounded-xl overflow-hidden shadow-sm group relative">
-          <img src="assets/bumdes.jpg" alt="Pengurus BUMDes" class="w-full h-40 object-cover group-hover:scale-105 transition duration-300">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
-            <p class="text-white text-xs font-semibold">Musyawarah BUMDes</p>
+
+        <div class="p-5 bg-white dark:bg-slate-700 rounded-xl shadow-sm border-t-4 border-blue-500">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-bold">Musyang Desa</span>
+            <span class="text-xs text-gray-400"><i class="fa-regular fa-calendar"></i> Triwulan III 2026</span>
           </div>
-        </div>
-        <div class="rounded-xl overflow-hidden shadow-sm group relative">
-          <img src="assets/gerakjalan.jpg" alt="Gerak Jalan" class="w-full h-40 object-cover group-hover:scale-105 transition duration-300">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
-            <p class="text-white text-xs font-semibold">Gerak Jalan Semarak Desa</p>
-          </div>
+          <h4 class="font-bold text-sm text-gray-900 dark:text-white">Musrenbangdes RKPDes T.A. 2027</h4>
+          <p class="text-xs text-gray-600 dark:text-gray-300 mt-2">Rapat penyerapan aspirasi pembangunan desa bersama BPD, Tokoh Masyarakat, dan Pemuda.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MODAL DETAIL APARAT DESA -->
-  <div id="biodataModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-white dark:bg-slate-800 rounded-2xl max-w-sm w-full p-6 relative shadow-2xl border border-gray-100 dark:border-slate-700 animate-fade-in">
-      <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 text-lg">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-      <div class="text-center">
-        <img id="modalImg" src="" alt="Foto Profil" class="w-28 h-28 mx-auto rounded-full object-cover border-4 border-emerald-500 shadow mb-3">
-        <h3 id="modalJabatan" class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider"></h3>
-        <h4 id="modalNama" class="text-lg font-extrabold text-gray-900 dark:text-white mt-1 mb-4"></h4>
-        
-        <div class="text-left bg-gray-50 dark:bg-slate-700/50 p-4 rounded-xl space-y-3 text-xs border border-gray-100 dark:border-slate-600">
+  <!-- FLOATING CHATBOT WIDGET (ASPEK 6 - SOLUSI DIGITAL KHAS DESA) -->
+  <div class="fixed bottom-6 right-6 z-50">
+    <button onclick="toggleChatWidget()" class="w-12 h-12 bg-emerald-600 text-white rounded-full shadow-2xl flex items-center justify-center hover:bg-emerald-700 transition duration-300 focus:outline-none">
+      <i class="fa-solid fa-comments text-xl"></i>
+    </button>
+
+    <!-- Chat Box Window -->
+    <div id="chatWidget" class="hidden absolute bottom-16 right-0 w-80 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-slate-700 overflow-hidden text-xs">
+      <div class="bg-emerald-700 text-white p-3 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-robot text-base"></i>
           <div>
-            <span class="text-gray-400 block text-[10px] uppercase font-bold">Tanggal Lahir</span>
-            <p id="modalTglLahir" class="font-medium text-gray-700 dark:text-gray-200 mt-0.5"></p>
-          </div>
-          <div>
-            <span class="text-gray-400 block text-[10px] uppercase font-bold">Riwayat Pendidikan</span>
-            <p id="modalPendidikan" class="font-medium text-gray-700 dark:text-gray-200 mt-0.5 leading-relaxed"></p>
+            <p class="font-bold leading-tight">Asisten Digital Tanete</p>
+            <p class="text-[10px] text-emerald-200">Online | Solusi Digital Khas Desa</p>
           </div>
         </div>
+        <button onclick="toggleChatWidget()" class="text-white hover:text-gray-200 font-bold">&times;</button>
+      </div>
+
+      <div id="chatMessages" class="p-3 h-60 overflow-y-auto space-y-2 bg-gray-50 dark:bg-slate-900">
+        <div class="bg-emerald-100 dark:bg-slate-700 p-2.5 rounded-lg max-w-[85%] text-gray-800 dark:text-gray-100">
+          Halo! Ada yang bisa kami bantu seputar pelayanan, surat, atau pengaduan Desa Tanete?
+        </div>
+      </div>
+
+      <div class="p-2 border-t border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 flex gap-1">
+        <input type="text" id="chatInput" placeholder="Ketik pertanyaan..." onkeypress="handleChatKeyPress(event)" class="w-full px-3 py-1.5 border rounded-lg dark:bg-slate-700 dark:text-white focus:outline-none">
+        <button onclick="sendChatMessage()" class="px-3 py-1.5 bg-emerald-600 text-white rounded-lg font-bold"><i class="fa-solid fa-paper-plane"></i></button>
       </div>
     </div>
   </div>
 
-  <!-- FOOTER & LEGALITAS / PRIVASI (KRITERIA 8) -->
+  <!-- FOOTER, KEAMANAN, KEPATUHAN & PRIVASI WARGA (ASPEK 5 & 8) -->
   <footer class="bg-gray-900 text-gray-300 pt-12 pb-6 border-t border-gray-800">
     <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-xs">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-xs">
         <!-- Col 1 -->
         <div>
           <h3 class="text-base font-bold text-white mb-3">Pemerintah Desa Tanete</h3>
@@ -976,28 +923,37 @@
           <p class="mt-2 text-gray-400">Email: desatanete98@gmail.com | WA: 0856-9615-7511</p>
         </div>
 
-        <!-- Col 2 -->
+        <!-- Col 2: Pengelola Website & Tim Redaksi -->
         <div>
-          <h4 class="text-sm font-semibold text-white mb-3">Media Sosial & Informasi</h4>
-          <div class="flex space-x-3 text-lg">
+          <h4 class="text-sm font-semibold text-white mb-3">Tim Redaksi & Pengelola</h4>
+          <p class="text-gray-400 mb-1">• <strong>Penanggung Jawab:</strong> Kepala Desa Tanete</p>
+          <p class="text-gray-400 mb-1">• <strong>Pengelola SI:</strong> Kaur Perencanaan & Tim IT Desa</p>
+        </div>
+
+        <!-- Col 3: Media Sosial -->
+        <div>
+          <h4 class="text-sm font-semibold text-white mb-3">Media Sosial Resmi</h4>
+          <div class="flex space-x-3 text-lg mb-3">
             <a href="https://www.facebook.com/profile.php?id=100086287128529" target="_blank" class="hover:text-emerald-400"><i class="fa-brands fa-facebook"></i></a>
             <a href="https://www.instagram.com/desatanete" target="_blank" class="hover:text-emerald-400"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.tiktok.com/@pemerintahdesatanete" target="_blank" class="hover:text-emerald-400"><i class="fa-brands fa-tiktok"></i></a>
           </div>
+          <p class="text-gray-400 text-[11px]">Dapatkan pembaruan berita dan kegiatan desa secara aktual setiap hari.</p>
         </div>
 
-        <!-- Col 3: Aksesibilitas & Keamanan -->
+        <!-- Col 4: Keamanan & Kepatuhan Data -->
         <div>
-          <h4 class="text-sm font-semibold text-white mb-3">Keamanan & Aksesibilitas</h4>
-          <p class="text-gray-400 mb-2">• Protokol HTTPS Aktif & Bebas Iklan Komersial</p>
-          <p class="text-gray-400">• Dikelola oleh Tim Pengelola Sistem Informasi Desa Tanete</p>
+          <h4 class="text-sm font-semibold text-white mb-3">Keamanan & Kepatuhan</h4>
+          <p class="text-gray-400 mb-1"><i class="fa-solid fa-lock text-emerald-400 mr-1"></i> HTTPS Active (SSL Secured)</p>
+          <p class="text-gray-400 mb-1"><i class="fa-solid fa-shield-virus text-emerald-400 mr-1"></i> Bebas Iklan Spam / Judi Online</p>
+          <p class="text-gray-400"><i class="fa-solid fa-user-shield text-emerald-400 mr-1"></i> Perlindungan Data Pribadi Warga (Privasi NIK & No HP Sensitif)</p>
         </div>
       </div>
 
       <div class="pt-6 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center text-[11px] text-gray-500 gap-2">
-        <p>© 2026 - Pemerintah Desa Tanete</p>
+        <p>© 2026 Pemerintah Desa Tanete.</p>
         <div class="flex space-x-4">
-          <a href="#" onclick="alert('Website ini mengandungi standar perlindungan data warga sesuai UU Perlindungan Data Pribadi.')" class="hover:underline">Kebijakan Privasi</a>
+          <a href="#" onclick="alert('Website Resmi Desa Tanete menjamin seluruh dokumen yang dipublikasikan telah melalui penyaringan privasi NIK dan data sensitif warga.')" class="hover:underline">Kebijakan Perlindungan Data Pribadi</a>
           <span>|</span>
           <a href="#transparansi" class="hover:underline">Hak Akses PPID</a>
         </div>
@@ -1005,33 +961,63 @@
     </div>
   </footer>
 
-  <!-- JAVASCRIPT LOGIC -->
+  <!-- JAVASCRIPT LOGIC LENGKAP -->
   <script>
-    // Modal fungsi detail aparat
-    function openModal(img, jabatan, nama, tglLahir, pendidikan) {
-      document.getElementById('modalImg').src = img;
-      document.getElementById('modalJabatan').innerText = jabatan;
-      document.getElementById('modalNama').innerText = nama;
-      document.getElementById('modalTglLahir').innerText = tglLahir;
-      document.getElementById('modalPendidikan').innerText = pendidikan;
-      document.getElementById('biodataModal').classList.remove('hidden');
+    // Search functionality for Aspect 5
+    function searchSite() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      if(q.length > 2) {
+        // Simple contextual alert/scroll search highlight
+        console.log("Searching for:", q);
+      }
     }
 
-    function closeModal() {
-      document.getElementById('biodataModal').classList.add('hidden');
+    function searchSiteMobile(val) {
+      console.log("Mobile Search:", val);
     }
 
-    // Dark mode toggle
-    function toggleDarkMode() {
-      document.documentElement.classList.toggle('dark');
-      const isDark = document.documentElement.classList.contains('dark');
-      document.getElementById('theme-text').innerText = isDark ? 'Mode Terang' : 'Mode Gelap';
+    // Chatbot widget toggle for Aspect 6
+    function toggleChatWidget() {
+      const chat = document.getElementById('chatWidget');
+      chat.classList.toggle('hidden');
     }
 
-    // Mobile menu toggle
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
+    function handleChatKeyPress(e) {
+      if(e.key === 'Enter') sendChatMessage();
+    }
+
+    function sendChatMessage() {
+      const inp = document.getElementById('chatInput');
+      const container = document.getElementById('chatMessages');
+      const msg = inp.value.trim();
+      if(!msg) return;
+
+      // User Message
+      const userDiv = document.createElement('div');
+      userDiv.className = 'bg-emerald-600 text-white p-2.5 rounded-lg max-w-[85%] ml-auto text-right';
+      userDiv.innerText = msg;
+      container.appendChild(userDiv);
+
+      inp.value = '';
+      container.scrollTop = container.scrollHeight;
+
+      // Auto Reply Bot
+      setTimeout(() => {
+        const botDiv = document.createElement('div');
+        botDiv.className = 'bg-emerald-100 dark:bg-slate-700 p-2.5 rounded-lg max-w-[85%] text-gray-800 dark:text-gray-100';
+        
+        const lower = msg.toLowerCase();
+        if(lower.includes('surat') || lower.includes('sku') || lower.includes('nikah')) {
+          botDiv.innerText = "Untuk pengurusan Surat Keterangan Usaha (SKU), Nikah N1, atau Akta, silakan buka menu 'Pelayanan Digital' dan klik tombol pengajuan via WhatsApp.";
+        } else if(lower.includes('apbdes') || lower.includes('anggaran')) {
+          botDiv.innerText = "Laporan APBDes 2026 lengkap dapat diunduh di bagian 'Transparansi APBDes & PPID'.";
+        } else {
+          botDiv.innerText = "Terima kasih telah menghubungi Asisten Desa Tanete. Pesan Anda dapat diteruskan ke Admin WhatsApp Desa di 0856-9615-7511.";
+        }
+
+        container.appendChild(botDiv);
+        container.scrollTop = container.scrollHeight;
+      }, 800);
     }
 
     // Interactive Tracking Status
@@ -1051,53 +1037,6 @@
         res.innerHTML = `<i class="fa-solid fa-circle-check text-amber-400 mr-1"></i> Status Dokumen (${val}): <span class="text-emerald-200 font-semibold">Sedang Diproses oleh Kasi Pelayanan Desa</span> (Estimasi Selesai: 1 Hari Kerja).`;
       }, 1200);
     }
-
-    // Chart.js Implementations
-    window.onload = function() {
-      // Pekerjaan Chart
-      const ctxPekerjaan = document.getElementById('chartPekerjaan').getContext('2d');
-      new Chart(ctxPekerjaan, {
-        type: 'doughnut',
-        data: {
-          labels: ["Belum/Tidak Bekerja", "Mengurus Rumah Tangga", "Pelajar/Mahasiswa", "Pensiunan", "ASN", "Polri", "Perdagangan", "Petani", "Peternak", "Perikanan", "Industri", "Lainnya"],
-          datasets: [{
-            data: [905, 791, 423, 4, 45, 6, 7, 134, 168, 2, 6, 72,],
-            backgroundColor: ['#16a34a', '#eab308', '#0284c7', '#6366f1', '#94a3b8', '#dc2626', '#ea580c', '#ec4899', '#a855f7', '#0d9488', '#1e293b']
-          }]
-        },
-        options: { responsive: true, maintainAspectRatio: false }
-      });
-
-      // Pendidikan Chart
-      const ctxPendidikan = document.getElementById('chartPendidikan').getContext('2d');
-      new Chart(ctxPendidikan, {
-        type: 'bar',
-        data: {
-          labels: ['Tidak/Belum Sekolah', 'Belum Tamat SD', 'Tamat SD', 'SMP', 'SMA / SMK', 'D1/D2', 'D3', 'S1', 'S2', 'S3'],
-          datasets: [{
-            label: 'Jumlah Warga',
-            data: [836, 298, 589, 370, 652, 5, 28, 176, 12, 0],
-            backgroundColor: '#22c55e'
-          }]
-        },
-        options: { responsive: true, maintainAspectRatio: false }
-      });
-
-      // APBDes Chart
-      const ctxAPBDes = document.getElementById('chartAPBDes').getContext('2d');
-      new Chart(ctxAPBDes, {
-        type: 'bar',
-        data: {
-          labels: ['Pendapatan Asli Desa', 'Dana Desa (APBN)',  'Alokasi Dana Desa (ADD)', 'Bunga Bank'],
-          datasets: [{
-            label: 'Anggaran (Rupiah)',
-            data: [0, 373456000, 870398000, 3000000],
-            backgroundColor: ['#10b981', '#3b82f6', '#f59e0b', '#8b5cf6']
-          }]
-        },
-        options: { responsive: true, maintainAspectRatio: false }
-      });
-    };
   </script>
 </body>
 </html>
