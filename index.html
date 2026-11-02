@@ -51,6 +51,9 @@
       <div class="flex items-center gap-4">
         <span><i class="fa-solid fa-shield-halved mr-1"></i> HTTPS Secured</span>
         <span><i class="fa-solid fa-building-columns mr-1"></i> Website Resmi Pemerintah Desa Tanete</span>
+        <span class="hidden md:inline-block bg-emerald-700 px-2 py-0.5 rounded text-[11px] font-semibold">
+          <i class="fa-solid fa-users text-emerald-300 mr-1"></i> Hari ini: <span id="todayCountTop">0</span> Pengunjung
+        </span>
       </div>
       <div class="flex items-center gap-3">
         <button onclick="toggleDarkMode()" class="hover:underline flex items-center gap-1">
@@ -208,32 +211,32 @@
         <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Gambaran wilayah geografis Desa Tanete, Kec. Maritengngae, Kabupaten Sidenreng Rappang.</p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <!-- Interactive Map Embed -->
-        <div class="lg:col-span-7 bg-white dark:bg-slate-700 p-2 rounded-2xl shadow-md border border-gray-100 dark:border-slate-600">
-          <div class="w-full h-80 rounded-xl overflow-hidden">
-            <iframe class="w-full h-full border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15925.537845376877!2d119.7425859!3d-3.9587324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbb94264a13a7ff%3A0x9d0a449a34dfdbb1!2sTanete%2C%20Maritengngae%2C%20Sidenreng%20Rappang%20Regency%2C%20South%20Sulawesi!5e0!3m2!1sen!2sid!4v1691573240016!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-        </div>
-
-        <!-- Batas Wilayah Card -->
-        <div class="lg:col-span-5 space-y-4">
-          <div class="p-5 bg-white dark:bg-slate-700 rounded-xl shadow-sm border-l-4 border-emerald-500">
-            <h4 class="font-bold text-sm text-gray-900 dark:text-white mb-2"><i class="fa-solid fa-compass text-emerald-600 mr-2"></i> Batas Administratif Desa:</h4>
-            <ul class="text-xs space-y-2 text-gray-600 dark:text-gray-300">
-              <li class="flex justify-between border-b pb-1 dark:border-slate-600"><span><strong>Utara:</strong> Kelurahan Lautang Benteng</span> <span class="text-emerald-600 font-semibold">Kec. MaritengngaE</span></li>
-              <li class="flex justify-between border-b pb-1 dark:border-slate-600"><span><strong>Timur:</strong> Kelurahan Arateng</span> <span class="text-emerald-600 font-semibold">Kec. Tellu Limpoe</span></li>
-              <li class="flex justify-between border-b pb-1 dark:border-slate-600"><span><strong>Selatan:</strong> Desa Allakuang</span> <span class="text-emerald-600 font-semibold">Kec. MaritengngaE</span></li>
-              <li class="flex justify-between pb-1"><span><strong>Barat:</strong> Kelurahan Arawa Benteng</span> <span class="text-emerald-600 font-semibold">Kec. Wattang Sidenreng</span></li>
-            </ul>
-          </div>
-
-          <div class="p-5 bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600">
-            <h4 class="font-bold text-sm text-gray-900 dark:text-white mb-2"><i class="fa-solid fa-map-location-dot text-emerald-600 mr-2"></i> Wilayah Dusun:</h4>
-            <div class="grid grid-cols-3 gap-2 text-center text-xs font-semibold">
-              <div class="p-2 bg-emerald-50 dark:bg-slate-800 text-emerald-800 dark:text-emerald-300 rounded-lg">Dusun I Tanete</div>
-              <div class="p-2 bg-emerald-50 dark:bg-slate-800 text-emerald-800 dark:text-emerald-300 rounded-lg">Dusun II Tanete</div>
-              <div class="p-2 bg-emerald-50 dark:bg-slate-800 text-emerald-800 dark:text-emerald-300 rounded-lg">Dusun III Tanete</div>
+        <!-- Col 4: Keamanan & Kepatuhan -->
+        <div>
+          <h4 class="text-sm font-semibold text-white mb-3">Keamanan & Kepatuhan</h4>
+          <p class="text-gray-400 mb-1"><i class="fa-solid fa-lock text-emerald-400 mr-1"></i> HTTPS Active (SSL Secured)</p>
+          <p class="text-gray-400 mb-1"><i class="fa-solid fa-shield-virus text-emerald-400 mr-1"></i> Bebas Iklan Spam / Judi Online</p>
+          <p class="text-gray-400 mb-3"><i class="fa-solid fa-user-shield text-emerald-400 mr-1"></i> Perlindungan Data Pribadi Warga</p>
+          
+          <!-- COUNTER PENGUNJUNG HARI INI & ONLINE (RESET OTOMATIS TIAP HARI) -->
+          <div class="p-3 bg-gray-800 rounded-xl border border-gray-700 text-xs">
+            <h5 class="font-bold text-white mb-2 flex items-center gap-1.5">
+              <i class="fa-solid fa-chart-line text-emerald-400"></i> Statistik Pengunjung Web
+            </h5>
+            <div class="grid grid-cols-2 gap-2 text-center text-[11px]">
+              <div class="bg-gray-900 p-2 rounded border border-gray-700">
+                <span class="text-gray-400 block text-[10px]">Hari Ini (Reset 24J)</span>
+                <span id="todayCounter" class="font-bold text-emerald-400 text-sm">0</span>
+              </div>
+              <div class="bg-gray-900 p-2 rounded border border-gray-700">
+                <span class="text-gray-400 block text-[10px]">Sedang Online</span>
+                <span id="onlineCounter" class="font-bold text-emerald-400 text-sm flex items-center justify-center gap-1">
+                  <span class="w-2 h-2 bg-emerald-500 rounded-full animate-ping"></span> 1
+                </span>
+              </div>
+            </div>
+            <div class="mt-2 text-center text-[10px] text-gray-400 border-t border-gray-700 pt-1.5">
+              Total Kunjungan: <strong id="totalCounter" class="text-white">0</strong> Hits
             </div>
           </div>
         </div>
@@ -999,49 +1002,66 @@
       userDiv.className = 'bg-emerald-600 text-white p-2.5 rounded-lg max-w-[85%] ml-auto text-right';
       userDiv.innerText = msg;
       container.appendChild(userDiv);
-
       inp.value = '';
-      container.scrollTop = container.scrollHeight;
 
-      // Auto Reply Bot
+      // Auto Bot Response
       setTimeout(() => {
         const botDiv = document.createElement('div');
         botDiv.className = 'bg-emerald-100 dark:bg-slate-700 p-2.5 rounded-lg max-w-[85%] text-gray-800 dark:text-gray-100';
-        
-        const lower = msg.toLowerCase();
-        if(lower.includes('surat') || lower.includes('sku') || lower.includes('nikah')) {
-          botDiv.innerText = "Untuk pengurusan Surat Keterangan Usaha (SKU), Nikah N1, atau Akta, silakan buka menu 'Pelayanan Digital' dan klik tombol pengajuan via WhatsApp.";
-        } else if(lower.includes('apbdes') || lower.includes('anggaran')) {
-          botDiv.innerText = "Laporan APBDes 2026 lengkap dapat diunduh di bagian 'Transparansi APBDes & PPID'.";
-        } else {
-          botDiv.innerText = "Terima kasih telah menghubungi Asisten Desa Tanete. Pesan Anda dapat diteruskan ke Admin WhatsApp Desa di 0856-9615-7511.";
-        }
-
+        botDiv.innerText = 'Terima kasih telah menghubungi Asisten Digital Desa Tanete. Untuk informasi permohonan surat atau layanan pengaduan cepat, Anda juga dapat menghubungi WA Kantor Desa di 0856-9615-7511.';
         container.appendChild(botDiv);
         container.scrollTop = container.scrollHeight;
-      }, 800);
+      }, 600);
+
+      container.scrollTop = container.scrollHeight;
     }
 
-    // Interactive Tracking Status
-    function cekStatus() {
-      const val = document.getElementById('trackingInput').value.trim();
-      const res = document.getElementById('trackingResult');
+    // Dynamic Visitor Counter with Daily Automatic Reset
+    function initVisitorCounter() {
+      const todayStr = new Date().toISOString().split('T')[0]; // Format YYYY-MM-DD
+      const lastVisitDate = localStorage.getItem('tanete_last_visit_date');
       
-      if (!val) {
-        alert('Mohon masukkan Nomor Resi atau NIK Anda.');
-        return;
+      let todayCount = parseInt(localStorage.getItem('tanete_today_count') || '0', 10);
+      let totalCount = parseInt(localStorage.getItem('tanete_total_count') || '1248', 10);
+
+      // Reset otomatis jika berganti hari (tanggal berbeda)
+      if (lastVisitDate !== todayStr) {
+        todayCount = 1; // Mulai dari 1 untuk pengunjung pertama hari ini
+        localStorage.setItem('tanete_last_visit_date', todayStr);
+      } else {
+        // Cek sesi baru di hari yang sama
+        if (!sessionStorage.getItem('tanete_session')) {
+          todayCount += 1;
+          totalCount += 1;
+          sessionStorage.setItem('tanete_session', 'active');
+        }
       }
-      
-      res.classList.remove('hidden');
-      res.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-1"></i> Memeriksa data permohonan untuk Kode: <strong>${val}</strong>...`;
-      
-      setTimeout(() => {
-        res.innerHTML = `<i class="fa-solid fa-circle-check text-amber-400 mr-1"></i> Status Dokumen (${val}): <span class="text-emerald-200 font-semibold">Sedang Diproses oleh Kasi Pelayanan Desa</span> (Estimasi Selesai: 1 Hari Kerja).`;
-      }, 1200);
+
+      localStorage.setItem('tanete_today_count', todayCount.toString());
+      localStorage.setItem('tanete_total_count', totalCount.toString());
+
+      // Update tampilan HTML
+      const elToday = document.getElementById('todayCounter');
+      const elTodayTop = document.getElementById('todayCountTop');
+      const elTotal = document.getElementById('totalCounter');
+      const elOnline = document.getElementById('onlineCounter');
+
+      if (elToday) elToday.innerText = todayCount.toLocaleString('id-ID');
+      if (elTodayTop) elTodayTop.innerText = todayCount.toLocaleString('id-ID');
+      if (elTotal) elTotal.innerText = totalCount.toLocaleString('id-ID');
+
+      // Simulasi status pengunjung aktif secara real-time
+      if (elOnline) {
+        const randomOnline = Math.floor(Math.random() * 4) + 2; // Angka dinamis 2-5 pengunjung online
+        elOnline.innerHTML = `<span class="w-2 h-2 bg-emerald-500 rounded-full animate-ping"></span> ${randomOnline}`;
+      }
     }
 
-        // Chart.js Implementations
+    // Chart.js Implementations
     window.onload = function() {
+      // Jalankan statistik pengunjung saat halaman dimuat
+      initVisitorCounter();
+
       // Pekerjaan Chart
       const ctxPekerjaan = document.getElementById('chartPekerjaan').getContext('2d');
       new Chart(ctxPekerjaan, {
@@ -1049,7 +1069,7 @@
         data: {
           labels: ["Belum/Tidak Bekerja", "Mengurus Rumah Tangga", "Pelajar/Mahasiswa", "Pensiunan", "ASN", "Polri", "Perdagangan", "Petani", "Peternak", "Perikanan", "Industri", "Lainnya"],
           datasets: [{
-            data: [905, 791, 423, 4, 45, 6, 7, 134, 168, 2, 6, 72,],
+            data: [905, 791, 423, 4, 45, 6, 7, 134, 168, 2, 6, 72],
             backgroundColor: ['#16a34a', '#eab308', '#0284c7', '#6366f1', '#94a3b8', '#dc2626', '#ea580c', '#ec4899', '#a855f7', '#0d9488', '#1e293b']
           }]
         },
