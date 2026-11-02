@@ -154,9 +154,7 @@
           <div class="space-y-3 text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
             <p>Assalamu’alaikum Warahmatullahi Wabarakatuh,</p>
             <p>Selamat datang di official website Desa Tanete, Kecamatan Maritengngae, Kabupaten Sidenreng Rappang. Melalui platform digital ini, kami berkomitmen untuk mewujudkan tata kelola pemerintahan desa yang transparan, akuntabel, dan inovatif. Website ini hadir sebagai jembatan informasi dan pelayanan bagi seluruh masyarakat desa serta publik secara luas.</p>
-            <p>Dengan visi Mewujudkan Desa Mandiri sebagai kawasan ekonomi kreatif terintegrasi menuju Desa sejahtera dan mandiri, kami terus berupaya meningkatkan sarana prasarana, memajukan sektor unggulan seperti pertanian dan peternakan, serta mengoptimalkan pelayanan publik secara prima.</p>
-            <p>Kami berharap website ini dapat memberikan manfaat nyata bagi seluruh warga. Terima kasih atas dukungan, sinergi, dan gotong royong seluruh elemen masyarakat dalam membangun Desa Tanete tercinta. Mari bersama-sama kita jaga semangat kebersamaan ini demi kemajuan daerah yang kita banggakan.</p>
-            <p>
+
               <strong>Sejarah Singkat:</strong> Dahulunya Desa Tanete merupakan bagian dari distrik Allakuang yang berupa sebuah dusun yang mana sebagian besar wilayahnya digunakan sebagai lahan bercocok tanam. Namun akibat adanya bencana kebakaran yang terjadi di wilayah Allakuang (Induk distrik) maka sebagian besar masyarakat mengungsikan diri ke wilayah sekitar dusun Tanete kemudian bermukim dan menetap untuk dijadikan kampung Tanete. Nama Tanete diambil dari kata <em>"Ketinggian"</em> Artinya Tanete tidak akan tenggelam. Desa Tanete resmi berdiri setelah berpisah dengan Desa Allakuang pada tahun 1992 menjadi Desa definitif yang di tandai dengan pemilihan kepala desa secara langsung oleh masyarakat yang terdiri dari 3 Dusun yaitu Dusun I Tanete, Dusun II Tanete, dan Dusun III Tanete.</p>
               <div class="mt-3 p-3.5 bg-slate-50 dark:bg-slate-900/80 rounded-xl border border-slate-200/80 dark:border-slate-700 text-xs">
                     <h5 class="font-bold text-emerald-800 dark:text-emerald-400 mb-2 flex items-center gap-1.5">
@@ -341,11 +339,11 @@
       <!-- Interactive Chart Section -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="bg-white dark:bg-slate-700 p-5 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600">
-          <h4 class="font-bold text-sm text-gray-700 dark:text-gray-200 mb-4">Distribusi Mata Pencaharian Warga (SID)</h4>
+          <h4 class="font-bold text-sm text-gray-700 dark:text-gray-200 mb-4">Distribusi Pekerjaan Warga</h4>
           <div class="h-60"><canvas id="chartPekerjaan"></canvas></div>
         </div>
         <div class="bg-white dark:bg-slate-700 p-5 rounded-xl shadow-sm border border-gray-100 dark:border-slate-600">
-          <h4 class="font-bold text-sm text-gray-700 dark:text-gray-200 mb-4">Tingkat Pendidikan Terakhir</h4>
+          <h4 class="font-bold text-sm text-gray-700 dark:text-gray-200 mb-4">Tingkat Pendidikan</h4>
           <div class="h-60"><canvas id="chartPendidikan"></canvas></div>
         </div>
       </div>
@@ -403,15 +401,7 @@
         </div>
       </div>
 
-      <!-- Financial Visual Chart & Table T.A 2026 -->
-      <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm">
-        <h4 class="font-bold text-sm text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-          <i class="fa-solid fa-chart-pie text-emerald-600"></i> Grafik Transparansi Realisasi APBDes T.A. 2026
-        </h4>
-        <div class="h-64 mb-8"><canvas id="chartAPBDes"></canvas></div>
-
-        <!-- TABEL RINCIAN LAPORAN REALISASI APBDES -->
-              <!-- Financial Visual Chart & Table -->
+      <!-- Financial Visual Chart & Table -->
       <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-xl border border-gray-100 dark:border-slate-700">
         <h4 class="font-bold text-base text-gray-900 dark:text-white mb-4">Grafik Ringkasan APBDes T.A. 2026</h4>
         <div class="h-64 mb-8"><canvas id="chartAPBDes"></canvas></div>
@@ -870,7 +860,7 @@
 
         <div class="p-5 bg-white dark:bg-slate-700 rounded-xl shadow-sm border-t-4 border-blue-500">
           <div class="flex items-center justify-between mb-3">
-            <span class="text-[10px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-bold">Musyang Desa</span>
+            <span class="text-[10px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-bold">Musyawarah Desa</span>
             <span class="text-xs text-gray-400"><i class="fa-regular fa-calendar"></i> Triwulan III 2026</span>
           </div>
           <h4 class="font-bold text-sm text-gray-900 dark:text-white">Musrenbangdes RKPDes T.A. 2027</h4>
@@ -1037,6 +1027,53 @@
         res.innerHTML = `<i class="fa-solid fa-circle-check text-amber-400 mr-1"></i> Status Dokumen (${val}): <span class="text-emerald-200 font-semibold">Sedang Diproses oleh Kasi Pelayanan Desa</span> (Estimasi Selesai: 1 Hari Kerja).`;
       }, 1200);
     }
+
+        // Chart.js Implementations
+    window.onload = function() {
+      // Pekerjaan Chart
+      const ctxPekerjaan = document.getElementById('chartPekerjaan').getContext('2d');
+      new Chart(ctxPekerjaan, {
+        type: 'doughnut',
+        data: {
+          labels: ["Belum/Tidak Bekerja", "Mengurus Rumah Tangga", "Pelajar/Mahasiswa", "Pensiunan", "ASN", "Polri", "Perdagangan", "Petani", "Peternak", "Perikanan", "Industri", "Lainnya"],
+          datasets: [{
+            data: [905, 791, 423, 4, 45, 6, 7, 134, 168, 2, 6, 72,],
+            backgroundColor: ['#16a34a', '#eab308', '#0284c7', '#6366f1', '#94a3b8', '#dc2626', '#ea580c', '#ec4899', '#a855f7', '#0d9488', '#1e293b']
+          }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      // Pendidikan Chart
+      const ctxPendidikan = document.getElementById('chartPendidikan').getContext('2d');
+      new Chart(ctxPendidikan, {
+        type: 'bar',
+        data: {
+          labels: ['Tidak/Belum Sekolah', 'Belum Tamat SD', 'Tamat SD', 'SMP', 'SMA / SMK', 'D1/D2', 'D3', 'S1', 'S2', 'S3'],
+          datasets: [{
+            label: 'Jumlah Warga',
+            data: [836, 298, 589, 370, 652, 5, 28, 176, 12, 0],
+            backgroundColor: '#22c55e'
+          }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      // APBDes Chart
+      const ctxAPBDes = document.getElementById('chartAPBDes').getContext('2d');
+      new Chart(ctxAPBDes, {
+        type: 'bar',
+        data: {
+          labels: ['Pendapatan Asli Desa', 'Dana Desa (APBN)',  'Alokasi Dana Desa (ADD)', 'Bunga Bank'],
+          datasets: [{
+            label: 'Anggaran (Rupiah)',
+            data: [0, 373456000, 870398000, 3000000],
+            backgroundColor: ['#10b981', '#3b82f6', '#f59e0b', '#8b5cf6']
+          }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+    };
   </script>
 </body>
 </html>
