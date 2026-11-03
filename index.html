@@ -48,36 +48,16 @@
   <div class="bg-emerald-800 text-white text-xs py-2 px-4">
     <div class="container mx-auto flex flex-wrap justify-between items-center gap-2">
       <div class="flex items-center gap-4">
-        <span><svg class="svg-inline--fa fa-shield-halved mr-1" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shield-halved" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z"></path></svg><!-- <i class="fa-solid fa-shield-halved mr-1"></i> Font Awesome fontawesome.com --> HTTPS Secured</span>
-        <span><svg class="svg-inline--fa fa-building-columns mr-1" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="building-columns" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160v8c0 13.3 10.7 24 24 24H456c13.3 0 24-10.7 24-24v-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8-3.4-17.2-3.4-25.2 0zM128 224H64V420.3c-.6 .3-1.2 .7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512H480c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1V224H384V416H344V224H280V416H232V224H168V416H128V224zM256 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></svg><!-- <i class="fa-solid fa-building-columns mr-1"></i> Font Awesome fontawesome.com --> Website Resmi Pemerintah Desa Tanete</span>
+        <span><i class="fa-solid fa-shield-halved mr-1"></i> HTTPS Secured</span>
+        <span><i class="fa-solid fa-building-columns mr-1"></i> Website Resmi Pemerintah Desa Tanete</span>
       </div>
       <div class="flex items-center gap-3">
-        <button onclick="toggleDarkMode()" class="hover:underline flex items-center gap-1" fdprocessedid="0p2ztm">
-          <svg class="svg-inline--fa fa-moon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="moon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"></path></svg><!-- <i class="fa-solid fa-moon"></i> Font Awesome fontawesome.com --> <span id="theme-text">Mode Gelap</span>
+        <button onclick="toggleDarkMode()" class="hover:underline flex items-center gap-1">
+          <i class="fa-solid fa-moon"></i> <span id="theme-text">Mode Gelap</span>
         </button>
         <span>|</span>
         <a href="#layanan" class="hover:underline">Layanan Mandiri</a>
-        <span>|</span>
-        <button id="adminLoginBtn" onclick="toggleAdminAuth()" class="hover:underline text-amber-300 font-bold flex items-center gap-1" fdprocessedid="b3o3o">
-          <svg class="svg-inline--fa fa-lock" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="lock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"></path></svg><!-- <i class="fa-solid fa-lock"></i> Font Awesome fontawesome.com --> <span id="adminAuthText">Keluar Admin</span>
-        </button>
       </div>
-    </div>
-  </div>
-
-  <!-- FLOATING ADMIN CONTROL BAR (HANYA MUNCUL KETIKA ADMIN LOGGED IN) -->
-  <div id="adminGlobalBar" class="sticky top-0 z-50 bg-amber-500 text-slate-900 px-4 py-2 text-xs font-bold shadow-md flex items-center justify-between">
-    <div class="flex items-center gap-2">
-      <svg class="svg-inline--fa fa-pen-to-square text-base" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen-to-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"></path></svg><!-- <i class="fa-solid fa-pen-to-square text-base"></i> Font Awesome fontawesome.com -->
-      <span>MODE EDIT ADMIN AKTIF: Anda dapat menglik &amp; mengedit langsung teks/konten di halaman ini.</span>
-    </div>
-    <div class="flex items-center gap-2">
-      <button onclick="saveAllEdits()" class="px-3 py-1.5 bg-emerald-800 hover:bg-emerald-900 text-white rounded-lg transition shadow flex items-center gap-1" fdprocessedid="gdpt1n">
-        <svg class="svg-inline--fa fa-floppy-disk" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="floppy-disk" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V173.3c0-17-6.7-33.3-18.7-45.3L352 50.7C340 38.7 323.7 32 306.7 32H64zm0 96c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128zM224 288a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"></path></svg><!-- <i class="fa-solid fa-floppy-disk"></i> Font Awesome fontawesome.com --> Simpan Semua Perubahan
-      </button>
-      <button onclick="resetAllEdits()" class="px-3 py-1 bg-red-700 hover:bg-red-800 text-white rounded-lg transition flex items-center gap-1" fdprocessedid="imjyh">
-        <svg class="svg-inline--fa fa-rotate-left" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="rotate-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M48.5 224H40c-13.3 0-24-10.7-24-24V72c0-9.7 5.8-18.5 14.8-22.2s19.3-1.7 26.2 5.2L98.6 96.6c87.6-86.5 228.7-86.2 315.8 1c87.5 87.5 87.5 229.3 0 316.8s-229.3 87.5-316.8 0c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0c62.5 62.5 163.8 62.5 226.3 0s62.5-163.8 0-226.3c-62.2-62.2-162.7-62.5-225.3-1L185 183c6.9 6.9 8.9 17.2 5.2 26.2s-12.5 14.8-22.2 14.8H48.5z"></path></svg><!-- <i class="fa-solid fa-rotate-left"></i> Font Awesome fontawesome.com --> Reset ke Asli
-      </button>
     </div>
   </div>
 
@@ -87,7 +67,7 @@
       <a href="#" class="flex items-center gap-3 shrink-0">
         <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Official_Logo_of_Sidenreng_Rappang_Regency.png" alt="Logo Sidrap" class="h-10 w-auto">
         <div>
-          <span class="font-bold text-base sm:text-lg text-emerald-800 dark:text-emerald-400 block leading-tight hover:outline hover:outline-2 hover:outline-amber-400 hover:bg-amber-50/30 dark:hover:bg-amber-950/30 transition-all rounded" contenteditable="true">Desa Tanete</span>
+          <span class="font-bold text-base sm:text-lg text-emerald-800 dark:text-emerald-400 block leading-tight">Desa Tanete</span>
           <span class="text-[11px] text-gray-500 dark:text-gray-400">Kec. Maritengngae, Kab. Sidrap</span>
         </div>
       </a>
@@ -169,13 +149,13 @@
 
         <!-- Sambutan & Visi Misi -->
         <div class="lg:col-span-8">
-          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 hover:outline hover:outline-2 hover:outline-amber-400 hover:bg-amber-50/30 dark:hover:bg-amber-950/30 transition-all rounded" contenteditable="true">Profil, Sejarah &amp; Visi Misi Desa</span>
-          <h1 class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white mt-1 mb-4 hover:outline hover:outline-2 hover:outline-amber-400 hover:bg-amber-50/30 dark:hover:bg-amber-950/30 transition-all rounded" contenteditable="true">
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Profil, Sejarah & Visi Misi Desa</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white mt-1 mb-4">
             Mewujudkan Desa Mandiri Sebagai Kawasan Ekonomi Kreatif Terintegrasi
           </h1>
           <div class="space-y-3 text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
-            <p contenteditable="true" class="hover:outline hover:outline-2 hover:outline-amber-400 hover:bg-amber-50/30 dark:hover:bg-amber-950/30 transition-all rounded">Assalamu’alaikum Warahmatullahi Wabarakatuh,</p>
-            <p contenteditable="true" class="hover:outline hover:outline-2 hover:outline-amber-400 hover:bg-amber-50/30 dark:hover:bg-amber-950/30 transition-all rounded">Selamat datang di official website Desa Tanete, Kecamatan Maritengngae, Kabupaten Sidenreng Rappang. Melalui platform digital ini, kami berkomitmen untuk mewujudkan tata kelola pemerintahan desa yang transparan, akuntabel, dan inovatif. Website ini hadir sebagai jembatan informasi dan pelayanan bagi seluruh masyarakat desa serta publik secara luas.</p>
+            <p>Assalamu’alaikum Warahmatullahi Wabarakatuh,</p>
+            <p>Selamat datang di official website Desa Tanete, Kecamatan Maritengngae, Kabupaten Sidenreng Rappang. Melalui platform digital ini, kami berkomitmen untuk mewujudkan tata kelola pemerintahan desa yang transparan, akuntabel, dan inovatif. Website ini hadir sebagai jembatan informasi dan pelayanan bagi seluruh masyarakat desa serta publik secara luas.</p>
 
               <strong>Sejarah Singkat:</strong> Dahulunya Desa Tanete merupakan bagian dari distrik Allakuang yang berupa sebuah dusun yang mana sebagian besar wilayahnya digunakan sebagai lahan bercocok tanam. Namun akibat adanya bencana kebakaran yang terjadi di wilayah Allakuang (Induk distrik) maka sebagian besar masyarakat mengungsikan diri ke wilayah sekitar dusun Tanete kemudian bermukim dan menetap untuk dijadikan kampung Tanete. Nama Tanete diambil dari kata <em>"Ketinggian"</em> Artinya Tanete tidak akan tenggelam. Desa Tanete resmi berdiri setelah berpisah dengan Desa Allakuang pada tahun 1992 menjadi Desa definitif yang di tandai dengan pemilihan kepala desa secara langsung oleh masyarakat yang terdiri dari 3 Dusun yaitu Dusun I Tanete, Dusun II Tanete, dan Dusun III Tanete.<p contenteditable="true" class="hover:outline hover:outline-2 hover:outline-amber-400 hover:bg-amber-50/30 dark:hover:bg-amber-950/30 transition-all rounded"></p>
               <div class="mt-3 p-3.5 bg-slate-50 dark:bg-slate-900/80 rounded-xl border border-slate-200/80 dark:border-slate-700 text-xs">
@@ -871,33 +851,22 @@
   <!-- AGENDA KEGIATAN TAHUNAN & KALENDER DESA (ASPEK 1 & 4) -->
   <section id="agenda-kalender" class="py-14 bg-gray-50 dark:bg-slate-800">
     <div class="container mx-auto px-4">
-      <div class="text-center max-w-2xl mx-auto mb-6">
-        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 hover:outline hover:outline-2 hover:outline-amber-400 hover:bg-amber-50/30 dark:hover:bg-amber-950/30 transition-all rounded" contenteditable="true">Jadwal &amp; Agenda Desa</span>
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mt-1 hover:outline hover:outline-2 hover:outline-amber-400 hover:bg-amber-50/30 dark:hover:bg-amber-950/30 transition-all rounded" contenteditable="true">Kalender Kegiatan &amp; Agenda Tahunan Desa</h2>
-        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2 hover:outline hover:outline-2 hover:outline-amber-400 hover:bg-amber-50/30 dark:hover:bg-amber-950/30 transition-all rounded" contenteditable="true">Daftar agenda kegiatan kemasyarakatan, keagamaan, dan pembangunan yang akan datang.</p>
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Jadwal & Agenda Desa</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mt-1">Kalender Kegiatan & Agenda Tahunan Desa</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Daftar agenda kegiatan kemasyarakatan, keagamaan, dan pembangunan yang akan datang.</p>
       </div>
 
-      <!-- Tombol Admin Kelola Agenda (Hanya muncul jika sudah login admin) -->
-      <div id="adminAgendaBtnWrapper" class="justify-center mb-8 flex">
-        <button onclick="openModalAgenda()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition shadow-sm flex items-center gap-2" fdprocessedid="17xaa">
-          <svg class="svg-inline--fa fa-pen-to-square" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen-to-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"></path></svg><!-- <i class="fa-solid fa-pen-to-square"></i> Font Awesome fontawesome.com --> Kelola &amp; Tambah Agenda Kegiatan
-        </button>
-      </div>
-
-      <!-- Container Agenda Dinamis -->
+      <!-- Container Agenda -->
       <div id="agenda-list-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="p-5 bg-white dark:bg-slate-700 rounded-xl shadow-sm border-t-4 border-emerald-500 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-3">
               <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">Rutin Bulanan</span>
-              <span class="text-xs text-gray-400"><svg class="svg-inline--fa fa-calendar" aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z"></path></svg><!-- <i class="fa-regular fa-calendar"></i> Font Awesome fontawesome.com --> Setiap Tanggal 8</span>
+              <span class="text-xs text-gray-400"><i class="fa-regular fa-calendar"></i> Setiap Tanggal 8</span>
             </div>
-            <h4 class="font-bold text-sm text-gray-900 dark:text-white">Posyandu Integrasi &amp; Rembuk Stunting</h4>
+            <h4 class="font-bold text-sm text-gray-900 dark:text-white">Posyandu Integrasi & Rembuk Stunting</h4>
             <p class="text-xs text-gray-600 dark:text-gray-300 mt-2">Pemeriksaan imunisasi balita dan edukasi gizi bagi ibu hamil di Poskesdes Dusun I dan II.</p>
-          </div>
-          
-          <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-600 flex justify-end gap-2">
-            <button onclick="editAgenda(0)" class="text-emerald-600 dark:text-emerald-400 hover:underline text-[11px] font-semibold" fdprocessedid="sq91yr"><svg class="svg-inline--fa fa-pen" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"></path></svg><!-- <i class="fa-solid fa-pen"></i> Font Awesome fontawesome.com --> Edit</button>
           </div>
         </div>
       
@@ -905,14 +874,10 @@
           <div>
             <div class="flex items-center justify-between mb-3">
               <span class="text-[10px] bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-bold">Agenda Budaya</span>
-              <span class="text-xs text-gray-400"><svg class="svg-inline--fa fa-calendar" aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z"></path></svg><!-- <i class="fa-regular fa-calendar"></i> Font Awesome fontawesome.com --> Musim Panen Padi</span>
+              <span class="text-xs text-gray-400"><i class="fa-regular fa-calendar"></i> Musim Panen Padi</span>
             </div>
-            <h4 class="font-bold text-sm text-gray-900 dark:text-white">Tradisi Mangeppi &amp; Mattoana Pesta Panen</h4>
+            <h4 class="font-bold text-sm text-gray-900 dark:text-white">Tradisi Mangeppi & Mattoana Pesta Panen</h4>
             <p class="text-xs text-gray-600 dark:text-gray-300 mt-2">Syukuran pesta panen warga desa sebagai simbol gotong royong dan apresiasi hasil bumi persawahan.</p>
-          </div>
-          
-          <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-600 flex justify-end gap-2">
-            <button onclick="editAgenda(1)" class="text-emerald-600 dark:text-emerald-400 hover:underline text-[11px] font-semibold" fdprocessedid="16cl9e"><svg class="svg-inline--fa fa-pen" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"></path></svg><!-- <i class="fa-solid fa-pen"></i> Font Awesome fontawesome.com --> Edit</button>
           </div>
         </div>
       
@@ -920,119 +885,15 @@
           <div>
             <div class="flex items-center justify-between mb-3">
               <span class="text-[10px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-bold">Musyawarah Desa</span>
-              <span class="text-xs text-gray-400"><svg class="svg-inline--fa fa-calendar" aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z"></path></svg><!-- <i class="fa-regular fa-calendar"></i> Font Awesome fontawesome.com --> Triwulan III 2026</span>
+              <span class="text-xs text-gray-400"><i class="fa-regular fa-calendar"></i> Triwulan III 2026</span>
             </div>
             <h4 class="font-bold text-sm text-gray-900 dark:text-white">Musrenbangdes RKPDes T.A. 2027</h4>
             <p class="text-xs text-gray-600 dark:text-gray-300 mt-2">Rapat penyerapan aspirasi pembangunan desa bersama BPD, Tokoh Masyarakat, dan Pemuda.</p>
-          </div>
-          
-          <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-600 flex justify-end gap-2">
-            <button onclick="editAgenda(2)" class="text-emerald-600 dark:text-emerald-400 hover:underline text-[11px] font-semibold" fdprocessedid="gror4"><svg class="svg-inline--fa fa-pen" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"></path></svg><!-- <i class="fa-solid fa-pen"></i> Font Awesome fontawesome.com --> Edit</button>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- MODAL KELOLA AGENDA DESA INTERAKTIF -->
-  <div id="modalAgenda" class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white dark:bg-slate-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-gray-100 dark:border-slate-700">
-      <div class="flex justify-between items-center mb-4 border-b pb-3 dark:border-slate-700">
-        <h3 class="font-bold text-base text-gray-900 dark:text-white flex items-center gap-2 hover:outline hover:outline-2 hover:outline-amber-400 hover:bg-amber-50/30 dark:hover:bg-amber-950/30 transition-all rounded" contenteditable="true">
-          <svg class="svg-inline--fa fa-calendar-plus text-emerald-600" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="calendar-plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M128 32V64H80c-26.5 0-48 21.5-48 48v48H480V112c0-26.5-21.5-48-48-48H384V32c0-17.7-14.3-32-32-32s-32 14.3-32 32V64H192V32c0-17.7-14.3-32-32-32s-32 14.3-32 32zM480 192H32V464c0 26.5 21.5 48 48 48H432c26.5 0 48-21.5 48-48V192zM256 248c13.3 0 24 10.7 24 24v56h56c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v56c0 13.3-10.7 24-24 24s-24-10.7-24-24V376H176c-13.3 0-24-10.7-24-24s10.7-24 24-24h56V272c0-13.3 10.7-24 24-24z"></path></svg><!-- <i class="fa-solid fa-calendar-plus text-emerald-600"></i> Font Awesome fontawesome.com --> Kelola Agenda Kegiatan Desa
-        </h3>
-        <button onclick="closeModalAgenda()" class="text-gray-400 hover:text-gray-600 dark:hover:text-white font-bold text-lg">×</button>
-      </div>
-
-      <!-- Form Tambah/Edit Agenda -->
-      <form id="formAgenda" onsubmit="saveAgenda(event)" class="space-y-3 text-xs mb-6">
-        <input type="hidden" id="agendaIndex" value="-1">
-        <div>
-          <label class="block font-semibold text-gray-700 dark:text-gray-200 mb-1">Judul Kegiatan</label>
-          <input type="text" id="agendaTitle" required="" placeholder="Contoh: Posyandu Integrasi" class="w-full px-3 py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
-        </div>
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="block font-semibold text-gray-700 dark:text-gray-200 mb-1">Kategori / Badge</label>
-            <input type="text" id="agendaCategory" required="" placeholder="Contoh: Rutin Bulanan / Budaya" class="w-full px-3 py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
-          </div>
-          <div>
-            <label class="block font-semibold text-gray-700 dark:text-gray-200 mb-1">Waktu / Tanggal</label>
-            <input type="text" id="agendaDate" required="" placeholder="Contoh: Setiap Tanggal 8 / Nov 2026" class="w-full px-3 py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
-          </div>
-        </div>
-        <div>
-          <label class="block font-semibold text-gray-700 dark:text-gray-200 mb-1">Deskripsi Kegiatan</label>
-          <textarea id="agendaDesc" rows="3" required="" placeholder="Jelaskan mengenai kegiatan ini..." class="w-full px-3 py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
-        </div>
-        <div class="flex gap-2 pt-2">
-          <button type="submit" class="flex-1 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg transition">Simpan Agenda</button>
-          <button type="button" onclick="resetFormAgenda()" class="px-4 py-2 bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-semibold rounded-lg hover:bg-gray-300 transition">Batal</button>
-        </div>
-      </form>
-
-      <!-- Ringkasan Daftar Agenda Terpasang -->
-      <div class="border-t pt-4 dark:border-slate-700">
-        <h4 class="font-bold text-xs text-gray-800 dark:text-gray-200 mb-2 hover:outline hover:outline-2 hover:outline-amber-400 hover:bg-amber-50/30 dark:hover:bg-amber-950/30 transition-all rounded" contenteditable="true">Daftar Agenda Terpasang:</h4>
-        <div id="modalAgendaList" class="space-y-2 max-h-40 overflow-y-auto text-xs">
-          <div class="flex items-center justify-between p-2 bg-gray-50 dark:bg-slate-700 rounded-lg border border-gray-200 dark:border-slate-600">
-            <div>
-              <p class="font-bold text-gray-900 dark:text-white">Posyandu Integrasi &amp; Rembuk Stunting</p>
-              <p class="text-[10px] text-gray-500 dark:text-gray-300">Rutin Bulanan | Setiap Tanggal 8</p>
-            </div>
-            <div class="flex gap-1">
-              <button onclick="editAgenda(0)" class="px-2 py-1 bg-emerald-100 text-emerald-800 rounded font-semibold text-[10px]"><svg class="svg-inline--fa fa-pen" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"></path></svg><!-- <i class="fa-solid fa-pen"></i> Font Awesome fontawesome.com --></button>
-              <button onclick="deleteAgenda(0)" class="px-2 py-1 bg-red-100 text-red-800 rounded font-semibold text-[10px]"><svg class="svg-inline--fa fa-trash" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path></svg><!-- <i class="fa-solid fa-trash"></i> Font Awesome fontawesome.com --></button>
-            </div>
-          </div>
-        
-          <div class="flex items-center justify-between p-2 bg-gray-50 dark:bg-slate-700 rounded-lg border border-gray-200 dark:border-slate-600">
-            <div>
-              <p class="font-bold text-gray-900 dark:text-white">Tradisi Mangeppi &amp; Mattoana Pesta Panen</p>
-              <p class="text-[10px] text-gray-500 dark:text-gray-300">Agenda Budaya | Musim Panen Padi</p>
-            </div>
-            <div class="flex gap-1">
-              <button onclick="editAgenda(1)" class="px-2 py-1 bg-emerald-100 text-emerald-800 rounded font-semibold text-[10px]"><svg class="svg-inline--fa fa-pen" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"></path></svg><!-- <i class="fa-solid fa-pen"></i> Font Awesome fontawesome.com --></button>
-              <button onclick="deleteAgenda(1)" class="px-2 py-1 bg-red-100 text-red-800 rounded font-semibold text-[10px]"><svg class="svg-inline--fa fa-trash" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path></svg><!-- <i class="fa-solid fa-trash"></i> Font Awesome fontawesome.com --></button>
-            </div>
-          </div>
-        
-          <div class="flex items-center justify-between p-2 bg-gray-50 dark:bg-slate-700 rounded-lg border border-gray-200 dark:border-slate-600">
-            <div>
-              <p class="font-bold text-gray-900 dark:text-white">Musrenbangdes RKPDes T.A. 2027</p>
-              <p class="text-[10px] text-gray-500 dark:text-gray-300">Musyawarah Desa | Triwulan III 2026</p>
-            </div>
-            <div class="flex gap-1">
-              <button onclick="editAgenda(2)" class="px-2 py-1 bg-emerald-100 text-emerald-800 rounded font-semibold text-[10px]"><svg class="svg-inline--fa fa-pen" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"></path></svg><!-- <i class="fa-solid fa-pen"></i> Font Awesome fontawesome.com --></button>
-              <button onclick="deleteAgenda(2)" class="px-2 py-1 bg-red-100 text-red-800 rounded font-semibold text-[10px]"><svg class="svg-inline--fa fa-trash" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path></svg><!-- <i class="fa-solid fa-trash"></i> Font Awesome fontawesome.com --></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL LOGIN ADMIN SECURITY -->
-  <div id="modalAdminLogin" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 hidden">
-    <div class="bg-white dark:bg-slate-800 rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-gray-100 dark:border-slate-700">
-      <div class="text-center mb-4">
-        <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-2 text-xl">
-          <svg class="svg-inline--fa fa-shield-halved" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shield-halved" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z"></path></svg><!-- <i class="fa-solid fa-shield-halved"></i> Font Awesome fontawesome.com -->
-        </div>
-        <h3 class="font-bold text-base text-gray-900 dark:text-white">Autentikasi Perangkat Desa</h3>
-        <p class="text-xs text-gray-500 dark:text-gray-400">Masukkan kata sandi admin untuk mengaktifkan fitur pengeditan data.</p>
-      </div>
-      <form onsubmit="handleAdminLogin(event)" class="space-y-3">
-        <div>
-          <input type="password" id="adminPasswordInput" required="" placeholder="Kata Sandi Admin..." class="w-full px-3 py-2 text-xs bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
-        </div>
-        <div class="flex gap-2">
-          <button type="submit" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition">Masuk System</button>
-          <button type="button" onclick="closeAdminLoginModal()" class="px-3 py-2 bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 text-xs font-bold rounded-xl">Batal</button>
-        </div>
-      </form>
-    </div>
-  </div>
 
    <!-- FOOTER, KEAMANAN, KEPATUHAN & PRIVASI WARGA (ASPEK 5 & 8) -->
   <footer class="bg-gray-900 text-gray-300 pt-12 pb-6 border-t border-gray-800">
@@ -1085,278 +946,6 @@
 
   <!-- JAVASCRIPT LOGIC LENGKAP -->
   <script>
-    // System Security Admin State
-    let isAdminLoggedIn = false;
-    const ADMIN_PASSWORD_HASH = "tanete123";
-
-    function checkAdminAuth() {
-      const authSession = sessionStorage.getItem('desatanete_admin_session');
-      if (authSession === 'true') {
-        isAdminLoggedIn = true;
-      } else {
-        isAdminLoggedIn = false;
-      }
-      updateAdminUI();
-      loadSavedContent();
-    }
-
-    function updateAdminUI() {
-      const authText = document.getElementById('adminAuthText');
-      const adminBtnWrapper = document.getElementById('adminAgendaBtnWrapper');
-      const adminGlobalBar = document.getElementById('adminGlobalBar');
-
-      if (isAdminLoggedIn) {
-        if (authText) authText.innerText = "Keluar Admin";
-        if (adminBtnWrapper) {
-          adminBtnWrapper.classList.remove('hidden');
-          adminBtnWrapper.classList.add('flex');
-        }
-        if (adminGlobalBar) adminGlobalBar.classList.remove('hidden');
-        enableInlineEditing(true);
-      } else {
-        if (authText) authText.innerText = "Login Admin";
-        if (adminBtnWrapper) {
-          adminBtnWrapper.classList.add('hidden');
-          adminBtnWrapper.classList.remove('flex');
-        }
-        if (adminGlobalBar) adminGlobalBar.classList.add('hidden');
-        enableInlineEditing(false);
-      }
-      renderAgenda();
-    }
-
-    // Mengaktifkan Fitur Inline Editing pada Teks Website
-    function enableInlineEditing(enable) {
-      // Elemen yang dapat diklik & diedit oleh Admin
-      const editableSelectors = 'h1, h2, h3, h4, p, li, td, span.font-bold, span.font-semibold';
-      const elements = document.querySelectorAll(editableSelectors);
-      
-      elements.forEach((el) => {
-        // Biarkan elemen tombol dan input tidak terpengaruh
-        if (el.closest('button') || el.closest('input') || el.closest('textarea') || el.closest('#adminGlobalBar') || el.closest('#modalAdminLogin')) return;
-
-        if (enable) {
-          el.setAttribute('contenteditable', 'true');
-          el.classList.add('hover:outline', 'hover:outline-2', 'hover:outline-amber-400', 'hover:bg-amber-50/30', 'dark:hover:bg-amber-950/30', 'transition-all', 'rounded');
-        } else {
-          el.removeAttribute('contenteditable');
-          el.classList.remove('hover:outline', 'hover:outline-2', 'hover:outline-amber-400', 'hover:bg-amber-50/30', 'dark:hover:bg-amber-950/30', 'transition-all', 'rounded');
-        }
-      });
-    }
-
-    // Menyimpan Seluruh Perubahan Teks Halaman ke localStorage
-    function saveAllEdits() {
-      if (!isAdminLoggedIn) return;
-      
-      const bodyHTML = document.body.innerHTML;
-      // Matikan sementara atribut contenteditable sebelum menyimpan agar bersih
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = bodyHTML;
-      
-      tempDiv.querySelectorAll('[contenteditable="true"]').forEach(el => {
-        el.removeAttribute('contenteditable');
-        el.classList.remove('hover:outline', 'hover:outline-2', 'hover:outline-amber-400', 'hover:bg-amber-50/30', 'dark:hover:bg-amber-950/30');
-      });
-
-      localStorage.setItem('desatanete_custom_html_v1', tempDiv.innerHTML);
-      alert('Berhasil! Semua perubahan teks dan konten pada website telah tersimpan secara permanen.');
-    }
-
-    // Memuat Konten Hasil Edit yang Tersimpan
-    function loadSavedContent() {
-      const savedHTML = localStorage.getItem('desatanete_custom_html_v1');
-      if (savedHTML) {
-        // Terapkan konten yang diisi admin sebelumnya
-        document.body.innerHTML = savedHTML;
-        // Re-bind event listener yang mungkin terlepas setelah menimpa innerHTML
-        if (isAdminLoggedIn) enableInlineEditing(true);
-      }
-    }
-
-    // Reset Semua Perubahan ke Tampilan Asli
-    function resetAllEdits() {
-      if (confirm('Apakah Anda yakin ingin mengembalikan seluruh isi website ke tampilan default pabrik?')) {
-        localStorage.removeItem('desatanete_custom_html_v1');
-        localStorage.removeItem('desatanete_agenda');
-        location.reload();
-      }
-    }
-
-    function toggleAdminAuth() {
-      if (isAdminLoggedIn) {
-        sessionStorage.removeItem('desatanete_admin_session');
-        isAdminLoggedIn = false;
-        updateAdminUI();
-        alert('Anda telah keluar dari Sesi Admin.');
-      } else {
-        document.getElementById('modalAdminLogin').classList.remove('hidden');
-      }
-    }
-
-    function closeAdminLoginModal() {
-      document.getElementById('modalAdminLogin').classList.add('hidden');
-    }
-
-    function handleAdminLogin(e) {
-      e.preventDefault();
-      const pwd = document.getElementById('adminPasswordInput').value;
-      if (pwd === ADMIN_PASSWORD_HASH) {
-        sessionStorage.setItem('desatanete_admin_session', 'true');
-        isAdminLoggedIn = true;
-        document.getElementById('adminPasswordInput').value = '';
-        closeAdminLoginModal();
-        updateAdminUI();
-        alert('Login Admin Berhasil! Menu kelola data sekarang dapat diakses.');
-      } else {
-        alert('Kata sandi salah! Akses ditolak.');
-      }
-    }
-
-    // Data Default Agenda Kegiatan Desa
-    const defaultAgendaData = [
-      {
-        title: "Posyandu Integrasi & Rembuk Stunting",
-        category: "Rutin Bulanan",
-        date: "Setiap Tanggal 8",
-        desc: "Pemeriksaan imunisasi balita dan edukasi gizi bagi ibu hamil di Poskesdes Dusun I dan II.",
-        borderColor: "border-emerald-500",
-        badgeColor: "bg-emerald-100 text-emerald-800"
-      },
-      {
-        title: "Tradisi Mangeppi & Mattoana Pesta Panen",
-        category: "Agenda Budaya",
-        date: "Musim Panen Padi",
-        desc: "Syukuran pesta panen warga desa sebagai simbol gotong royong dan apresiasi hasil bumi persawahan.",
-        borderColor: "border-amber-500",
-        badgeColor: "bg-amber-100 text-amber-800"
-      },
-      {
-        title: "Musrenbangdes RKPDes T.A. 2027",
-        category: "Musyawarah Desa",
-        date: "Triwulan III 2026",
-        desc: "Rapat penyerapan aspirasi pembangunan desa bersama BPD, Tokoh Masyarakat, dan Pemuda.",
-        borderColor: "border-blue-500",
-        badgeColor: "bg-blue-100 text-blue-800"
-      }
-    ];
-
-    function getAgendaData() {
-      const saved = localStorage.getItem('desatanete_agenda');
-      return saved ? JSON.parse(saved) : defaultAgendaData;
-    }
-
-    function renderAgenda() {
-      const agenda = getAgendaData();
-      const container = document.getElementById('agenda-list-container');
-      const modalList = document.getElementById('modalAgendaList');
-      if (!container) return;
-
-      container.innerHTML = agenda.map((item, index) => `
-        <div class="p-5 bg-white dark:bg-slate-700 rounded-xl shadow-sm border-t-4 ${item.borderColor || 'border-emerald-500'} flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] ${item.badgeColor || 'bg-emerald-100 text-emerald-800'} px-2 py-0.5 rounded font-bold">${item.category}</span>
-              <span class="text-xs text-gray-400"><i class="fa-regular fa-calendar"></i> ${item.date}</span>
-            </div>
-            <h4 class="font-bold text-sm text-gray-900 dark:text-white">${item.title}</h4>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-2">${item.desc}</p>
-          </div>
-          ${isAdminLoggedIn ? `
-          <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-600 flex justify-end gap-2">
-            <button onclick="editAgenda(${index})" class="text-emerald-600 dark:text-emerald-400 hover:underline text-[11px] font-semibold"><i class="fa-solid fa-pen"></i> Edit</button>
-          </div>` : ''}
-        </div>
-      `).join('');
-
-      if (modalList) {
-        modalList.innerHTML = agenda.map((item, index) => `
-          <div class="flex items-center justify-between p-2 bg-gray-50 dark:bg-slate-700 rounded-lg border border-gray-200 dark:border-slate-600">
-            <div>
-              <p class="font-bold text-gray-900 dark:text-white">${item.title}</p>
-              <p class="text-[10px] text-gray-500 dark:text-gray-300">${item.category} | ${item.date}</p>
-            </div>
-            <div class="flex gap-1">
-              <button onclick="editAgenda(${index})" class="px-2 py-1 bg-emerald-100 text-emerald-800 rounded font-semibold text-[10px]"><i class="fa-solid fa-pen"></i></button>
-              <button onclick="deleteAgenda(${index})" class="px-2 py-1 bg-red-100 text-red-800 rounded font-semibold text-[10px]"><i class="fa-solid fa-trash"></i></button>
-            </div>
-          </div>
-        `).join('');
-      }
-    }
-
-    function openModalAgenda() {
-      if (!isAdminLoggedIn) {
-        toggleAdminAuth();
-        return;
-      }
-      document.getElementById('modalAgenda').classList.remove('hidden');
-      resetFormAgenda();
-    }
-
-    function closeModalAgenda() {
-      document.getElementById('modalAgenda').classList.add('hidden');
-    }
-
-    function resetFormAgenda() {
-      document.getElementById('agendaIndex').value = "-1";
-      document.getElementById('agendaTitle').value = "";
-      document.getElementById('agendaCategory').value = "";
-      document.getElementById('agendaDate').value = "";
-      document.getElementById('agendaDesc').value = "";
-    }
-
-    function editAgenda(index) {
-      const agenda = getAgendaData();
-      const item = agenda[index];
-      if (!item) return;
-
-      document.getElementById('agendaIndex').value = index;
-      document.getElementById('agendaTitle').value = item.title;
-      document.getElementById('agendaCategory').value = item.category;
-      document.getElementById('agendaDate').value = item.date;
-      document.getElementById('agendaDesc').value = item.desc;
-
-      document.getElementById('modalAgenda').classList.remove('hidden');
-    }
-
-    function saveAgenda(e) {
-      e.preventDefault();
-      const index = parseInt(document.getElementById('agendaIndex').value);
-      const title = document.getElementById('agendaTitle').value.trim();
-      const category = document.getElementById('agendaCategory').value.trim();
-      const date = document.getElementById('agendaDate').value.trim();
-      const desc = document.getElementById('agendaDesc').value.trim();
-
-      const agenda = getAgendaData();
-      const newItem = {
-        title,
-        category,
-        date,
-        desc,
-        borderColor: index >= 0 ? agenda[index].borderColor : 'border-emerald-500',
-        badgeColor: index >= 0 ? agenda[index].badgeColor : 'bg-emerald-100 text-emerald-800'
-      };
-
-      if (index >= 0) {
-        agenda[index] = newItem;
-      } else {
-        agenda.push(newItem);
-      }
-
-      localStorage.setItem('desatanete_agenda', JSON.stringify(agenda));
-      renderAgenda();
-      closeModalAgenda();
-    }
-
-    function deleteAgenda(index) {
-      if (!confirm('Apakah Anda yakin ingin menghapus agenda kegiatan ini?')) return;
-      const agenda = getAgendaData();
-      agenda.splice(index, 1);
-      localStorage.setItem('desatanete_agenda', JSON.stringify(agenda));
-      renderAgenda();
-    }
-
     // Dark Mode Toggle Logic
     function toggleDarkMode() {
       const html = document.documentElement;
@@ -1402,14 +991,12 @@
 
     function executeSearch(query) {
       if (!query) {
-        // Reset ketersediaan tampilan jika kata kunci kosong
         document.querySelectorAll('section, div.p-6, div.p-5, div.p-4').forEach(el => {
           el.style.display = '';
         });
         return;
       }
 
-      // Cari elemen section atau kartu yang cocok dengan kata kunci
       const searchableElements = document.querySelectorAll('section, header, div.p-6, div.p-5');
       let found = false;
 
@@ -1423,50 +1010,6 @@
           }
         }
       });
-    }
-
-    // Chatbot widget toggle for Aspect 6
-    function toggleChatWidget() {
-      const chat = document.getElementById('chatWidget');
-      chat.classList.toggle('hidden');
-    }
-
-    function handleChatKeyPress(e) {
-      if(e.key === 'Enter') sendChatMessage();
-    }
-
-    function sendChatMessage() {
-      const inp = document.getElementById('chatInput');
-      const container = document.getElementById('chatMessages');
-      const msg = inp.value.trim();
-      if(!msg) return;
-
-      // User Message
-      const userDiv = document.createElement('div');
-      userDiv.className = 'bg-emerald-600 text-white p-2.5 rounded-lg max-w-[85%] ml-auto text-right';
-      userDiv.innerText = msg;
-      container.appendChild(userDiv);
-
-      inp.value = '';
-      container.scrollTop = container.scrollHeight;
-
-      // Auto Reply Bot
-      setTimeout(() => {
-        const botDiv = document.createElement('div');
-        botDiv.className = 'bg-emerald-100 dark:bg-slate-700 p-2.5 rounded-lg max-w-[85%] text-gray-800 dark:text-gray-100';
-        
-        const lower = msg.toLowerCase();
-        if(lower.includes('surat') || lower.includes('sku') || lower.includes('nikah')) {
-          botDiv.innerText = "Untuk pengurusan Surat Keterangan Usaha (SKU), Nikah N1, atau Akta, silakan buka menu 'Pelayanan Digital' dan klik tombol pengajuan via WhatsApp.";
-        } else if(lower.includes('apbdes') || lower.includes('anggaran')) {
-          botDiv.innerText = "Laporan APBDes 2026 lengkap dapat diunduh di bagian 'Transparansi APBDes & PPID'.";
-        } else {
-          botDiv.innerText = "Terima kasih telah menghubungi Asisten Desa Tanete. Pesan Anda dapat diteruskan ke Admin WhatsApp Desa di 0856-9615-7511.";
-        }
-
-        container.appendChild(botDiv);
-        container.scrollTop = container.scrollHeight;
-      }, 800);
     }
 
     // Interactive Tracking Status
@@ -1487,10 +1030,8 @@
       }, 1200);
     }
 
-        // Chart.js Implementations
+    // Chart.js Implementations
     window.onload = function() {
-      checkAdminAuth(); // Periksa status autentikasi admin
-
       // Pekerjaan Chart
       const ctxPekerjaan = document.getElementById('chartPekerjaan').getContext('2d');
       new Chart(ctxPekerjaan, {
@@ -1498,7 +1039,7 @@
         data: {
           labels: ["Belum/Tidak Bekerja", "Mengurus Rumah Tangga", "Pelajar/Mahasiswa", "Pensiunan", "ASN", "Polri", "Perdagangan", "Petani", "Peternak", "Perikanan", "Industri", "Lainnya"],
           datasets: [{
-            data: [905, 791, 423, 4, 45, 6, 7, 134, 168, 2, 6, 72,],
+            data: [905, 791, 423, 4, 45, 6, 7, 134, 168, 2, 6, 72],
             backgroundColor: ['#16a34a', '#eab308', '#0284c7', '#6366f1', '#94a3b8', '#dc2626', '#ea580c', '#ec4899', '#a855f7', '#0d9488', '#1e293b']
           }]
         },
@@ -1536,5 +1077,5 @@
       });
     };
   </script>
-
-<span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span></body></html>
+</body>
+</html>
